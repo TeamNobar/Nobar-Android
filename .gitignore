@@ -10,6 +10,7 @@
 /.idea/misc.xml
 /.idea/discord.xml
 /.idea/gradle.xml
+/.idea/deploymentTargetDropDown.xml
 
 .DS_Store
 /build
