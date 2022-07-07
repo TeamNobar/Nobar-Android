@@ -25,7 +25,7 @@
 <br>
 
 # 서비스
-### Nobar<br>
+### 노바 Nobar<br>
 <img src="nobar_logo.png" width="300"><br>
 칵린이들의 홈텐딩을 도와줄 칵테일 홈텐딩 가이드 앱<br>
 
@@ -33,11 +33,11 @@
 <br>
 
 # 각자 맡은 역할
-**윤혁**<br><br>
-> Mentor
-
-**권용민**<br>
+<br>**권용민**<br>
 > SEARCH, RECIPE, RECORD view<br>
 
-**박현정**<br>
+<br>**박현정**<br>
 > MAIN, MYPAGE view<br>
+
+<br>**윤혁**<br>
+> Mentor
