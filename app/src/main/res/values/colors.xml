@@ -8,6 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="grayEBEBEB">#EBEBEB</color>
-    <color name="blue01239D">#01239D</color>
+    <color name="grayFB">#FBFBFB</color>
+    <color name="grayEB">#EBEBEB</color>
+    <color name="grayDD">#DDDDDD</color>
+    <color name="grayA0">#A0A0A0</color>
+    <color name="gray81">#818181</color>
+    <color name="gray60">#606060</color>
+    <color name="navy01239D">#01239D</color>
+    <color name="navy000782">#000782</color>
+    <color name="pinkE93370">#E93370</color>
+    <color name="redEB5757">#EB5757</color>
 </resources>
