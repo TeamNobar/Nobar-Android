@@ -72,7 +72,7 @@ dependencies {
 
     //CustomRatingBar
     implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
-
+    
     //Test
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -86,4 +86,7 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.5.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
+
+    // kakao
+    implementation 'com.kakao.sdk:v2-user:2.4.2'
 }
