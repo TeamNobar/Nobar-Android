@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">Nobar-Android</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    
-    <string name="mainHome">홈</string>
-    <string name="mainSearch">검색</string>
-    <string name="mainRecord">기록</string>
-    <string name="mainMypage">마이페이지</string>
 </resources>
