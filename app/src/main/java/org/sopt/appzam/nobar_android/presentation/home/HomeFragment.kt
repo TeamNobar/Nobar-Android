@@ -6,18 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
+import org.sopt.appzam.nobar_android.databinding.FragmentHomeBinding
+import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 
-class HomeFragment : Fragment() {
-
-
-    private lateinit var viewModel: HomeViewModel
-
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    private val homeViewModel by viewModels<HomeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
+
+        return binding.root
     }
 
 
