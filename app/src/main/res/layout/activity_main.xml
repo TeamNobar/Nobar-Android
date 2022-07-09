@@ -18,6 +18,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
+<<<<<<< HEAD:app/src/main/res/layout/activity_home.xml
         android:layout_height="wrap_content"
         app:itemIconTint="@color/selector_bottom_navi"
         app:itemTextColor="@color/selector_bottom_navi"
@@ -25,5 +26,18 @@
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom"
         app:layout_constraintBottom_toBottomOf="parent" />
+=======
+        android:layout_height="match_parent"
+        tools:context=".presentation.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> parent of adc8f83 (변경사항 적용):app/src/main/res/layout/activity_main.xml
 
 </androidx.constraintlayout.widget.ConstraintLayout>
