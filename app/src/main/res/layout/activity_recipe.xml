@@ -61,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:fontFamily="@font/pretendard_medium"
-                android:textColor="@color/black"
+                android:fontFamily="@font/pretendard_regular"
+                android:textColor="@color/gray81"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
@@ -75,8 +75,12 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:background="@drawable/rectangle_radius_10"
+                android:backgroundTint="@color/grayFB"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_preparation"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textEnglishName">
@@ -84,14 +88,29 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textLetsReady"
+                android:id="@+id/textFirst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:text="TextView"
+                android:text="@string/recipeFirst"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerPreparation" />
+
+            <TextView
+                android:id="@+id/textLetsReady"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipeLetsReady"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="18sp"
+                android:textColor="@color/navy000782"
+                app:layout_constraintBottom_toBottomOf="@+id/textFirst"
+                app:layout_constraintStart_toEndOf="@+id/textFirst"
+                app:layout_constraintTop_toTopOf="@+id/textFirst" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerIngredients"
@@ -103,7 +122,7 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLetsReady"
+                app:layout_constraintTop_toBottomOf="@+id/textFirst"
                 app:spanCount="3"
                 tools:itemCount="6"
                 tools:listitem="@layout/item_ingredient">
@@ -111,14 +130,29 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textLetsMake"
+                android:id="@+id/textTimeToBartender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
-                android:text="TextView"
+                android:text="@string/recipeTimeToBartender"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerIngredients" />
+
+            <TextView
+                android:id="@+id/textLetsMake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/recipeLetsMake"
+                android:textColor="@color/navy000782"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textTimeToBartender"
+                app:layout_constraintStart_toEndOf="@+id/textTimeToBartender"
+                app:layout_constraintTop_toTopOf="@+id/textTimeToBartender" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerSteps"
@@ -127,32 +161,70 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="24dp"
+                tools:listitem="@layout/item_step"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLetsMake"
+                app:layout_constraintTop_toBottomOf="@+id/textTimeToBartender"
                 tools:itemCount="3">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textTodayExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/recipeTodayExperience"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerSteps" />
+
+            <TextView
+                android:id="@+id/textLetsRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipeLetsRecord"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="18sp"
+                android:textColor="@color/navy000782"
+                app:layout_constraintBottom_toBottomOf="@+id/textTodayExperience"
+                app:layout_constraintStart_toEndOf="@+id/textTodayExperience"
+                app:layout_constraintTop_toTopOf="@+id/textTodayExperience" />
 
             <TextView
                 android:id="@+id/textGuide"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
-                android:layout_marginTop="73dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="26dp"
-                android:text="TextView"
+                android:fontFamily="@font/pretendard_light"
+                android:textColor="@color/black"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerSteps" />
+                app:layout_constraintTop_toBottomOf="@+id/textTodayExperience"
+                tools:text="같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요
+어제의 홈텐딩과 오늘의 홈텐딩은 다르니까요
+오늘 마신 칵테일로 오늘을 기억해보는 것은 어때요?
+당신의 하루가 더 오래 기억되길 바라요" />
 
             <TextView
                 android:id="@+id/buttonWriteTatstingNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="TextView"
+                android:background="@drawable/rectangle_radius_108_border_graydd"
+                android:text="@string/recipeWritingTastingNote"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="22dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:textSize="13sp"
+                android:textColor="@color/gray81"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
