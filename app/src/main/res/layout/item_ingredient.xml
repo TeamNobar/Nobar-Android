@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_radius_8"
-        android:backgroundTint="@color/grayFB"
+        android:backgroundTint="@color/black"
         android:clipToOutline="true"
         android:padding="12dp">
 
