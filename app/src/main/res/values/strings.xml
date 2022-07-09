@@ -7,4 +7,11 @@
     <string name="homeGuide">칵테일 가이드</string>
     <string name="homeSubTitle3">노바에서 추천하는 레시피</string>
     <string name="homeNobarPick">바가 필요 없는 레시피</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <string name="mainHome">홈</string>
+    <string name="mainSearch">검색</string>
+    <string name="mainRecord">기록</string>
+    <string name="mainMypage">마이페이지</string>
+
 </resources>
