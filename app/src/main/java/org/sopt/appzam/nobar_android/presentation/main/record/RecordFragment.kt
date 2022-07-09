@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.sopt.appzam.nobar_android.R
+import org.sopt.appzam.nobar_android.databinding.FragmentRecordBinding
+import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 
-class RecordFragment : Fragment() {
+class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_record, container, false)
+    ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 }
