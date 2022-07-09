@@ -13,5 +13,7 @@
     <string name="mainSearch">검색</string>
     <string name="mainRecord">기록</string>
     <string name="mainMypage">마이페이지</string>
+    <string name="itemLaterRecipeName">칵테일 이름 넣는곳 칵테일 이름 넣는곳</string>
+    <string name="itemLaterRecipeEnglishName">insert cocktail english name</string>
 
 </resources>

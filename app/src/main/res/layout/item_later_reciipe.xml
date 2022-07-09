@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recipe_later_box"
+        android:elevation="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp">
+
+
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/itemLaterRecipeName"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="12dp"
+            android:maxLines="2"
+            android:ems="7"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/textEnglishName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            android:text="@string/itemLaterRecipeEnglishName"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"/>
+
+        <ImageView
+            android:id="@+id/imageCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            android:background="@drawable/home_circle"
+            app:layout_constraintTop_toBottomOf="@id/textEnglishName"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageCircle"
+            app:layout_constraintTop_toTopOf="@+id/imageCircle"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCircle"
+            android:text="베이스"
+            android:textColor="@color/pinkE93370"
+            android:textSize="13sp"
+            android:textFontWeight="700"
+            android:layout_marginStart="4dp"
+            android:includeFontPadding="false"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
