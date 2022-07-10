@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="laterRecipeItem"
+            type="org.sopt.appzam.nobar_android.data.LaterRecipeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/itemLaterRecipeName"
+            android:text="@{laterRecipeItem.name}"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="12dp"
@@ -39,7 +41,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textName"
             app:layout_constraintStart_toStartOf="@id/textName"
-            android:text="@string/itemLaterRecipeEnglishName"
+            android:text="@{laterRecipeItem.description}"
             android:textSize="11sp"
             android:layout_marginTop="8dp"
             android:includeFontPadding="false"/>
@@ -61,7 +63,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageCircle"
             app:layout_constraintTop_toTopOf="@+id/imageCircle"
             app:layout_constraintBottom_toBottomOf="@+id/imageCircle"
-            android:text="베이스"
+            android:text="@{laterRecipeItem.base}"
             android:textColor="@color/pinkE93370"
             android:textSize="13sp"
             android:textFontWeight="700"
