@@ -24,8 +24,8 @@ android {
         }
     }
     buildFeatures {
-        viewBinding true
         dataBinding true
+        viewBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -65,6 +65,13 @@ dependencies {
 
     //coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+
+    //SwipeRefreshLayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.github.nabil6391:LottieSwipeRefreshLayout:1.0.0'
+
+    //CustomRatingBar
+    implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
 
     //Test
     testImplementation 'junit:junit:4.13.2'
