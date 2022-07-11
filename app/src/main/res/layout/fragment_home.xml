@@ -1,18 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.main.home.HomeFragment" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="homeViewModel"
+            type="org.sopt.appzam.nobar_android.presentation.main.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cpn_homelogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="212dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textSubTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+            android:text="@string/homeSubTitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:textSize="11sp"
+            android:includeFontPadding="false"/>
+        <TextView
+            android:id="@+id/textLaterRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle1"
+            android:text="@string/homeLaterRecipe"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
+            android:textColor="@color/navy000782"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/textAllSee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/homeAllSee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textLaterRecipe"
+            android:layout_marginEnd="23dp"
+            android:layout_marginStart="46dp"
+            android:includeFontPadding="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerToDoRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textAllSee"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/textSubTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerToDoRecipe"
+            android:text="@string/homeSubTitle2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:textSize="11sp"
+            android:includeFontPadding="false"/>
+        <TextView
+            android:id="@+id/textGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle2"
+            android:text="@string/homeGuide"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
+            app:layout_goneMarginTop="24dp"
+            android:textColor="@color/navy000782"
+            android:includeFontPadding="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGuide"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textGuide"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/textSubTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerGuide"
+            android:text="@string/homeSubTitle3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:textSize="11sp"
+            android:includeFontPadding="false"/>
+        <TextView
+            android:id="@+id/textNobarPickRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle3"
+            android:text="@string/homeNobarPick"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
+            app:layout_goneMarginTop="24dp"
+            android:textColor="@color/navy000782"
+            android:includeFontPadding="false"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNobarPickRecipe"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="97dp"/>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
