@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_radius_100"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        tools:text="step1"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/step20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        tools:text="한줄짜리 설명을 입력하세요"
+        android:fontFamily="@font/pretendard_regular"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textStep"
+        app:layout_constraintStart_toEndOf="@+id/textStep"
+        app:layout_constraintTop_toTopOf="@+id/textStep" />
+</androidx.constraintlayout.widget.ConstraintLayout>
