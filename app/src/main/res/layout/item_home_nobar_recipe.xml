@@ -29,6 +29,7 @@
             android:ems="14"
             android:maxLines="2"
             app:layout_constraintEnd_toStartOf="@+id/imageCircle"
+            android:fontFamily="@font/pretendard_bold"
             tools:text="제목을 입력하세요 입력입력입력입력입력입력입력입력입력입력입력입력"/>
 
         <ImageView
