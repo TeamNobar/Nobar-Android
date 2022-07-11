@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="nobarRecipeItem"
+            type="org.sopt.appzam.nobar_android.data.HomeNobarRecipeData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_navy_box"
+        android:paddingVertical="20dp">
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@{nobarRecipeItem.recipeName}"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:ems="14"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/imageCircle"
+            tools:text="제목을 입력하세요 입력입력입력입력입력입력입력입력입력입력입력입력"/>
+
+        <ImageView
+            android:id="@+id/imageCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/textName"
+            app:layout_constraintBottom_toBottomOf="@id/textName"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/blank_circle"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
