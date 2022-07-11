@@ -8,16 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.HomeLaterRecipeData
 import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 
-class LaterRecipeAdapter : ListAdapter<HomeLaterRecipeData,LaterRecipeAdapter.LaterRecipeViewHolder>(laterRecipeDiffUtil){
+class LaterRecipeAdapter :
+    ListAdapter<HomeLaterRecipeData, LaterRecipeAdapter.LaterRecipeViewHolder>(laterRecipeDiffUtil) {
     private val laterRecipeList = mutableListOf<HomeLaterRecipeData>()
-    class LaterRecipeViewHolder(private val binding : ItemHomeLaterRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data : HomeLaterRecipeData) {
+
+    class LaterRecipeViewHolder(private val binding: ItemHomeLaterRecipeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: HomeLaterRecipeData) {
             binding.laterRecipeItem = data
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LaterRecipeViewHolder {
-        val binding = ItemHomeLaterRecipeBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding =
+            ItemHomeLaterRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LaterRecipeViewHolder(binding)
     }
 
@@ -27,10 +31,16 @@ class LaterRecipeAdapter : ListAdapter<HomeLaterRecipeData,LaterRecipeAdapter.La
 
     companion object {
         private val laterRecipeDiffUtil = object : DiffUtil.ItemCallback<HomeLaterRecipeData>() {
-            override fun areItemsTheSame(oldItem: HomeLaterRecipeData, newItem: HomeLaterRecipeData): Boolean =
+            override fun areItemsTheSame(
+                oldItem: HomeLaterRecipeData,
+                newItem: HomeLaterRecipeData
+            ): Boolean =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: HomeLaterRecipeData, newItem: HomeLaterRecipeData): Boolean =
+            override fun areContentsTheSame(
+                oldItem: HomeLaterRecipeData,
+                newItem: HomeLaterRecipeData
+            ): Boolean =
                 oldItem.equals(newItem)
         }
     }

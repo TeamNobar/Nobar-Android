@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/textName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,10 @@
             android:textSize="17sp"
             android:textColor="@color/white"
             android:layout_marginStart="20dp"
-            tools:text="제목을 입력하세요"/>
+            android:ems="14"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/imageCircle"
+            tools:text="제목을 입력하세요 입력입력입력입력입력입력입력입력입력입력입력입력"/>
 
         <ImageView
             android:id="@+id/imageCircle"
