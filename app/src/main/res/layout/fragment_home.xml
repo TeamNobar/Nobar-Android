@@ -63,12 +63,15 @@
             android:id="@+id/recyclerToDoRecipe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:spanCount="2"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textAllSee"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginTop="12dp"
+            tools:listitem="@layout/item_later_recipe"
+            tools:itemCount="4"/>
 
         <TextView
             android:id="@+id/textSubTitle2"
