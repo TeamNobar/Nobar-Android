@@ -13,6 +13,14 @@
     <string name="mainSearch">검색</string>
     <string name="mainRecord">기록</string>
     <string name="mainMypage">마이페이지</string>
+
+    <string name="recipeFirst">우선, \u0020</string>
+    <string name="recipeLetsReady">준비해볼까요?</string>
+    <string name="recipeTimeToBartender">바텐더가 되는 시간, \u0020</string>
+    <string name="recipeLetsMake">만들어볼까요?</string>
+    <string name="recipeWritingTastingNote">테이스팅 노트 작성하기</string>
+    <string name="recipeTodayExperience">오늘의 이 경험을, \u0020</string>
+    <string name="recipeLetsRecord">기록해볼까요?</string>
     <string name="itemLaterRecipeName">칵테일 이름 넣는곳 칵테일 이름 넣는곳</string>
     <string name="itemLaterRecipeEnglishName">insert cocktail english name</string>
 
