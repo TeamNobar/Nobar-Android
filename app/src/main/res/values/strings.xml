@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Nobar-Android</string>
+    <string name="homeSubTitle1">홈텐딩 할 생각에 두근두근!</string>
+    <string name="homeLaterRecipe">노바님이 나중에 만들 레시피</string>
+    <string name="homeAllSee">전체보기</string>
+    <string name="homeSubTitle2">홈텐딩이 처음이라면</string>
+    <string name="homeGuide">칵테일 가이드</string>
+    <string name="homeSubTitle3">노바에서 추천하는 레시피</string>
+    <string name="homeNobarPick">바가 필요 없는 레시피</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     
     <string name="mainHome">홈</string>
@@ -14,4 +21,7 @@
     <string name="recipeWritingTastingNote">테이스팅 노트 작성하기</string>
     <string name="recipeTodayExperience">오늘의 이 경험을, \u0020</string>
     <string name="recipeLetsRecord">기록해볼까요?</string>
+    <string name="itemLaterRecipeName">칵테일 이름 넣는곳 칵테일 이름 넣는곳</string>
+    <string name="itemLaterRecipeEnglishName">insert cocktail english name</string>
+
 </resources>
