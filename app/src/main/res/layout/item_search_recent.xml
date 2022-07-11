@@ -7,17 +7,17 @@
 
     <TextView
         android:id="@+id/textView"
-        tools:text="브랜디"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_radius_20_border_graydd"
+        android:fontFamily="@font/pretendard_semibold"
         android:paddingHorizontal="16dp"
         android:paddingVertical="10dp"
-        android:fontFamily="@font/pretendard_semibold"
-        android:textSize="13sp"
         android:textColor="@color/black"
-        android:background="@drawable/rectangle_radius_20_border_graydd"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="브랜디" />
 </androidx.constraintlayout.widget.ConstraintLayout>
