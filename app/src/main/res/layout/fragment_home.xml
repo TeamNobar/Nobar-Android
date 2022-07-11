@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textAllSee"
             android:layout_marginHorizontal="26dp"
             android:layout_marginTop="12dp"
-            tools:listitem="@layout/item_later_recipe"
+            tools:listitem="@layout/item_home_later_recipe"
             tools:itemCount="4"/>
 
         <TextView
@@ -105,7 +105,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textGuide"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_home_guide"
+            tools:itemCount="3" />
 
         <TextView
             android:id="@+id/textSubTitle3"
