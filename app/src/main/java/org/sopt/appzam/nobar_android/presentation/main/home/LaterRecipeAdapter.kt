@@ -9,7 +9,7 @@ import org.sopt.appzam.nobar_android.data.remote.response.HomeLaterRecipeData
 import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 
 class LaterRecipeAdapter :
-    ListAdapter<HomeLaterRecipeData, LaterRecipeAdapter.LaterRecipeViewHolder>(laterRecipeDiffUtil) {
+    ListAdapter<HomeLaterRecipeData, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeComparator()) {
     private val laterRecipeList = mutableListOf<HomeLaterRecipeData>()
 
     class LaterRecipeViewHolder(private val binding: ItemHomeLaterRecipeBinding) :
@@ -29,19 +29,16 @@ class LaterRecipeAdapter :
         holder.onBind(laterRecipeList[position])
     }
 
-    companion object {
-        private val laterRecipeDiffUtil = object : DiffUtil.ItemCallback<HomeLaterRecipeData>() {
-            override fun areItemsTheSame(
-                oldItem: HomeLaterRecipeData,
-                newItem: HomeLaterRecipeData
-            ): Boolean =
-                oldItem == newItem
+    class LaterRecipeComparator : DiffUtil.ItemCallback<HomeLaterRecipeData>() {
+        override fun areItemsTheSame(
+            oldItem: HomeLaterRecipeData,
+            newItem: HomeLaterRecipeData
+        ): Boolean =
+            oldItem == newItem
 
-            override fun areContentsTheSame(
-                oldItem: HomeLaterRecipeData,
-                newItem: HomeLaterRecipeData
-            ): Boolean =
-                oldItem.equals(newItem)
-        }
+        override fun areContentsTheSame(
+            oldItem: HomeLaterRecipeData,
+            newItem: HomeLaterRecipeData
+        ): Boolean = oldItem == newItem
     }
 }
