@@ -39,7 +39,7 @@
             android:layout_marginBottom="12dp"
             android:ems="6"
             android:maxLines="2"
-            android:text="@{guideItem.tastingNote}"
+            android:text="@{guideItem.contents}"
             android:textColor="@color/black"
             android:textSize="13sp"
             android:fontFamily="@font/pretendard_bold"
