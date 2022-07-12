@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.appzam.nobar_android.data.HomeLaterRecipeData
+import org.sopt.appzam.nobar_android.data.remote.response.HomeLaterRecipeData
 import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 
 class LaterRecipeAdapter :

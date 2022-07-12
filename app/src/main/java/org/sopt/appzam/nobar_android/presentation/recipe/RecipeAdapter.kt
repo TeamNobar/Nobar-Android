@@ -5,30 +5,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.appzam.nobar_android.data.remote.recipe.RecipeData
+import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemIngredientBinding
 
 class RecipeAdapter :
-    ListAdapter<RecipeData.Ingredient, RecipeAdapter.RecipeViewHolder>(RecipeComparator()) {
+    ListAdapter<RecipeResponse.Ingredient, RecipeAdapter.RecipeViewHolder>(RecipeComparator()) {
 
     class RecipeViewHolder(private val binding: ItemIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: RecipeData.Ingredient) {
+        fun onBind(data: RecipeResponse.Ingredient) {
             //binding.model = data
         }
     }
 
-    class RecipeComparator : DiffUtil.ItemCallback<RecipeData.Ingredient>() {
+    class RecipeComparator : DiffUtil.ItemCallback<RecipeResponse.Ingredient>() {
         override fun areItemsTheSame(
-            oldItem: RecipeData.Ingredient,
-            newItem: RecipeData.Ingredient
+            oldItem: RecipeResponse.Ingredient,
+            newItem: RecipeResponse.Ingredient
         ): Boolean {
             return oldItem.title == newItem.title
         }
 
         override fun areContentsTheSame(
-            oldItem: RecipeData.Ingredient,
-            newItem: RecipeData.Ingredient
+            oldItem: RecipeResponse.Ingredient,
+            newItem: RecipeResponse.Ingredient
         ): Boolean {
             return oldItem == newItem
         }

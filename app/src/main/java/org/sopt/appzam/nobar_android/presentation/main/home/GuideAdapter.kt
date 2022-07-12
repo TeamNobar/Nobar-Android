@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.appzam.nobar_android.data.HomeGuideData
+import org.sopt.appzam.nobar_android.data.remote.response.HomeGuideData
 import org.sopt.appzam.nobar_android.databinding.ItemHomeGuideBinding
 
 class GuideAdapter : ListAdapter<HomeGuideData, GuideAdapter.GuideViewHolder>(guideDiffUtil) {

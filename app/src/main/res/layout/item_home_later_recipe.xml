@@ -6,7 +6,7 @@
     <data>
         <variable
             name="laterRecipeItem"
-            type="org.sopt.appzam.nobar_android.data.HomeLaterRecipeData" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.HomeLaterRecipeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

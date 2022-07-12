@@ -6,7 +6,7 @@
     <data>
         <variable
             name="guideItem"
-            type="org.sopt.appzam.nobar_android.data.HomeGuideData" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.HomeGuideData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
