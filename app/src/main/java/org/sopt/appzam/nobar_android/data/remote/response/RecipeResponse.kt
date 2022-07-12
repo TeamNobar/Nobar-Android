@@ -1,6 +1,6 @@
-package org.sopt.appzam.nobar_android.data.remote.recipe
+package org.sopt.appzam.nobar_android.data.remote.response
 
-data class RecipeData(
+data class RecipeResponse(
     val koreanName : String,
     val englishName : String,
     val bookmark : Boolean,

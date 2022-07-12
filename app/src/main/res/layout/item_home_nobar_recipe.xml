@@ -6,7 +6,7 @@
     <data>
         <variable
             name="nobarRecipeItem"
-            type="org.sopt.appzam.nobar_android.data.HomeNobarRecipeData" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.HomeNobarRecipeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
