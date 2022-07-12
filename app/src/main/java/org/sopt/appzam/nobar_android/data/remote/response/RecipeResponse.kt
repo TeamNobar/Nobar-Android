@@ -1,16 +1,14 @@
 package org.sopt.appzam.nobar_android.data.remote.response
 
 data class RecipeResponse(
-    val koreanName : String,
-    val englishName : String,
-    val bookmark : Boolean,
-    val ingredients : List<Ingredient>,
-    val steps : List<String>,
-    val suggestion : String
-){
-    data class Ingredient(
-        val title : String,
-        val kind : String,
-        val amount : String
-    )
-}
+    val id : String,
+    val name : String,
+    val enName : String,
+    val version : List<String>,
+    val base : String,
+    val proof : Int,
+    val skill : String,
+    val glass : String,
+    val ingredients : List<String>,
+    val steps : List<String>
+)

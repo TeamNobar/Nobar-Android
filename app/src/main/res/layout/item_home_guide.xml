@@ -6,14 +6,16 @@
     <data>
         <variable
             name="guideItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.HomeGuideData" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.GuideResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/recipe_later_box"
-        android:elevation="2dp">
+        android:elevation="2dp"
+        android:layout_marginEnd="8dp"
+        android:paddingHorizontal="12dp">
 
 
         <ImageView

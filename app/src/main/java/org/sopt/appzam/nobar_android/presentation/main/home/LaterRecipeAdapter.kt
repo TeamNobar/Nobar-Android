@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.appzam.nobar_android.data.remote.response.HomeLaterRecipeData
+import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 
 class LaterRecipeAdapter :
-    ListAdapter<HomeLaterRecipeData, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeComparator()) {
-    private val laterRecipeList = mutableListOf<HomeLaterRecipeData>()
+    ListAdapter<RecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeComparator()) {
+    private val laterRecipeList = mutableListOf<RecipeResponse>()
 
     class LaterRecipeViewHolder(private val binding: ItemHomeLaterRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: HomeLaterRecipeData) {
+        fun onBind(data: RecipeResponse) {
             binding.laterRecipeItem = data
         }
     }
@@ -29,16 +29,16 @@ class LaterRecipeAdapter :
         holder.onBind(laterRecipeList[position])
     }
 
-    class LaterRecipeComparator : DiffUtil.ItemCallback<HomeLaterRecipeData>() {
+    class LaterRecipeComparator : DiffUtil.ItemCallback<RecipeResponse>() {
         override fun areItemsTheSame(
-            oldItem: HomeLaterRecipeData,
-            newItem: HomeLaterRecipeData
+            oldItem: RecipeResponse,
+            newItem: RecipeResponse
         ): Boolean =
             oldItem == newItem
 
         override fun areContentsTheSame(
-            oldItem: HomeLaterRecipeData,
-            newItem: HomeLaterRecipeData
+            oldItem: RecipeResponse,
+            newItem: RecipeResponse
         ): Boolean = oldItem == newItem
     }
 }
