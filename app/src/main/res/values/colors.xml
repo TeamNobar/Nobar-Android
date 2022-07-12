@@ -27,4 +27,9 @@
     <color name="step75">#BFE93370</color>
     <color name="step80">#CCE93370</color>
     <color name="step100">#FFE93370</color>
+
+    <color name="skyBlueFAFBFF">#FAFBFF</color>
+    <color name="skyBlueAAABBE">#AAABBE</color>
+    <color name="yellowEAE105">#EAE105</color>
+    <color name="redE93370">#E93370</color>
 </resources>
