@@ -64,6 +64,59 @@
                 android:layout_marginStart="30dp"
                 android:includeFontPadding="false"/>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintTop_toBottomOf="@id/textLaterRecipe"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="131dp">
+
+                <ImageView
+                    android:id="@+id/imageStart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_img_emptysample"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="39dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textNotHaveRecipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/imageStart"
+                    android:text="앗, 아직 저장한 레시피가 없어요"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grayA0"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textSize="13dp"
+                    android:textAlignment="center"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/textNotHaveRecipe"
+                    android:text="레시피 검색하기"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/pretendard_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="33dp"
+                    android:layout_marginTop="12dp"/>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerToDoRecipe"
                 android:layout_width="match_parent"
@@ -75,10 +128,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAllSee"
+                app:layout_constraintTop_toBottomOf="@+id/constraintStart"
                 app:spanCount="2"
                 tools:itemCount="4"
-                tools:listitem="@layout/item_home_later_recipe" />
+                tools:listitem="@layout/item_home_later_recipe" >
+
+            </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/textSubTitle2"
