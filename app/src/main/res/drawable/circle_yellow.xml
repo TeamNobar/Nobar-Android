@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="@color/pinkE93370"/>
-    <padding
-        android:bottom="16dp"
-        android:right="16dp" />
+    <solid android:color="@color/yellowEAE105"/>
+    <size android:width="7dp"
+        android:height="7dp"/>
+
 </shape>
