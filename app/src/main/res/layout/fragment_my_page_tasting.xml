@@ -10,11 +10,25 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <Button
+            android:id="@+id/buttonNewNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/myPageButtonNewNote"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:background="@drawable/new_note_box"
+            android:elevation="2dp"
+            android:textColor="@color/grayA0"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingVertical="14dp"
+            android:layout_marginTop="36dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMyPageTasting"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNewNote"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,9 @@
     android:color="@color/navy000782"/>
 
     <solid android:color="@color/white"/>
+    <padding
+        android:bottom="42dp"
+        android:right="42dp" />
 
 
 </shape>
