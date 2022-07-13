@@ -13,13 +13,79 @@
         tools:context=".presentation.main.mypage.MypageFragment">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mypage Fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:text="TextView"
+            android:textColor="@color/navy000782"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/rectangle_radius_18_5"
+            android:backgroundTint="@color/navy000782"
+            android:checkedButton="@+id/radioTastingNote"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle">
+
+            <RadioButton
+                android:id="@+id/radioTastingNote"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_radius_18_5"
+                android:backgroundTint="@color/selector_radio_toggle"
+                android:button="@null"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="테이스팅 노트"
+                android:textColor="@color/selector_radio_text"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/radioLaterRecipe"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_radius_18_5"
+                android:backgroundTint="@color/selector_radio_toggle"
+                android:button="@null"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:paddingHorizontal="8dp"
+                android:text="나중에 만들 레시피"
+                android:textColor="@color/selector_radio_text"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <org.sopt.appzam.nobar_android.util.NestedScrollableHost
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </org.sopt.appzam.nobar_android.util.NestedScrollableHost>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="org.sopt.appzam.nobar_android.data.remote.recipe.RecipeData.Ingredient" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse.Ingredient" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,11 +36,11 @@
                 android:text="@{model.title}"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/imageCircle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
                 tools:text="보드카" />
 
             <ImageView
