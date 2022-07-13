@@ -34,4 +34,5 @@
     <string name="searchIngredient">재료</string>
     <string name="myPageTitle">닉네임의 마이페이지</string>
     <string name="myPageButtonNewNote">+ 새로운 노트 작성하기</string>
+    <string name="homeNotHaveRecipe">앗, 아직 저장한 레시피가 없어요</string>
 </resources>
