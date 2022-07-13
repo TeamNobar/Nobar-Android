@@ -10,14 +10,17 @@ import org.sopt.appzam.nobar_android.databinding.ItemHomeGuideBinding
 
 class GuideAdapter : ListAdapter<GuideResponse, GuideAdapter.GuideViewHolder>(guideDiffUtil) {
     private val guideList = mutableListOf<GuideResponse>()
-    class GuideViewHolder(private val binding : ItemHomeGuideBinding) : RecyclerView.ViewHolder(binding.root){
-        fun onBind(data : GuideResponse){
+
+    class GuideViewHolder(private val binding: ItemHomeGuideBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: GuideResponse) {
             binding.guideItem = data
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuideViewHolder {
-        val binding = ItemHomeGuideBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding =
+            ItemHomeGuideBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GuideViewHolder(binding)
     }
 
@@ -30,7 +33,10 @@ class GuideAdapter : ListAdapter<GuideResponse, GuideAdapter.GuideViewHolder>(gu
             override fun areItemsTheSame(oldItem: GuideResponse, newItem: GuideResponse): Boolean =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: GuideResponse, newItem: GuideResponse): Boolean =
+            override fun areContentsTheSame(
+                oldItem: GuideResponse,
+                newItem: GuideResponse
+            ): Boolean =
                 oldItem.equals(newItem)
         }
     }
