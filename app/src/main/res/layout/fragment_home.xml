@@ -102,14 +102,14 @@
                         android:includeFontPadding="false"
                         android:textColor="@color/grayA0"
                         android:fontFamily="@font/pretendard_regular"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         android:textAlignment="center"/>
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/textNotHaveRecipe"
-                        android:text="레시피 검색하기"
+                        android:text="@string/home_search_recipe"
                         android:background="@drawable/search_recipe_box"
                         android:textColor="@color/white"
                         android:fontFamily="@font/pretendard_bold"
