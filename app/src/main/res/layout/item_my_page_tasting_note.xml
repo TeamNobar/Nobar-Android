@@ -31,7 +31,8 @@
             android:fontFamily="@font/pretendard_extrabold"
             android:textSize="16dp"
             android:textColor="@color/black"
-            tools:text="롱 아일랜드 아이스티"/>
+            tools:text="롱 아일랜드 아이스티"
+            android:includeFontPadding="false"/>
 
         <TextView
             android:id="@+id/textEnName"
@@ -44,7 +45,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="122dp"
             android:fontFamily="@font/pretendard_light"
-            tools:text="Figma saranghae xd angdae"/>
+            tools:text="Figma saranghae xd angdae"
+            android:includeFontPadding="false"/>
 
         <ImageView
             android:id="@+id/imageHeart"
@@ -65,10 +67,8 @@
             android:orientation="horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="25dp"/>
-
-
-
-
+            android:layout_marginEnd="25dp"
+            tools:listitem="@layout/item_my_page_tasting_tag"
+            tools:itemCount="3"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
