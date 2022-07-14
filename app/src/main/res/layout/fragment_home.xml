@@ -134,6 +134,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:overScrollMode="never"
                     app:spanCount="2"
                     tools:itemCount="4"
                     tools:listitem="@layout/item_home_later_recipe" >
@@ -180,6 +181,7 @@
                 android:orientation="horizontal"
                 tools:listitem="@layout/item_home_guide"
                 android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
                 tools:itemCount="3" />
 
             <TextView
@@ -219,6 +221,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_home_nobar_recipe"
                 android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
                 tools:itemCount="5"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

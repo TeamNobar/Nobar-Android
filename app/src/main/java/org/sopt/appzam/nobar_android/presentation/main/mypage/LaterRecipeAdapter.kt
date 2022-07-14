@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
 import org.sopt.appzam.nobar_android.data.remote.response.MyPageLaterRecipeResponse
-import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageLaterRecipeBinding
 
 class LaterRecipeAdapter :
-    ListAdapter<MyPageLaterRecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeDiffUtil()) {
+    ListAdapter<MyPageLaterRecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(
+        LaterRecipeDiffUtil()
+    ) {
     private val laterRecipeList = mutableListOf<MyPageLaterRecipeResponse>()
 
     class LaterRecipeViewHolder(private val binding: ItemMyPageLaterRecipeBinding) :
