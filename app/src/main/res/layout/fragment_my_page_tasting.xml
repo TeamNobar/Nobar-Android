@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginHorizontal="24dp"
             app:layout_constraintVertical_chainStyle="packed"
-            android:background="@drawable/new_note_box"
+            android:background="@drawable/rectangle_radius_10_sky_blue"
             android:elevation="2dp"
             android:textColor="@color/grayA0"
             android:fontFamily="@font/pretendard_medium"
