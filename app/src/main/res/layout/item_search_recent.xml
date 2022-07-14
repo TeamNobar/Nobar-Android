@@ -9,7 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_radius_20_border_graydd"
+        android:background="@drawable/rectangle_radius_19_5_border_graydd"
         android:fontFamily="@font/pretendard_semibold"
         android:paddingHorizontal="16dp"
         android:paddingVertical="10dp"
