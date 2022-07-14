@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="31dp"
             android:layout_marginStart="24dp"
             android:text="@string/myPageTitle"
             android:textColor="@color/navy000782"
             android:fontFamily="@font/pretendard_extrabold"
-            android:textSize="18dp"/>
+            android:textSize="18sp"/>
 
         <ImageView
             android:id="@+id/imageSetting"
@@ -34,25 +34,67 @@
             android:layout_marginEnd="27dp"
             app:layout_constraintBottom_toBottomOf="@id/textTitle"/>
 
-        <TableLayout
-            android:id="@+id/tabLayoutMyPage"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
-            android:layout_marginHorizontal="72dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageSetting"/>
+            android:background="@drawable/rectangle_radius_18_5"
+            android:backgroundTint="@color/navy000782"
+            android:checkedButton="@+id/radioTastingNote"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle">
 
-        <androidx.viewpager2.widget.ViewPager2
+            <RadioButton
+                android:id="@+id/radioTastingNote"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_radius_18_5"
+                android:backgroundTint="@color/selector_radio_toggle"
+                android:button="@null"
+                android:fontFamily="@font/pretendard_semibold"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="@string/myPageTastingNote"
+                android:textColor="@color/selector_radio_text"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/radioLaterRecipe"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_radius_18_5"
+                android:backgroundTint="@color/selector_radio_toggle"
+                android:button="@null"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:paddingHorizontal="8dp"
+                android:text="@string/myPageLaterRecipe"
+                android:textColor="@color/selector_radio_text"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <org.sopt.appzam.nobar_android.util.NestedScrollableHost
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayoutMyPage"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-
-
-
+        </org.sopt.appzam.nobar_android.util.NestedScrollableHost>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
