@@ -11,19 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.main.mypage.MypageFragment">
-
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="56dp"
-            android:fontFamily="@font/pretendard_extrabold"
-            android:text="TextView"
-            android:textColor="@color/navy000782"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="56dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/myPageTitle"
+            android:textColor="@color/navy000782"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:textSize="18dp"/>
+
+        <ImageView
+            android:id="@+id/imageSetting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textTitle"
+            android:layout_marginEnd="27dp"
+            app:layout_constraintBottom_toBottomOf="@id/textTitle"/>
 
         <RadioGroup
             android:id="@+id/radioGroup"

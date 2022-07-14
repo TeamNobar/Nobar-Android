@@ -1,6 +1,6 @@
 package org.sopt.appzam.nobar_android.data.remote.response
 
-data class RecipeResponse(
+data class MyPageLaterRecipeResponse(
     val id : String,
     val name : String,
     val enName : String,
@@ -9,6 +9,6 @@ data class RecipeResponse(
     val proof : Int,
     val skill : String,
     val glass : String,
-    val ingredients : List<String>,
+    val ingredients : String,
     val steps : List<String>
 )
