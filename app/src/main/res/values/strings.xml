@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Nobar-Android</string>
+
     <string name="homeSubTitle1">홈텐딩 할 생각에 두근두근!</string>
     <string name="homeLaterRecipe">노바님이 나중에 만들 레시피</string>
     <string name="homeAllSee">전체보기</string>
@@ -7,7 +8,8 @@
     <string name="homeGuide">칵테일 가이드</string>
     <string name="homeSubTitle3">노바에서 추천하는 레시피</string>
     <string name="homeNobarPick">바가 필요 없는 레시피</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_search_recipe">레시피 검색하기</string>
+    <string name="homeNotHaveRecipe">앗, 아직 저장한 레시피가 없어요</string>
 
     <string name="mainHome">홈</string>
     <string name="mainSearch">검색</string>
@@ -33,8 +35,11 @@
     <string name="searchSuggest">추천 검색어</string>
     <string name="searchCocktailRecipe">칵테일 레시피</string>
     <string name="searchIngredient">재료</string>
+    <string name="searchTitle">검색 결과</string>
+
+
     <string name="myPageTitle">닉네임의 마이페이지</string>
     <string name="myPageButtonNewNote">+ 새로운 노트 작성하기</string>
-    <string name="homeNotHaveRecipe">앗, 아직 저장한 레시피가 없어요</string>
-    <string name="searchTitle">검색 결과</string>
+    <string name="myPageTastingNote">테이스팅 노트</string>
+    <string name="myPageLaterRecipe">나중에 만들 레시피</string>
 </resources>
