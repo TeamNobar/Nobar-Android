@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.presentation.main.mypage
+package org.sopt.appzam.nobar_android.presentation.main.mypage.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
