@@ -34,4 +34,6 @@
     <string name="searchCocktailRecipe">칵테일 레시피</string>
     <string name="searchIngredient">재료</string>
     <string name="searchTitle">검색 결과</string>
+    <string name="searchHint">칵테일 이름, 술 이름을 검색해보세요</string>
+    <string name="searchWhatBase">어떤 베이스로 칵테일을 만들고 싶으세요?</string>
 </resources>
