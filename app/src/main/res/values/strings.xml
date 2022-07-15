@@ -36,4 +36,5 @@
     <string name="searchTitle">검색 결과</string>
     <string name="searchHint">칵테일 이름, 술 이름을 검색해보세요</string>
     <string name="searchWhatBase">어떤 베이스로 칵테일을 만들고 싶으세요?</string>
+    <string name="searchOfCocktail">로 만들 수 있는 칵테일</string>
 </resources>
