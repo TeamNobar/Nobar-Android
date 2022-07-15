@@ -13,7 +13,6 @@ import java.lang.RuntimeException
 class MultiViewAdapter :
     ListAdapter<MyPageTastingResponse, RecyclerView.ViewHolder>(TastingNoteTagComparator()) {
     private val multiDataList = mutableListOf<MyPageTastingResponse>()
-    private var type = 0
 
     inner class DateViewHolder(private val binding: ItemMyPageTastingNoteDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -54,21 +53,19 @@ class MultiViewAdapter :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(type){
-            DATE -> (holder as DateViewHolder).onBind(multiDataList[position])
-            TASTING_VIEW -> (holder as TastingViewHolder).onBind(multiDataList[position])
+        when(holder){
+            is DateViewHolder -> holder.onBind(getItem(position))
+            is TastingViewHolder -> holder.onBind(getItem(position))
+            else -> throw IllegalArgumentException()
         }
     }
 
     override fun getItemViewType(position: Int): Int {
         return if (position == 0) {
-            type = DATE
             DATE
-        } else if (multiDataList[position] == multiDataList[position - 1]) {
-            type = TASTING_VIEW
+        } else if (multiDataList[position].createdAt == multiDataList[position - 1].createdAt) {
             TASTING_VIEW
         } else {
-            type = DATE
             DATE
         }
     }

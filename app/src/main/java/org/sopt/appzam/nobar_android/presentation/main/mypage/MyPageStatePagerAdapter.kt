@@ -11,7 +11,7 @@ class MyPageStatePagerAdapter(fragmentActivity: FragmentActivity) : FragmentStat
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0-> MyPageTastingFragment()
-            1-> MyPageTastingFragment()
+            1-> MyPageLaterRecipeFragment()
             else -> error("position $position is cannot exist")
         }
     }
