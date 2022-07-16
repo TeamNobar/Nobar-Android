@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageTastingTagBinding
 
-class TastingTagAdapter :
-    ListAdapter<String, TastingTagAdapter.TastingTagViewHolder>(TastingNoteTagComparator()) {
+class TastingNoteTagAdapter :
+    ListAdapter<String, TastingNoteTagAdapter.TastingTagViewHolder>(TastingNoteTagComparator()) {
     val tastingTagList = mutableListOf<String>()
 
     class TastingTagViewHolder(private val binding: ItemMyPageTastingTagBinding) :
