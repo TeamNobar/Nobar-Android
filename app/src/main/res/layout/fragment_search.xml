@@ -101,32 +101,42 @@
             android:layout_height="0.8dp"
             android:layout_marginTop="39dp"
             android:background="@color/grayDD"
-            app:layout_constraintTop_toBottomOf="@id/recyclerBase"/>
+            app:layout_constraintTop_toBottomOf="@id/recyclerBase" />
 
-        <TextView
-            android:id="@+id/textBase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="19dp"
-            tools:text="보드카"
-            android:fontFamily="@font/pretendard_extrabold"
-            android:textSize="18sp"
-            android:textColor="@color/navy000782"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line">
 
-        <TextView
-            android:id="@+id/textOfCocktail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/searchOfCocktail"
-            android:fontFamily="@font/pretendard_extrabold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/textBase"
-            app:layout_constraintStart_toEndOf="@+id/textBase"
-            app:layout_constraintTop_toTopOf="@+id/textBase" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/rectangle_spinner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/spinner"
+                    app:spanCount="2"
+                    tools:listitem="@layout/item_search_result" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
