@@ -27,6 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
+            android:id="@+id/textTagName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="다섯글자로"

@@ -11,7 +11,7 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentMypageBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 
-class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
+class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
     private lateinit var adapter : MyPageStatePagerAdapter
 
     override fun onCreateView(
