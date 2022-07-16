@@ -1,3 +1,4 @@
+/*
 package org.sopt.appzam.nobar_android.presentation.recipe
 
 import android.view.LayoutInflater
@@ -43,4 +44,4 @@ class RecipeAdapter :
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         return holder.onBind(getItem(position))
     }
-}
+}*/
