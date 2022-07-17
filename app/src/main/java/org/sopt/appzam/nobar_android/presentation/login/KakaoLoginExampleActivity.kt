@@ -1,10 +1,13 @@
 package org.sopt.appzam.nobar_android.presentation.login
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.model.AuthError
+import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
 import org.sopt.appzam.nobar_android.databinding.ActivityKakaoLoginExampleBinding
@@ -20,15 +23,17 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener {
-            loginViewModel.startLoginRunning()
             loginKakao()
         }
         binding.buttonLogout.setOnClickListener { logout() }
         binding.buttonUnlink.setOnClickListener { unlink() }
+
+        UserApiClient.instance
     }
 
     private fun loginKakao() {
         if (loginViewModel.isLoginRunning()) return
+//        loginViewModel.startLoginRunning()
 
         if (isKakaoTalkLoginAvailable()) {
             loginWithKakaoTalk()
@@ -54,6 +59,9 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
             getUserInformation()
             return
         }
+        if (loginError is AuthError) {
+            if (loginError.reason == AuthErrorCause.AccessDenied) onLoginCanceled()
+        }
         loginError?.printStackTrace()
     }
 
@@ -73,10 +81,11 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
         val profileImageUrl: String? = user.kakaoAccount?.profile?.profileImageUrl
         val thumbnailImageUrl: String? = user.kakaoAccount?.profile?.thumbnailImageUrl
 
-        val gender: String? = user.kakaoAccount?.gender?.name
-        val age: String? = user.kakaoAccount?.ageRange?.name
-
         loginViewModel.login()
+    }
+
+    private fun onLoginCanceled() {
+        Log.d("MalibinDebug", "loginCanceled")
     }
 
     private fun logout() {
