@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.presentation.main.mypage
+package org.sopt.appzam.nobar_android.presentation.main.mypage.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

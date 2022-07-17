@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myPageTastingNoteItem"
+            type="org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:paddingStart="25dp"
+        android:background="@drawable/rectangle_radius_10_sky_blue"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{myPageTastingNoteItem.title}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="160dp"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            tools:text="롱 아일랜드 아이스티"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/textEnName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{myPageTastingNoteItem.id}"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="122dp"
+            android:fontFamily="@font/pretendard_light"
+            tools:text="Figma saranghae xd angdae"
+            android:includeFontPadding="false"/>
+
+        <ImageView
+            android:id="@+id/imageHeart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textEnName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_icn_hearts"
+            android:layout_marginTop="16dp" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHeart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="25dp"
+            tools:listitem="@layout/item_my_page_tasting_tag"
+            tools:itemCount="3"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
