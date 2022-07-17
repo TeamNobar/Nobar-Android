@@ -52,4 +52,15 @@
     <string name="myPageButtonNewNote">+ 새로운 노트 작성하기</string>
     <string name="myPageTastingNote">테이스팅 노트</string>
     <string name="myPageLaterRecipe">나중에 만들 레시피</string>
+
+    <string name="tastingNoteTitle">테이스팅 노트 기록하기</string>
+    <string name="tastingNoteEnrollment">등록</string>
+    <string name="tastingNoteSearchCocktail">님이 만든 칵테일을 찾아보세요</string>
+    <string name="tastingNoteWhatTaste">맛은 어땠나요?</string>
+    <string name="tastingNoteCantSelect">같이 누를 수 없는 태그입니다</string>
+    <string name="tastingNoteMyScore">제 점수는요!</string>
+    <string name="tastingNoteDetailEvaluation">자세한 평가를 듣고 싶어요</string>
+    <string name="tastingNoteSuffix">의 노트</string>
+    <string name="tastingNoteHint">칵테일 이름을 검색해보세요</string>
+    <string name="tastingNoteYourExperience">당신의 경험을 기억하고 싶어요</string>
 </resources>
