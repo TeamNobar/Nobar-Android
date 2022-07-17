@@ -5,13 +5,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.sopt.appzam.nobar_android.data.local.db.AuthTokenManager
 import org.sopt.appzam.nobar_android.data.remote.service.interceptor.NobarAuthInterceptor
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 interface NobarService {
 
-    fun login()
+    suspend fun login(): Response<Unit>
 
     companion object {
         private const val BASE_URL = ""
