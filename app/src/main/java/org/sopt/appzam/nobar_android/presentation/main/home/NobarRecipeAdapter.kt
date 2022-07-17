@@ -2,7 +2,6 @@ package org.sopt.appzam.nobar_android.presentation.main.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,16 +9,16 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemHomeNobarRecipeBinding
 
-class NobarRecipeAdapter(private val randomInt: Int) :
+class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     ListAdapter<NobarRecipeResponse, NobarRecipeAdapter.NobarRecipeViewHolder>(NobarRecipeComparator()) {
     private val nobarRecipeList = mutableListOf<NobarRecipeResponse>()
 
-    class NobarRecipeViewHolder(private val binding: ItemHomeNobarRecipeBinding, private val randomInt: Int) :
+    class NobarRecipeViewHolder(private val binding: ItemHomeNobarRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: NobarRecipeResponse) {
+        fun onBind(data: NobarRecipeResponse, colorInt: Int) {
             binding.nobarRecipeItem = data
 
-            when(randomInt){
+            when(colorInt){
                 0-> binding.layout.setBackgroundColor(R.color.navy0A2588)
                 1-> binding.layout.setBackgroundColor(R.color.navy0E30AA)
                 2-> binding.layout.setBackgroundColor(R.color.navy07207A)
@@ -32,11 +31,11 @@ class NobarRecipeAdapter(private val randomInt: Int) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NobarRecipeViewHolder {
         val binding =
             ItemHomeNobarRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NobarRecipeViewHolder(binding, randomInt)
+        return NobarRecipeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NobarRecipeViewHolder, position: Int) {
-        holder.onBind(nobarRecipeList[position])
+        holder.onBind(nobarRecipeList[position],randomIntList[position])
     }
 
     class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipeResponse>() {

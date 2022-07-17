@@ -13,8 +13,10 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentHomeBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.util.ItemDecoration
+import kotlin.random.Random
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    private lateinit var nobarRecipeAdapter: NobarRecipeAdapter
     private val homeViewModel by viewModels<HomeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 2
             )
         )
+        initAdapter()
     }
 
     private fun onRefresh() {
@@ -47,9 +50,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                         R.color.black
                     )
                 )
+                initAdapter()
                 binding.layoutRefresh.isRefreshing = false
             }, 1000)
         }
+    }
+
+    private fun initAdapter() {
+        val randomIntList = List(5){Random.nextInt(0,4)}
+        nobarRecipeAdapter = NobarRecipeAdapter(randomIntList)
+        binding.recyclerNobarRecipe.adapter = nobarRecipeAdapter
     }
 
 }
