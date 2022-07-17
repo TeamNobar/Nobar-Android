@@ -65,7 +65,6 @@
                     android:layout_marginVertical="10dp"
                     android:layout_marginStart="8dp"
                     android:background="@null"
-                    android:ems="10"
                     android:fontFamily="@font/pretendard_bold"
                     android:hint="@string/searchDetailHint"
                     android:inputType="textPersonName"

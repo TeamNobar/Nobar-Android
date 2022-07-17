@@ -78,7 +78,7 @@
                 android:background="@drawable/rectangle_radius_10"
                 android:backgroundTint="@color/grayFB"
                 tools:itemCount="4"
-                tools:listitem="@layout/item_preparation"
+                tools:listitem="@layout/item_core_info"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="4"
                 app:layout_constraintEnd_toEndOf="parent"
