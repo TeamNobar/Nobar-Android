@@ -6,7 +6,7 @@
     <data>
         <variable
             name="laterRecipeItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.HomeLaterRecipeData" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +37,7 @@
                 android:text="@{laterRecipeItem.name}"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                android:fontFamily="@font/pretendard_bold"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/textEnglishName"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,11 +52,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:includeFontPadding="false"
-                android:text="@{laterRecipeItem.description}"
+                android:text="@{laterRecipeItem.enName}"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toTopOf="@+id/imageCircle"
                 app:layout_constraintStart_toStartOf="@id/textName"
                 app:layout_constraintTop_toBottomOf="@+id/textName"
+                android:fontFamily="@font/pretendard_light"
                 tools:text="asddddddddddddddddddddddddddddf" />
 
             <ImageView
@@ -80,6 +82,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageCircle"
                 app:layout_constraintStart_toEndOf="@+id/imageCircle"
                 app:layout_constraintTop_toTopOf="@+id/imageCircle"
+                android:fontFamily="@font/pretendard_bold"
                 tools:text="asddddddf" />
 
 

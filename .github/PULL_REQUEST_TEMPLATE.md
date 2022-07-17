@@ -1,6 +1,6 @@
 ## 📌 Related Issue
 <!-- 관련 이슈를 설명해주세요. -->
-
+- Closed 
 ## ✏️ View Name
 
 ## ✔️ What's-New

@@ -11,11 +11,4 @@ import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return binding.root
-    }
 }
