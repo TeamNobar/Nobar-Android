@@ -9,10 +9,6 @@
         android:icon="@mipmap/ic_launcher"
         android:title="@string/mainSearch"/>
     <item
-        android:id="@+id/menu_record"
-        android:icon="@mipmap/ic_launcher"
-        android:title="@string/mainRecord"/>
-    <item
         android:id="@+id/menu_mypage"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/mainMypage"/>
