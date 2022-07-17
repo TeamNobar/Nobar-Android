@@ -4,13 +4,20 @@ import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.sopt.appzam.nobar_android.data.local.db.AuthTokenManager
+import org.sopt.appzam.nobar_android.data.remote.params.LoginParams
+import org.sopt.appzam.nobar_android.data.remote.response.LoginResponse
 import org.sopt.appzam.nobar_android.data.remote.service.interceptor.NobarAuthInterceptor
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface NobarService {
 
-    suspend fun login(): Response<Unit>
+    @POST("/auth")
+    suspend fun login(
+            @Body loginParams: LoginParams,
+    ): Response<LoginResponse>
 
     companion object {
         private const val BASE_URL = ""

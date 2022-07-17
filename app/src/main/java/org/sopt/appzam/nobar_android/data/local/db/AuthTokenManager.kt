@@ -41,9 +41,9 @@ class AuthTokenManager private constructor(
         )
     }
 
-    fun saveNobarToken(nobarUser: NobarAccessToken) {
+    fun saveNobarToken(nobarAccessToken: NobarAccessToken) {
         sharedPreferences.edit {
-            putString(KEY_NOBAR_USER_ACCESS_TOKEN, nobarUser.accessToken)
+            putString(KEY_NOBAR_USER_ACCESS_TOKEN, nobarAccessToken.accessToken)
         }
     }
 

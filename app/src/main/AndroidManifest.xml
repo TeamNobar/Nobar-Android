@@ -53,6 +53,8 @@
                     android:scheme="@string/kakaoAppKeyScheme" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.login.LoginActivity" />
     </application>
 
 </manifest>
