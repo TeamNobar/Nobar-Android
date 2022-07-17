@@ -40,13 +40,12 @@ class HomeActivity : AppCompatActivity() {
                     binding.viewPager.currentItem = 1
                     return@setOnItemSelectedListener true
                 }
-                R.id.menu_record -> {
+                R.id.menu_mypage -> {
                     binding.viewPager.currentItem = 2
                     return@setOnItemSelectedListener true
                 }
                 else -> {
-                    binding.viewPager.currentItem = 3
-                    return@setOnItemSelectedListener true
+                    error("터치될 수 없는 경우입니다.")
                 }
             }
         }

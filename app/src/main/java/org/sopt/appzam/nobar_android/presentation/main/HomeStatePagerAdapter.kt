@@ -11,14 +11,13 @@ import org.sopt.appzam.nobar_android.presentation.main.search.SearchFragment
 class HomeStatePagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> HomeFragment()
             1 -> SearchFragment()
-            2 -> RecordFragment()
-            3 -> MyPageFragment()
+            2 -> MypageFragment()
             else -> error("position $position is cannot exist")
         }
     }
