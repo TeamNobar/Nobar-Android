@@ -17,8 +17,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.main.search.SearchDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.main.search.SearchResultActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.main.record.RecordActivity"
+            android:exported="false"/>
         <activity
             android:name=".presentation.main.HomeActivity"
             android:exported="true">
