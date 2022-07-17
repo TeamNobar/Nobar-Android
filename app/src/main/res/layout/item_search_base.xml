@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="org.sopt.appzam.nobar_android.data.remote.response.common.BaseResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

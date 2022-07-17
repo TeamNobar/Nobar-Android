@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="model"
-            type="org.sopt.appzam.nobar_android.data.remote.response.SearchDetailResponse" />
+            name="viewModel"
+            type="org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,8 +45,10 @@
                 android:background="@drawable/rectangle_radius_6_border_gray81"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@id/imageBack"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
                     android:id="@+id/imageSearch"
@@ -68,6 +70,7 @@
                     android:fontFamily="@font/pretendard_bold"
                     android:hint="@string/searchDetailHint"
                     android:inputType="textPersonName"
+                    android:text="@={viewModel.searchingWord}"
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +93,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
+            android:id="@+id/searchFragmentContainerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
