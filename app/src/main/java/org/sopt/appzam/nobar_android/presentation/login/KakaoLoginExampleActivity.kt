@@ -27,6 +27,15 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
         }
         binding.buttonLogout.setOnClickListener { logout() }
         binding.buttonUnlink.setOnClickListener { unlink() }
+        binding.buttonMe.setOnClickListener {
+            UserApiClient.instance.me { user, error ->
+                if (user == null) {
+                    error?.printStackTrace()
+                    return@me
+                }
+                Log.d("MalibinDebug", "user : $user")
+            }
+        }
 
         UserApiClient.instance
     }
@@ -56,7 +65,7 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
 
     private fun onLogin(oAuthToken: OAuthToken?, loginError: Throwable?) {
         if (oAuthToken != null) {
-            getUserInformation()
+            getUserInformation(oAuthToken)
             return
         }
         if (loginError is AuthError) {
@@ -65,21 +74,22 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
         loginError?.printStackTrace()
     }
 
-    private fun getUserInformation() {
+    private fun getUserInformation(oAuthToken: OAuthToken) {
         UserApiClient.instance.me { user, error ->
             if (user == null) {
                 error?.printStackTrace()
                 return@me
             }
-            onLoginSuccess(user)
+            onLoginSuccess(oAuthToken, user)
         }
     }
 
-    private fun onLoginSuccess(user: User) {
+    private fun onLoginSuccess(oAuthToken: OAuthToken, user: User) {
         val id: Long = user.id
         val nickname: String = user.kakaoAccount?.profile?.nickname ?: error("nickname cannot be null")
         val profileImageUrl: String? = user.kakaoAccount?.profile?.profileImageUrl
         val thumbnailImageUrl: String? = user.kakaoAccount?.profile?.thumbnailImageUrl
+        user.hasSignedUp
 
         loginViewModel.login()
     }
