@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,18 +22,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
         initSpinnerAdapter()
         setupSpinnerHandler()
+        clickSearchBar()
         return binding.root
     }
 
     private fun initSpinnerAdapter() {
         val sorts = resources.getStringArray(R.array.spinner)
         val sortList = ArrayList<String>()
-
         for (i in sorts.indices) {
             val sort = sorts[i]
             sortList.add(sort)
         }
-
         spinnerAdapter = SpinnerAdapter(requireContext(), R.layout.item_spinner, sortList)
         binding.spinner.adapter = spinnerAdapter
     }
@@ -51,6 +51,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
+        }
+    }
+
+    private fun clickSearchBar() {
+        binding.editSearch.setOnClickListener {
+            val intent = Intent(requireActivity(), SearchDetailActivity::class.java)
+            startActivity(intent)
         }
     }
 }
