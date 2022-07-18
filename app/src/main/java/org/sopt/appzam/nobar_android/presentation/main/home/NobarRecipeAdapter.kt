@@ -14,7 +14,6 @@ import org.sopt.appzam.nobar_android.databinding.ItemHomeNobarRecipeBinding
 
 class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     ListAdapter<NobarRecipeResponse, NobarRecipeAdapter.NobarRecipeViewHolder>(NobarRecipeComparator()) {
-    val nobarRecipeList = mutableListOf<NobarRecipeResponse>()
 
     class NobarRecipeViewHolder(private val binding: ItemHomeNobarRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -37,11 +36,7 @@ class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     }
 
     override fun onBindViewHolder(holder: NobarRecipeViewHolder, position: Int) {
-        holder.onBind(nobarRecipeList[position], randomIntList[position])
-    }
-
-    override fun getItemCount(): Int {
-        return nobarRecipeList.size
+        holder.onBind(getItem(position), randomIntList[position])
     }
 
     class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipeResponse>() {
@@ -49,7 +44,7 @@ class NobarRecipeAdapter(private val randomIntList: List<Int>) :
             oldItem: NobarRecipeResponse,
             newItem: NobarRecipeResponse
         ): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(
             oldItem: NobarRecipeResponse,
