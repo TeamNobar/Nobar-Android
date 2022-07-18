@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.TranslateAnimation
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse
@@ -26,6 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.onCreateView(inflater, container, savedInstanceState)
 
         onRefresh()
+
         return binding.root
     }
 
@@ -40,7 +43,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             )
         )
         initAdapter()
+        scrollChange()
+
+
+        /*val ScrollViewListener =
+            NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+                if (scrollY > oldScrollY) { //아래로 스크롤
+                    // binding.btn.animation = anim
+                    binding.viewLine.visibility = View.VISIBLE
+                }
+
+                if (scrollY + 5 < oldScrollY) { //위로 스크롤
+                    binding.viewLine.visibility = View.GONE
+                }
+
+            }
+
+        NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY > oldScrollY) { //아래로 스크롤
+                val anim = TranslateAnimation(0f, binding.scrollView.width.toFloat(), 0f, 0f)
+                anim.duration = 100
+                // binding.btn.animation = anim
+                binding.viewLine.visibility = View.VISIBLE
+
+            }
+
+            if (scrollY + 5 < oldScrollY) { //위로 스크롤
+                val anim =
+                    TranslateAnimation(binding.scrollView.width.toFloat() + 1000, 0f, 0f, 0f)
+                anim.duration = 100
+                //binding.btn.animation = anim
+                binding.viewLine.visibility = View.GONE
+            }
+        }*/
     }
+
 
     private fun onRefresh() {
         binding.layoutRefresh.setOnRefreshListener {
@@ -64,7 +101,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             var num = Random.nextInt(0, 5)
             if (randomIntList.contains(num))
                 continue
-            else{
+            else {
                 randomIntList.add(num)
             }
 
@@ -81,5 +118,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.recyclerNobarRecipe.adapter = nobarRecipeAdapter
         nobarRecipeAdapter.submitList(nobarRecipeList)
     }
+
+    private fun scrollChange(){
+        binding.scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if(binding.scrollView.scrollY==0)
+                binding.viewLine.visibility = View.GONE
+            else
+                binding.viewLine.visibility = View.VISIBLE
+        }
+    }
+
 
 }
