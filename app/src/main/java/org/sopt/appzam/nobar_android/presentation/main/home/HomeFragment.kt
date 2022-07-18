@@ -44,38 +44,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
         initAdapter()
         scrollChange()
-
-
-        /*val ScrollViewListener =
-            NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                if (scrollY > oldScrollY) { //아래로 스크롤
-                    // binding.btn.animation = anim
-                    binding.viewLine.visibility = View.VISIBLE
-                }
-
-                if (scrollY + 5 < oldScrollY) { //위로 스크롤
-                    binding.viewLine.visibility = View.GONE
-                }
-
-            }
-
-        NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            if (scrollY > oldScrollY) { //아래로 스크롤
-                val anim = TranslateAnimation(0f, binding.scrollView.width.toFloat(), 0f, 0f)
-                anim.duration = 100
-                // binding.btn.animation = anim
-                binding.viewLine.visibility = View.VISIBLE
-
-            }
-
-            if (scrollY + 5 < oldScrollY) { //위로 스크롤
-                val anim =
-                    TranslateAnimation(binding.scrollView.width.toFloat() + 1000, 0f, 0f, 0f)
-                anim.duration = 100
-                //binding.btn.animation = anim
-                binding.viewLine.visibility = View.GONE
-            }
-        }*/
     }
 
 
