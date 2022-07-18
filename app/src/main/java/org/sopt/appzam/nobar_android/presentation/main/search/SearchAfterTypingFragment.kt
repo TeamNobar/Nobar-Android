@@ -1,11 +1,14 @@
 package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchAfterTypingBinding
+import org.sopt.appzam.nobar_android.databinding.ItemSearchPreviewBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 
 class SearchAfterTypingFragment :
@@ -40,6 +43,7 @@ class SearchAfterTypingFragment :
                 tmpList.add(dummyList.get(i))
             }
         }
+        adapter.findText=text
         adapter.submitList(tmpList)
     }
 
