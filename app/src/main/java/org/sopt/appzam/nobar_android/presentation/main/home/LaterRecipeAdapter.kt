@@ -10,7 +10,6 @@ import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 
 class LaterRecipeAdapter :
     ListAdapter<RecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeComparator()) {
-    private val laterRecipeList = mutableListOf<RecipeResponse>()
 
     class LaterRecipeViewHolder(private val binding: ItemHomeLaterRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,7 +25,7 @@ class LaterRecipeAdapter :
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
-        holder.onBind(laterRecipeList[position])
+        holder.onBind(getItem(position))
     }
 
     class LaterRecipeComparator : DiffUtil.ItemCallback<RecipeResponse>() {
@@ -34,7 +33,7 @@ class LaterRecipeAdapter :
             oldItem: RecipeResponse,
             newItem: RecipeResponse
         ): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(
             oldItem: RecipeResponse,

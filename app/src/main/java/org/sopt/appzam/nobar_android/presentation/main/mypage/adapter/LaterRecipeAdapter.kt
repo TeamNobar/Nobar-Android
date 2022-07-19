@@ -12,7 +12,6 @@ class LaterRecipeAdapter :
     ListAdapter<MyPageLaterRecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(
         LaterRecipeDiffUtil()
     ) {
-    private val laterRecipeList = mutableListOf<MyPageLaterRecipeResponse>()
 
     class LaterRecipeViewHolder(private val binding: ItemMyPageLaterRecipeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -34,7 +33,7 @@ class LaterRecipeAdapter :
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
-        holder.onBind(laterRecipeList[position])
+        holder.onBind(getItem(position))
     }
 
     class LaterRecipeDiffUtil : DiffUtil.ItemCallback<MyPageLaterRecipeResponse>() {
@@ -42,7 +41,7 @@ class LaterRecipeAdapter :
             oldItem: MyPageLaterRecipeResponse,
             newItem: MyPageLaterRecipeResponse
         ): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(
             oldItem: MyPageLaterRecipeResponse,

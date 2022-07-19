@@ -9,7 +9,6 @@ import org.sopt.appzam.nobar_android.databinding.ItemMyPageTastingTagBinding
 
 class TastingNoteTagAdapter :
     ListAdapter<String, TastingNoteTagAdapter.TastingTagViewHolder>(TastingNoteTagComparator()) {
-    val tastingTagList = mutableListOf<String>()
 
     class TastingTagViewHolder(private val binding: ItemMyPageTastingTagBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +24,7 @@ class TastingNoteTagAdapter :
     }
 
     override fun onBindViewHolder(holder: TastingTagViewHolder, position: Int) {
-        holder.onBind(tastingTagList[position])
+        holder.onBind(getItem(position))
     }
 
     class TastingNoteTagComparator : DiffUtil.ItemCallback<String>() {
