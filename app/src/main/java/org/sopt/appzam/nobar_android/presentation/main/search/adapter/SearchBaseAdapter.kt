@@ -1,22 +1,39 @@
-package org.sopt.appzam.nobar_android.presentation.main.search
+package org.sopt.appzam.nobar_android.presentation.main.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel
 import org.sopt.appzam.nobar_android.databinding.ItemSearchBaseBinding
 
-class SearchBaseAdapter :
+class SearchBaseAdapter(private val itemClick: (String) -> Unit) :
     ListAdapter<BaseModel, SearchBaseAdapter.SearchBaseViewHolder>(SearchBaseComparator()) {
+    var selectedPosition: Int = -1
+    var exSelectedPosition: Int = -1
 
-    class SearchBaseViewHolder(private val binding: ItemSearchBaseBinding) :
+    inner class SearchBaseViewHolder(private val binding: ItemSearchBaseBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: BaseModel) {
             binding.model = data
-            Glide.with(binding.imageBase).load(data.url).into(binding.imageBase)
+
+            if (itemView.isSelected)
+                binding.cardView.strokeWidth = 2
+            else
+                binding.cardView.strokeWidth = 0
+
+            itemView.setOnClickListener {
+                val position: Int = adapterPosition
+                if (position != selectedPosition) {
+                    itemClick(data.name)
+
+                    exSelectedPosition = selectedPosition
+                    selectedPosition = position
+                    notifyItemChanged(exSelectedPosition)
+                    notifyItemChanged(selectedPosition)
+                }
+            }
         }
     }
 
@@ -38,6 +55,9 @@ class SearchBaseAdapter :
     }
 
     override fun onBindViewHolder(holder: SearchBaseViewHolder, position: Int) {
+        holder.itemView.isSelected = (selectedPosition == position)
+        if (exSelectedPosition == position)
+            holder.itemView.isSelected = false
         holder.onBind(getItem(position))
     }
 }

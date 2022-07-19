@@ -2,28 +2,68 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchBaseAdapter
+import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SpinnerAdapter
+import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchViewModel
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
     private lateinit var spinnerAdapter: SpinnerAdapter
+    private lateinit var baseAdapter: SearchBaseAdapter
+    private val searchViewModel: SearchViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        //base tag
+        getBaseList()
+        initBaseAdapter()
+        observingBaseTagList()
+
+        //search result
+        initSearchResultAdapter()
+        observingSearchingResult()
+
+        //spinner
         initSpinnerAdapter()
         setupSpinnerHandler()
+
         clickSearchBar()
-        return binding.root
+    }
+
+    private fun getBaseList(){
+        searchViewModel.initBaseNetwork()
+    }
+
+    private fun initBaseAdapter() {
+        baseAdapter = SearchBaseAdapter { baseItemClick(it) }
+        binding.recyclerBase.adapter = baseAdapter
+    }
+
+    private fun baseItemClick(base: String) {
+        searchViewModel.initBaseSearchNetwork(base)
+    }
+
+    private fun observingBaseTagList() {
+        searchViewModel.baseTagList.observe(viewLifecycleOwner) {
+            baseAdapter.submitList(it)
+        }
+    }
+
+    private fun initSearchResultAdapter(){
+        //어댑터 초기화
+    }
+
+    private fun observingSearchingResult(){
+        searchViewModel.baseSearchResultList.observe(viewLifecycleOwner){
+            //어댑터에 submitlist
+        }
     }
 
     private fun initSpinnerAdapter() {
