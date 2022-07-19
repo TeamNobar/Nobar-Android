@@ -2,15 +2,14 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.util.Log
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.ActivitySearchDetailBinding
-import org.sopt.appzam.nobar_android.databinding.ItemSearchPreviewBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseActivity
+import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchDetailViewModel
 
 class SearchDetailActivity :
     BaseActivity<ActivitySearchDetailBinding>(R.layout.activity_search_detail) {
@@ -25,6 +24,25 @@ class SearchDetailActivity :
             .add(R.id.searchFragmentContainerView, SearchBeforeTypingFragment()).commit()
 
         observingWord()
+        clickEnter()
+    }
+
+    private fun clickEnter() {
+        binding.editSearch.setOnEditorActionListener { v, actionId, event ->
+            var handled = false
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                searchDetailViewModel.visibility.value = true
+                hideKeyboard(binding.editSearch)
+                handled = true
+            }
+            handled
+        }
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun observingWord() {
@@ -37,9 +55,10 @@ class SearchDetailActivity :
         }
     }
 
-    private fun focusEditText(){
-        binding.editSearch.focusable=1
-        val inputMethodManager = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    private fun focusEditText() {
+        binding.editSearch.focusable = 1
+        val inputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(binding.editSearch, 0)
     }
 
@@ -58,6 +77,5 @@ class SearchDetailActivity :
             whichFragment = 0
         }
     }
-
 
 }
