@@ -10,22 +10,27 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemSearchPreviewBinding
 
-class SearchAfterAdapter : ListAdapter<RecipeResponse, SearchAfterAdapter.SearchAfterViewHolder>(SearchAfterComparator()) {
+class SearchAfterAdapter(private val itemClick: () -> Unit) :
+    ListAdapter<RecipeResponse, SearchAfterAdapter.SearchAfterViewHolder>(SearchAfterComparator()) {
     var findText = ""
 
-    class SearchAfterViewHolder(private val binding : ItemSearchPreviewBinding):RecyclerView.ViewHolder(binding.root){
-        fun onBind(text : SpannableStringBuilder){
-            binding.textName.text=text
+    class SearchAfterViewHolder(private val binding: ItemSearchPreviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(text: SpannableStringBuilder, itemClick: () -> Unit) {
+            binding.textName.text = text
+            itemView.setOnClickListener {
+                itemClick()
+            }
         }
     }
 
-    class SearchAfterComparator():DiffUtil.ItemCallback<RecipeResponse>(){
+    class SearchAfterComparator() : DiffUtil.ItemCallback<RecipeResponse>() {
         override fun areItemsTheSame(oldItem: RecipeResponse, newItem: RecipeResponse): Boolean {
-            return oldItem.id==newItem.id
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: RecipeResponse, newItem: RecipeResponse): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
     }
 
@@ -36,14 +41,19 @@ class SearchAfterAdapter : ListAdapter<RecipeResponse, SearchAfterAdapter.Search
     }
 
     override fun onBindViewHolder(holder: SearchAfterViewHolder, position: Int) {
-        holder.onBind(makeBold(getItem(position).name, findText))
+        holder.onBind(makeBold(getItem(position).name, findText), itemClick)
     }
 
-    fun makeBold(fulltext: String, findText: String) : SpannableStringBuilder {
+    fun makeBold(fulltext: String, findText: String): SpannableStringBuilder {
         val str = SpannableStringBuilder(fulltext)
         val startInt = fulltext.indexOf(findText)
         val endInt = startInt + findText.length
-        str.setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), startInt, endInt, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+        str.setSpan(
+            android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+            startInt,
+            endInt,
+            Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+        )
         return str
     }
 }
