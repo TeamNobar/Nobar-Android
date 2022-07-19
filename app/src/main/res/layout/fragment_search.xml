@@ -97,8 +97,8 @@
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:layout_marginTop="39dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
             android:background="@color/grayDD"
             app:layout_constraintTop_toBottomOf="@id/recyclerBase" />
 
@@ -124,6 +124,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
