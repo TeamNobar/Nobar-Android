@@ -8,6 +8,8 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchAfterTypingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchAfterAdapter
+import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchDetailViewModel
 import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 
 class SearchAfterTypingFragment :
