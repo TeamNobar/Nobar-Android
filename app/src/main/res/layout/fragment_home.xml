@@ -67,31 +67,18 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textSubTitle1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
-                        android:fontFamily="@font/pretendard_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/homeSubTitle1"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
                         android:id="@+id/textLaterRecipe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="24dp"
                         android:fontFamily="@font/pretendard_black"
                         android:includeFontPadding="false"
                         android:text="@string/homeLaterRecipe"
                         android:textColor="@color/navy000782"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textSubTitle1" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textAllSee"
@@ -184,31 +171,18 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
-                        android:id="@+id/textSubTitle2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
-                        android:fontFamily="@font/pretendard_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/homeSubTitle2"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLaterRecipe" />
-
-                    <TextView
                         android:id="@+id/textGuide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="24dp"
                         android:fontFamily="@font/pretendard_black"
                         android:includeFontPadding="false"
                         android:text="@string/homeGuide"
                         android:textColor="@color/navy000782"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textSubTitle2"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLaterRecipe"
                         app:layout_goneMarginTop="24dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -227,31 +201,18 @@
                         tools:listitem="@layout/item_home_guide" />
 
                     <TextView
-                        android:id="@+id/textSubTitle3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
-                        android:fontFamily="@font/pretendard_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/homeSubTitle3"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/recyclerGuide" />
-
-                    <TextView
                         android:id="@+id/textNobarPickRecipe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="32dp"
                         android:fontFamily="@font/pretendard_black"
                         android:includeFontPadding="false"
                         android:text="@string/homeNobarPick"
                         android:textColor="@color/navy000782"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textSubTitle3"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerGuide"
                         app:layout_goneMarginTop="24dp" />
 
                     <androidx.recyclerview.widget.RecyclerView

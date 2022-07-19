@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="4dp"
         android:background="@drawable/home_navy_box4"
-        android:paddingVertical="20dp">
+        android:paddingVertical="16dp">
 
         <TextView
             android:id="@+id/textName"
@@ -29,14 +29,19 @@
             android:text="@{nobarRecipeItem.title}"
             android:textColor="@color/white"
             android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="177dp"
             tools:text="제목을 입력하세요 입력입력입력입력입력입력입력입력입력입력입력입력" />
-
-
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textName"
+            android:text="@string/homeGuideRecipeSee"
+            android:textColor="@color/skyBlueAAABBE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

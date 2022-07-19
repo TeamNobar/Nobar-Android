@@ -76,11 +76,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
 
         var nobarRecipeList = listOf(
-            NobarRecipeResponse("1213", "블루하와이 마셔봤니?              편의점에서 간편하게 재료 겟!", "sdjfkds"),
-            NobarRecipeResponse("122", "디자이너를 힘들게 하는 긴 이름 스트로베리 레몬 그라스 어쩌구", "sd22jfkds"),
-            NobarRecipeResponse("1121", "연인과 함께 마셔봐                  섹시 마일드", "안녕하세요"),
-            NobarRecipeResponse("11", "집에 남은 소주 어떻게 하려고? 그래서 준비했어 소주 라떼", "s하앙른일s"),
-            NobarRecipeResponse("111", "모히또에서 몰디브 한 잔           에서 그 모히또", "sdjfkdsㅁㄴㄹㄴㅇㅁㄹㄴ")
+            NobarRecipeResponse("1213", "블루하와이 마셔봤니?              편의점에서 간편하게 재료 겟!", "sdjfkds",1),
+            NobarRecipeResponse("122", "디자이너를 힘들게 하는 긴 이름 스트로베리 레몬 그라스 어쩌구", "sd22jfkds",2),
+            NobarRecipeResponse("1121", "연인과 함께 마셔봐                  섹시 마일드", "안녕하세요",3),
+            NobarRecipeResponse("11", "집에 남은 소주 어떻게 하려고? 그래서 준비했어 소주 라떼", "s하앙른일s",4),
+            NobarRecipeResponse("111", "모히또에서 몰디브 한 잔           에서 그 모히또", "sdjfkdsㅁㄴㄹㄴㅇㅁㄹㄴ",23)
         )
         nobarRecipeAdapter = NobarRecipeAdapter(randomIntList)
         binding.recyclerNobarRecipe.adapter = nobarRecipeAdapter
