@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.presentation.main.search
+package org.sopt.appzam.nobar_android.presentation.main.search.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.presentation.main.search
+package org.sopt.appzam.nobar_android.presentation.main.search.adapter
 
 import android.text.Spannable
 import android.text.SpannableStringBuilder
