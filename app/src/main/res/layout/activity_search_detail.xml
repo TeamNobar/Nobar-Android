@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="model"
-            type="org.sopt.appzam.nobar_android.data.remote.response.SearchDetailResponse" />
+            name="viewModel"
+            type="org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,8 +45,10 @@
                 android:background="@drawable/rectangle_radius_6_border_gray81"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@id/imageBack"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
                     android:id="@+id/imageSearch"
@@ -62,18 +64,22 @@
                     android:id="@+id/editSearch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:layout_marginStart="8dp"
                     android:background="@null"
                     android:fontFamily="@font/pretendard_bold"
                     android:hint="@string/searchDetailHint"
                     android:inputType="textPersonName"
+                    android:paddingVertical="10dp"
+                    android:paddingStart="8dp"
+                    android:text="@={viewModel.searchingWord}"
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
+                    android:theme="@style/EditTextStyle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/imageX"
                     app:layout_constraintStart_toEndOf="@id/imageSearch"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+                    <requestFocus/>
+                </EditText>
 
                 <ImageView
                     android:id="@+id/imageX"
@@ -85,12 +91,13 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
+            android:id="@+id/searchFragmentContainerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
