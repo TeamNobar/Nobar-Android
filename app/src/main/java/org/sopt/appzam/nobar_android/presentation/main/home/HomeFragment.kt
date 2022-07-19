@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.recyclerToDoRecipe.addItemDecoration(
             ItemDecoration(
                 R.dimen.margin8,
-                R.dimen.margin8,
+                R.dimen.margin9,
                 2
             )
         )

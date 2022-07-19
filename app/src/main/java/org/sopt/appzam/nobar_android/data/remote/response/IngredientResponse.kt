@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.data.remote.response.common
+package org.sopt.appzam.nobar_android.data.remote.response
 
 data class IngredientResponse(
     val id : String,

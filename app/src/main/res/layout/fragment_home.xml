@@ -178,7 +178,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:spanCount="2"
                             tools:itemCount="4"
-                            tools:listitem="@layout/item_home_later_recipe">
+                            tools:listitem="@layout/item_search_result">
 
                         </androidx.recyclerview.widget.RecyclerView>
                     </androidx.constraintlayout.widget.ConstraintLayout>
