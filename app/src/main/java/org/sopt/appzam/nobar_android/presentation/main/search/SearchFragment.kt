@@ -9,6 +9,7 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchBaseAdapter
+import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchResultAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SpinnerAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchViewModel
 
@@ -16,6 +17,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     private lateinit var spinnerAdapter: SpinnerAdapter
     private lateinit var baseAdapter: SearchBaseAdapter
+    private lateinit var searchResultAdapter : SearchResultAdapter
     private val searchViewModel: SearchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,12 +59,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private fun initSearchResultAdapter(){
-        //어댑터 초기화
+        searchResultAdapter= SearchResultAdapter()
+        binding.recyclerResult.adapter=searchResultAdapter
     }
 
     private fun observingSearchingResult(){
         searchViewModel.baseSearchResultList.observe(viewLifecycleOwner){
-            //어댑터에 submitlist
+            searchResultAdapter.submitList(it)
         }
     }
 
