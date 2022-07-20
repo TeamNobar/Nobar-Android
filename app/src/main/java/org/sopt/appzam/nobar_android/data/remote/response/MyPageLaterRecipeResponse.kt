@@ -1,14 +1,20 @@
 package org.sopt.appzam.nobar_android.data.remote.response
 
+import org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel
+import org.sopt.appzam.nobar_android.data.remote.response.common.GlassModel
+import org.sopt.appzam.nobar_android.data.remote.response.common.IngredientDetailModel
+import org.sopt.appzam.nobar_android.data.remote.response.common.SkillModel
+
 data class MyPageLaterRecipeResponse(
     val id : String,
     val name : String,
     val enName : String,
-    val version : List<String>,
-    val base : String,
+    val base : BaseModel,
     val proof : Int,
-    val skill : String,
-    val glass : String,
-    val ingredients : String,
-    val steps : List<String>
+    val skill : SkillModel,
+    val glass : GlassModel,
+    val ingredients : List<IngredientDetailModel>,
+    val steps : List<String>,
+    val defaultRecipe : String?,
+    val proofIcon : String
 )
