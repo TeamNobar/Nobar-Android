@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:ems="15"
-            android:fontFamily="@font/pretendard_bold"
+            android:fontFamily="@font/pretendard_semibold"
             android:maxLines="2"
             android:text="@{nobarRecipeItem.title}"
-            android:textColor="@color/white"
+            android:textColor="@color/grayFB"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
             android:textColor="@color/skyBlueAAABBE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/pretendard_medium"
             android:layout_marginStart="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
