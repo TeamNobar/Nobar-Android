@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin8">8dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp0">0dp</dimen>
 
 </resources>
