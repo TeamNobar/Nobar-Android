@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import org.sopt.appzam.nobar_android.data.remote.response.BaseResponse
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.data.remote.response.SearchResultResponse
-import org.sopt.appzam.nobar_android.data.remote.response.api.ServiceCreator
+import org.sopt.appzam.nobar_android.data.remote.api.ServiceCreator
 import org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package org.sopt.appzam.nobar_android.data.remote.response.api
+package org.sopt.appzam.nobar_android.data.remote.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
