@@ -41,13 +41,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerToDoRecipe.addItemDecoration(
+        /*binding.recyclerToDoRecipe.addItemDecoration(
             ItemDecoration(
-                R.dimen.margin8,
+                R.dimen.margin4,
                 R.dimen.margin9,
                 2
             )
-        )
+        )*/
+
+        laterAdapter()
         initAdapter()
         guideAdapter()
         scrollChange()
@@ -67,10 +69,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun laterAdapter(){
         val laterRecipeList = listOf(
-            RecipeResponse("안","so",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
-            RecipeResponse("안","so",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
-            RecipeResponse("안","so",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
-            RecipeResponse("안","so",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s"))
+            RecipeResponse("dd안d","ssso",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
+            RecipeResponse("안sd","sos",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
+            RecipeResponse("sd안","sdso",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s")),
+            RecipeResponse("안df","sddo",BaseModel("dkd","s"),1,SkillModel("d","sd"), GlassModel("dsa","s"))
         )
         laterRecipeAdapter = LaterRecipeAdapter()
         binding.recyclerToDoRecipe.adapter = laterRecipeAdapter

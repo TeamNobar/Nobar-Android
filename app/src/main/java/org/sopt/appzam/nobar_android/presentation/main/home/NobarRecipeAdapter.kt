@@ -28,20 +28,15 @@ class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NobarRecipeViewHolder {
-        Log.d("에에에에에에", currentList.toString())
         val binding =
             ItemHomeNobarRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NobarRecipeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NobarRecipeViewHolder, position: Int) {
-        Log.d("에에에에에에","current${position}")
         holder.onBind(getItem(position), randomIntList[position])
     }
 
-    override fun getItemCount(): Int {
-        return currentList.size
-    }
 
     class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipeResponse>() {
         override fun areItemsTheSame(

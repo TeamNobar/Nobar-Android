@@ -28,12 +28,10 @@ class LaterRecipeAdapter :
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
+        Log.d("sflksdj",position.toString())
         holder.onBind(getItem(position))
     }
 
-    override fun getItemCount(): Int {
-        return currentList.size
-    }
 
     class LaterRecipeComparator : DiffUtil.ItemCallback<RecipeResponse>() {
         override fun areItemsTheSame(
