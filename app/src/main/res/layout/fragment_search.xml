@@ -49,11 +49,11 @@
                     android:id="@+id/editSearch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="10dp"
-                    android:paddingStart="8dp"
                     android:background="@null"
                     android:fontFamily="@font/pretendard_semibold"
                     android:hint="@string/searchHint"
+                    android:paddingVertical="10dp"
+                    android:paddingStart="8dp"
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -97,8 +97,8 @@
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:layout_marginTop="39dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
             android:background="@color/grayDD"
             app:layout_constraintTop_toBottomOf="@id/recyclerBase" />
 
@@ -117,18 +117,22 @@
                     android:id="@+id/spinner"
                     android:layout_width="68dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
                     android:background="@drawable/rectangle_spinner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
+                    android:id="@+id/recyclerResult"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="8dp"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spinner"
                     app:spanCount="2"
                     tools:listitem="@layout/item_search_result" />
