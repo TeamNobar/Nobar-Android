@@ -2,6 +2,7 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -19,12 +20,18 @@ class SearchDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = searchDetailViewModel
+        getKeywords()
         focusEditText()
         supportFragmentManager.beginTransaction()
             .add(R.id.searchFragmentContainerView, SearchBeforeTypingFragment()).commit()
 
         observingWord()
         clickEnter()
+    }
+
+    private fun getKeywords() {
+        Log.d("server", "여기서 서버통신")
+        searchDetailViewModel.initSearchDetailNetwork()
     }
 
     private fun clickEnter() {

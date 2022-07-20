@@ -8,7 +8,7 @@ import org.sopt.appzam.nobar_android.data.remote.response.common.SkillModel
 data class RecipeResponse(
     val id : String,
     val name : String,
-    /*val enName : String,
+    val enName : String,
     val version : List<String>,
     val base : BaseModel,
     val proof : Int,
@@ -17,5 +17,5 @@ data class RecipeResponse(
     val ingredients : List<IngredientDetailModel>,
     val steps : List<String>,
     val defaultRecipe : String,
-    val proofIcon : String*/
+    val proofIcon : String
 )

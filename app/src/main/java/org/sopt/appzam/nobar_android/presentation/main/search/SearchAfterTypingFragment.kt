@@ -22,7 +22,6 @@ class SearchAfterTypingFragment :
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = searchDetailViewModel
         initAdapter()
-        initDummy()
         observingWord()
     }
 
@@ -52,18 +51,5 @@ class SearchAfterTypingFragment :
         }
         adapter.findText = text
         adapter.submitList(tmpList)
-    }
-
-    private fun initDummy() {
-        dummyList = ArrayList()
-        dummyList.addAll(
-            listOf(
-                RecipeResponse("0", "피치 크러시"),
-                RecipeResponse("1", "크피치 러시"),
-                RecipeResponse("2", "크러피 치시"),
-                RecipeResponse("3", "크러시피치"),
-                RecipeResponse("3", "응 아니야"),
-            )
-        )
     }
 }
