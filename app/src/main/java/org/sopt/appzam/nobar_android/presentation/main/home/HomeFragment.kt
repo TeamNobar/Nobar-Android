@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.TranslateAnimation
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
@@ -101,7 +103,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             var num = Random.nextInt(0, 5)
             if (randomIntList.contains(num))
                 continue
-            else{
+            else {
                 randomIntList.add(num)
             }
 
