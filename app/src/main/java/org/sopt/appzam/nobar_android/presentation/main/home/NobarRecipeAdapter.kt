@@ -1,8 +1,5 @@
 package org.sopt.appzam.nobar_android.presentation.main.home
 
-import android.content.Context
-import android.content.res.ColorStateList
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

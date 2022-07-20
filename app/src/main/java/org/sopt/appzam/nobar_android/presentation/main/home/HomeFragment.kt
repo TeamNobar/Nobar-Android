@@ -3,7 +3,6 @@ package org.sopt.appzam.nobar_android.presentation.main.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +33,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerToDoRecipe.addItemDecoration(
             ItemDecoration(
-                R.dimen.margin8,
-                R.dimen.margin8,
+                R.dimen.dp8,
+                R.dimen.dp8,
                 2
             )
         )
@@ -61,7 +60,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val randomIntList = mutableListOf<Int>()
         randomIntList.clear()
         while (randomIntList.count() < 5) {
-            var num = Random.nextInt(0, 5)
+            val num = Random.nextInt(0, 5)
             if (randomIntList.contains(num))
                 continue
             else{
@@ -70,7 +69,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         }
 
-        var nobarRecipeList = listOf(
+        val nobarRecipeList = listOf(
             NobarRecipeResponse("1213", "블루하와이 마셔봤니?              편의점에서 간편하게 재료 겟!", "sdjfkds"),
             NobarRecipeResponse("122", "디자이너를 힘들게 하는 긴 이름 스트로베리 레몬 그라스 어쩌구", "sd22jfkds"),
             NobarRecipeResponse("1121", "연인과 함께 마셔봐                  섹시 마일드", "안녕하세요"),
