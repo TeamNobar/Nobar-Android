@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageRecipeBinding
 
 class LaterRecipeTagAdapter : ListAdapter<String, LaterRecipeTagAdapter.LaterRecipeViewHolder>(LaterRecipeTagComparator()){
-    val laterRecipeList = mutableListOf<String>()
     class LaterRecipeViewHolder(private val binding : ItemMyPageRecipeBinding) : RecyclerView.ViewHolder(binding.root){
         fun onBind(data : String){
             binding.textTag.text = data
@@ -21,7 +20,7 @@ class LaterRecipeTagAdapter : ListAdapter<String, LaterRecipeTagAdapter.LaterRec
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
-        holder.onBind(laterRecipeList[position])
+        holder.onBind(getItem(position))
     }
 
     class LaterRecipeTagComparator : DiffUtil.ItemCallback<String>() {

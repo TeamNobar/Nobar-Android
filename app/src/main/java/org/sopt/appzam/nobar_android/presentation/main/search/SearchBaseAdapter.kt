@@ -16,7 +16,7 @@ class SearchBaseAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: BaseModel) {
             binding.model = data
-            Glide.with(binding.imageBase).load(data.url).into(binding.imageBase)
+            Glide.with(binding.imageBase).load(data.id).into(binding.imageBase)
         }
     }
 
