@@ -8,6 +8,8 @@
         <variable
             name="viewModel"
             type="org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchDetailViewModel" />
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,7 +80,8 @@
                     app:layout_constraintEnd_toStartOf="@id/imageX"
                     app:layout_constraintStart_toEndOf="@id/imageSearch"
                     app:layout_constraintTop_toTopOf="parent">
-                    <requestFocus/>
+
+                    <requestFocus />
                 </EditText>
 
                 <ImageView
@@ -87,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/ic_small_x"
-                    android:visibility="gone"
+                    android:visibility="@{viewModel.visibility ? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

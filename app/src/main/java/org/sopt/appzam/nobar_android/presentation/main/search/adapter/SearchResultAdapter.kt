@@ -14,7 +14,7 @@ class SearchResultAdapter() :
     class SearchResultViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: RecipeResponse) {
-            binding.model=data
+            binding.searchResultItem = data
         }
     }
 
@@ -30,7 +30,7 @@ class SearchResultAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ItemSearchResultBinding.inflate(layoutInflater)
+        val binding = ItemSearchResultBinding.inflate(layoutInflater, parent, false)
         return SearchResultViewHolder(binding)
     }
 

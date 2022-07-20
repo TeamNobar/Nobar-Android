@@ -2,7 +2,6 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -30,7 +29,6 @@ class SearchDetailActivity :
     }
 
     private fun getKeywords() {
-        Log.d("server", "여기서 서버통신")
         searchDetailViewModel.initSearchDetailNetwork()
     }
 
@@ -38,13 +36,30 @@ class SearchDetailActivity :
         binding.editSearch.setOnEditorActionListener { v, actionId, event ->
             var handled = false
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                searchDetailViewModel.visibility.value = true
+                searchDetailViewModel.visibility.value = false
                 hideKeyboard(binding.editSearch)
                 handled = true
             }
             handled
         }
     }
+
+    /*private fun store2Pref(str : String){
+        val list = ArrayList<String>()
+        SearchSharedPreferences.init(this, RECENT)
+        list = SearchSharedPreferences.getStringArrayPref(this, RECENT)
+        SearchSharedPreferences.setStringArrayPref(this, )
+
+    }*/
+
+    /*fun parseData(key: String): ArrayList<String> {
+        val tmpModel = searchKeyRecipe.value
+        val tmpList = ArrayList<String>()
+        for (i in 0..tmpModel!!.size) {
+            tmpList.add(tmpModel.get(i).name)
+        }
+        return tmpList
+    }*/
 
     private fun hideKeyboard(view: View) {
         val inputMethodManager =
@@ -56,8 +71,10 @@ class SearchDetailActivity :
         searchDetailViewModel.searchingWord.observe(this) {
             if (!it.isNullOrBlank()) {
                 change2AfterFragment()
+                searchDetailViewModel.visibility.value = true
             } else {
                 change2BeforeFragment()
+                searchDetailViewModel.visibility.value = false
             }
         }
     }
@@ -85,4 +102,7 @@ class SearchDetailActivity :
         }
     }
 
+    companion object {
+        private const val RECENT = "RECENT"
+    }
 }
