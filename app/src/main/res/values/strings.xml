@@ -65,4 +65,6 @@
     <string name="tastingNoteYourExperience">당신의 경험을 기억하고 싶어요</string>
     <string name="tastingNoteWriteEvaluation">맛에 대한 주관적인 평가를 적어주세요</string>
     <string name="tastingNoteWriteExperience">칵테일을 만들면서, 마시면서 있었던 모든 경험을\n이곳에서 기억해보세요</string>
+    <string name="homeGuideRecipeSee">레시피 보기</string>
 </resources>
+

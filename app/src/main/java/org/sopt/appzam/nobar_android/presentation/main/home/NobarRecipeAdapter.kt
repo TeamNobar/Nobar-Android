@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -35,6 +36,7 @@ class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     override fun onBindViewHolder(holder: NobarRecipeViewHolder, position: Int) {
         holder.onBind(getItem(position), randomIntList[position])
     }
+
 
     class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipeResponse>() {
         override fun areItemsTheSame(
