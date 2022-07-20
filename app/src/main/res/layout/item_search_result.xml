@@ -1,104 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rectangle_radius_5_border_graydd"
-    android:elevation="2dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textKoreanName"
-        android:layout_width="wrap_content"
+    <data>
+        <variable
+            name="searchResultItem"
+            type="org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/pretendard_bold"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/textEnglishName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="피치 크러쉬" />
+        android:background="@drawable/rectangle_radius_5_border_graydd"
+        android:elevation="2dp">
 
-    <TextView
-        android:id="@+id/textEnglishName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/pretendard_light"
-        android:textColor="@color/gray81"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/textBase"
-        app:layout_constraintStart_toStartOf="@+id/textKoreanName"
-        app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
-        tools:text="Peach Crush" />
+        <TextView
+            android:id="@+id/textKoreanName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/textEnglishName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="@{searchResultItem.name}"
+            tools:text="피치 크러쉬" />
 
-    <TextView
-        android:id="@+id/textBase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="7dp"
-        android:background="@drawable/rectangle_radius_100_border_graydd"
-        android:fontFamily="@font/pretendard_medium"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="3dp"
-        android:textColor="@color/black"
-        android:textSize="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/textEnglishName"
-        app:layout_constraintTop_toBottomOf="@id/textEnglishName"
-        tools:text="보드카" />
+        <TextView
+            android:id="@+id/textEnglishName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/pretendard_light"
+            android:textColor="@color/gray81"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/textBase"
+            app:layout_constraintStart_toStartOf="@+id/textKoreanName"
+            app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
+            android:text="@{searchResultItem.enName}"
+            tools:text="Peach Crush" />
 
-    <TextView
-        android:id="@+id/textProof"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:background="@drawable/rectangle_radius_100_border_graydd"
-        android:fontFamily="@font/pretendard_medium"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="3dp"
-        android:textColor="@color/redEB5757"
-        android:textSize="9dp"
-        app:layout_constraintBottom_toBottomOf="@id/textBase"
-        app:layout_constraintStart_toEndOf="@id/textBase"
-        app:layout_constraintTop_toTopOf="@id/textBase"
-        tools:text="17도" />
+        <TextView
+            android:id="@+id/textBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/rectangle_radius_100_border_graydd"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/black"
+            android:textSize="9dp"
+            android:text="@{searchResultItem.base.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textEnglishName"
+            app:layout_constraintTop_toBottomOf="@id/textEnglishName"
+            tools:text="보드카" />
 
-    <TextView
-        android:id="@+id/textSkill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:background="@drawable/rectangle_radius_100_border_graydd"
-        android:fontFamily="@font/pretendard_medium"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="3dp"
-        android:textColor="@color/navy000782"
-        android:textSize="9dp"
-        app:layout_constraintBottom_toBottomOf="@id/textBase"
-        app:layout_constraintStart_toEndOf="@id/textProof"
-        app:layout_constraintTop_toTopOf="@id/textBase"
-        tools:text="쉐이킹" />
+        <TextView
+            android:id="@+id/textProof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/rectangle_radius_100_border_graydd"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/redEB5757"
+            android:textSize="9dp"
+            android:text="@{String.valueOf(searchResultItem.proof)}"
+            app:layout_constraintBottom_toBottomOf="@id/textBase"
+            app:layout_constraintStart_toEndOf="@id/textBase"
+            app:layout_constraintTop_toTopOf="@id/textBase"
+            tools:text="17도" />
 
-    <TextView
-        android:id="@+id/textGlass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:background="@drawable/rectangle_radius_100_border_graydd"
-        android:fontFamily="@font/pretendard_medium"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="3dp"
-        android:textColor="@color/pinkE93370"
-        android:textSize="9dp"
-        app:layout_constraintBottom_toBottomOf="@id/textBase"
-        app:layout_constraintStart_toEndOf="@id/textSkill"
-        app:layout_constraintTop_toTopOf="@id/textBase"
-        tools:text="온더락" />
+        <TextView
+            android:id="@+id/textSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/rectangle_radius_100_border_graydd"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/navy000782"
+            android:textSize="9dp"
+            android:text="@{searchResultItem.skill.name}"
+            app:layout_constraintBottom_toBottomOf="@id/textBase"
+            app:layout_constraintStart_toEndOf="@id/textProof"
+            app:layout_constraintTop_toTopOf="@id/textBase"
+            tools:text="쉐이킹" />
+
+        <TextView
+            android:id="@+id/textGlass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/rectangle_radius_100_border_graydd"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/pinkE93370"
+            android:textSize="9dp"
+            android:text="@{searchResultItem.glass.name}"
+            app:layout_constraintBottom_toBottomOf="@id/textBase"
+            app:layout_constraintStart_toEndOf="@id/textSkill"
+            app:layout_constraintTop_toTopOf="@id/textBase"
+            tools:text="온더락" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

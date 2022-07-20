@@ -21,7 +21,7 @@ class SearchAfterAdapter : ListAdapter<RecipeResponse, SearchAfterAdapter.Search
 
     class SearchAfterComparator():DiffUtil.ItemCallback<RecipeResponse>(){
         override fun areItemsTheSame(oldItem: RecipeResponse, newItem: RecipeResponse): Boolean {
-            return oldItem.id==newItem.id
+            return oldItem==newItem
         }
 
         override fun areContentsTheSame(oldItem: RecipeResponse, newItem: RecipeResponse): Boolean {

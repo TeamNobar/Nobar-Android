@@ -18,8 +18,8 @@ class TastingNoteAdapter :
         fun onBind(data: MyPageTastingResponse) {
             binding.myPageTastingNoteItem = data
             val tastingTagAdapter = TastingNoteTagAdapter().apply {
-                tastingTagList.clear()
-                tastingTagList.addAll(data.tag)
+                currentList.clear()
+                currentList.addAll(data.tag)
             }
             binding.recyclerTag.adapter = tastingTagAdapter
         }

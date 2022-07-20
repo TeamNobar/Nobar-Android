@@ -6,15 +6,15 @@ import org.sopt.appzam.nobar_android.data.remote.response.common.IngredientDetai
 import org.sopt.appzam.nobar_android.data.remote.response.common.SkillModel
 
 data class RecipeResponse(
-    val id : String,
+    //val id : String,
     val name : String,
-    /*val enName : String,
+    val enName : String,
     val base : BaseModel,
     val proof : Int,
     val skill : SkillModel,
     val glass : GlassModel,
-    val ingredients : List<IngredientDetailModel>,
-    val steps : List<String>,
-    val defaultRecipe : String?,
-    val proofIcon : String*/
+    //val ingredients : List<IngredientDetailModel>,
+    //val steps : List<String>,
+    //val defaultRecipe : String?,
+    //val proofIcon : String
 )

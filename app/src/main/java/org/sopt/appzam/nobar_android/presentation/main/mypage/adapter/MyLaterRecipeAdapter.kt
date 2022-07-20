@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.MyPageLaterRecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageLaterRecipeBinding
 
-class LaterRecipeAdapter :
-    ListAdapter<MyPageLaterRecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(
+class MyLaterRecipeAdapter :
+    ListAdapter<MyPageLaterRecipeResponse, MyLaterRecipeAdapter.LaterRecipeViewHolder>(
         LaterRecipeDiffUtil()
     ) {
 
@@ -18,8 +18,8 @@ class LaterRecipeAdapter :
         fun onBind(data: MyPageLaterRecipeResponse) {
             binding.myPageLaterRecipeItem = data
             val recipeTagAdapter = LaterRecipeTagAdapter().apply {
-                laterRecipeList.clear()
-                laterRecipeList.addAll(data.steps)
+                currentList.clear()
+                currentList.addAll(data.steps)
             }
             binding.recyclerTag.adapter = recipeTagAdapter
         }

@@ -5,6 +5,6 @@ data class GuideResponse(
     val title : String,
     val subTitle : String,
     val content : String,
-    val images : List<String>,
-    val thumbnail : String
+    //val images : List<String>,
+    //val thumbnail : String
 )
