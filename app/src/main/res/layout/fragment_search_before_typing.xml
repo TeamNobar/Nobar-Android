@@ -5,6 +5,11 @@
 
     <data>
 
+        <variable
+            name="viewmodel"
+            type="org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchDetailViewModel" />
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,6 +55,7 @@
                         android:text="@string/searchDeleteAll"
                         android:textColor="@color/grayA0"
                         android:textSize="13sp"
+                        android:visibility="@{viewmodel.recentVisibility ? View.VISIBLE : View.GONE}"
                         app:layout_constraintBottom_toBottomOf="@+id/textRecent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textRecent" />
@@ -64,6 +70,7 @@
                         android:text="@string/searchDetailNoRecent"
                         android:textColor="@color/grayA0"
                         android:textSize="13sp"
+                        android:visibility="@{viewmodel.recentVisibility ? View.GONE : View.VISIBLE}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +85,7 @@
                         android:clipToPadding="false"
                         android:orientation="horizontal"
                         android:paddingHorizontal="24dp"
+                        android:visibility="@{viewmodel.recentVisibility ? View.VISIBLE : View.GONE}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textRecent"

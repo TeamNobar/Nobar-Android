@@ -76,6 +76,7 @@
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
                     android:theme="@style/EditTextStyle"
+                    android:imeOptions="actionDone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/imageX"
                     app:layout_constraintStart_toEndOf="@id/imageSearch"
@@ -90,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/ic_small_x"
-                    android:visibility="@{viewModel.visibility ? View.VISIBLE : View.GONE}"
+                    android:visibility="@{viewModel.resultAndXVisibility ? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

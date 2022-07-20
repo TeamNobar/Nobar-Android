@@ -50,7 +50,7 @@ class SearchAfterTypingFragment :
         searchDetailViewModel.searchingWord.observe(viewLifecycleOwner) {
             searchingRecipes(it)
             searchingIngredients(it)
-            searchDetailViewModel.visibility.value = true
+            searchDetailViewModel.resultAndXVisibility.value = true
         }
     }
 

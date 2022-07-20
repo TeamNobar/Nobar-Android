@@ -1,9 +1,12 @@
 package org.sopt.appzam.nobar_android.presentation.main.search.viewmodel
 
+import android.content.Context
 import android.util.Log
+import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import org.sopt.appzam.nobar_android.data.local.db.SearchSharedPreferences
 import org.sopt.appzam.nobar_android.data.remote.api.ServiceCreator
 import org.sopt.appzam.nobar_android.data.remote.response.IngredientResponse
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
@@ -14,7 +17,8 @@ import retrofit2.Call
 
 class SearchDetailViewModel : ViewModel() {
     var searchingWord = MutableLiveData<String>()
-    var visibility = MutableLiveData<Boolean>(false)
+    var resultAndXVisibility = MutableLiveData<Boolean>(false)
+    var recentVisibility = MutableLiveData<Boolean>(false)
 
     private var _searchKeyRecommends = MutableLiveData<List<RecommendModel>>()
     val searchKeyRecommends: LiveData<List<RecommendModel>> = _searchKeyRecommends
@@ -24,39 +28,6 @@ class SearchDetailViewModel : ViewModel() {
 
     private var _searchKeyRecipe = MutableLiveData<List<RecipeResponse>>()
     val searchKeyRecipe: LiveData<List<RecipeResponse>> = _searchKeyRecipe
-
-    /*fun parseData(key: String): ArrayList<String> {
-        when (key) {
-            INGREDIENTS -> {
-                val tmpModel = searchKeyIngredients.value
-                val tmpList = ArrayList<String>()
-                for (i in 0..tmpModel!!.size) {
-                    tmpList.add(tmpModel.get(i).name)
-                }
-                return tmpList
-            }
-            RECIPES -> {
-                val tmpModel = searchKeyRecipe.value
-                val tmpList = ArrayList<String>()
-                for (i in 0..tmpModel!!.size) {
-                    tmpList.add(tmpModel.get(i).name)
-                }
-                return tmpList
-            }
-            else->{
-                error("0,1,2가 아닌 잘못된 key값이 넘어왔습니다. key : $key")}
-        }
-    }*/
-
-    /*fun initLocal(context: Context, key : String) {
-        SearchSharedPreferences.init(context, key)
-        SearchSharedPreferences.setStringArrayPref(context, key, parseData(key))
-    }
-
-    fun getFromLocal(context : Context, key : String){
-        SearchSharedPreferences.init(context, key)
-        SearchSharedPreferences.getStringArrayPref(context, key)
-    }*/
 
     fun initSearchDetailNetwork() {
         val call: Call<SearchKeywordsResponse> = ServiceCreator.mockupService.getSearchKeywords()
@@ -70,8 +41,31 @@ class SearchDetailViewModel : ViewModel() {
         )
     }
 
+    fun add2Local(context: Context, editText: EditText) {
+        SearchSharedPreferences.init(context, RECENT)
+        SearchSharedPreferences.addString2Pref(
+            RECENT,
+            editText.text.toString()
+        )
+    }
+
+    fun loadfromLocal(context: Context): ArrayList<String> {
+        SearchSharedPreferences.init(context, RECENT)
+        val list = SearchSharedPreferences.getStringArrayPref(RECENT)
+        recentVisibility.value = !list.isEmpty()
+        Log.d("asdf", "boolean value : ${!list.isEmpty()}")
+        return list
+    }
+
+    fun deleteLocal(context: Context){
+        SearchSharedPreferences.init(context, RECENT)
+        SearchSharedPreferences.clearPref(RECENT)
+    }
+
+
     companion object {
         private const val RECIPES = "RECIPES"
         private const val INGREDIENTS = "INGREDIENTS"
+        private const val RECENT = "RECENT"
     }
 }

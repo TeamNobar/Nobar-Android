@@ -26,6 +26,7 @@ class SearchDetailActivity :
 
         observingWord()
         clickEnter()
+        clickX()
     }
 
     private fun getKeywords() {
@@ -33,33 +34,17 @@ class SearchDetailActivity :
     }
 
     private fun clickEnter() {
-        binding.editSearch.setOnEditorActionListener { v, actionId, event ->
+        binding.editSearch.setOnEditorActionListener { textView, action, event ->
             var handled = false
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                searchDetailViewModel.visibility.value = false
+            if (action == EditorInfo.IME_ACTION_DONE) {
+                searchDetailViewModel.add2Local(this, binding.editSearch)
+                searchDetailViewModel.resultAndXVisibility.value = false
                 hideKeyboard(binding.editSearch)
                 handled = true
             }
             handled
         }
     }
-
-    /*private fun store2Pref(str : String){
-        val list = ArrayList<String>()
-        SearchSharedPreferences.init(this, RECENT)
-        list = SearchSharedPreferences.getStringArrayPref(this, RECENT)
-        SearchSharedPreferences.setStringArrayPref(this, )
-
-    }*/
-
-    /*fun parseData(key: String): ArrayList<String> {
-        val tmpModel = searchKeyRecipe.value
-        val tmpList = ArrayList<String>()
-        for (i in 0..tmpModel!!.size) {
-            tmpList.add(tmpModel.get(i).name)
-        }
-        return tmpList
-    }*/
 
     private fun hideKeyboard(view: View) {
         val inputMethodManager =
@@ -71,10 +56,10 @@ class SearchDetailActivity :
         searchDetailViewModel.searchingWord.observe(this) {
             if (!it.isNullOrBlank()) {
                 change2AfterFragment()
-                searchDetailViewModel.visibility.value = true
+                searchDetailViewModel.resultAndXVisibility.value = true
             } else {
                 change2BeforeFragment()
-                searchDetailViewModel.visibility.value = false
+                searchDetailViewModel.resultAndXVisibility.value = false
             }
         }
     }
@@ -102,7 +87,9 @@ class SearchDetailActivity :
         }
     }
 
-    companion object {
-        private const val RECENT = "RECENT"
+    private fun clickX() {
+        binding.imageX.setOnClickListener {
+            searchDetailViewModel.searchingWord.value = ""
+        }
     }
 }
