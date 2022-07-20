@@ -16,4 +16,5 @@ interface MockupService {
 
     @GET("/mypage")
     fun getMyPageItem(): Call<MyPageResponse>
+
 }

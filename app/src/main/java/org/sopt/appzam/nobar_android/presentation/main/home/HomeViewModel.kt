@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
-import org.sopt.appzam.nobar_android.data.remote.response.api.MockupService
 import org.sopt.appzam.nobar_android.data.remote.response.api.ServiceCreator
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 
@@ -18,15 +17,15 @@ class HomeViewModel : ViewModel() {
     val state: LiveData<Boolean> get() = _state
 
     private var _laterRecipeList = MutableLiveData<List<RecipeResponse>>()
-    val laterRecipeList : LiveData<List<RecipeResponse>> get() = _laterRecipeList
+    val laterRecipeList: LiveData<List<RecipeResponse>> get() = _laterRecipeList
 
     private var _guideList = MutableLiveData<List<GuideResponse>>()
-    val guideList : LiveData<List<GuideResponse>> get() = _guideList
+    val guideList: LiveData<List<GuideResponse>> get() = _guideList
 
     private var _nobarRecipeList = MutableLiveData<List<NobarRecipeResponse>>()
-    val nobarRecipeList : LiveData<List<NobarRecipeResponse>> get() = _nobarRecipeList
+    val nobarRecipeList: LiveData<List<NobarRecipeResponse>> get() = _nobarRecipeList
 
-    fun homeNetwork(){
+    fun homeNetwork() {
         call.enqueueUtil(
             onSuccess = {
                 _state.value = true
@@ -35,7 +34,7 @@ class HomeViewModel : ViewModel() {
                 _nobarRecipeList.value = it.noBarRecipes
             },
             onError = {
-                Log.d("status",it.toString())
+                Log.d("status", it.toString())
             }
         )
     }

@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/rectangle_radius_5_sky_bluefafbff"
-        android:layout_marginBottom="16dp">
+        android:background="@drawable/rectangle_radius_5_sky_bluefafbff">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="16dp">
             <TextView
                 android:id="@+id/textName"
                 android:layout_width="0dp"
@@ -49,7 +49,7 @@
                 android:layout_marginBottom="16dp"
                 tools:text="Peach Crush"/>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <!--<androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerTag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,137 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 tools:listitem="@layout/item_my_page_recipe"
-                tools:itemCount="4"/>
+                tools:itemCount="4"/>-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/textEnglishName"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imageBase"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/oval_white"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/textBase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/imageBase"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageBase"
+                    app:layout_constraintEnd_toEndOf="@id/imageBase"
+                    android:layout_marginHorizontal="15dp"
+                    android:ems="4"
+                    android:textSize="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/navy000782"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="@{myPageLaterRecipeItem.base.name}"
+                    android:includeFontPadding="false"
+                    tools:text="보드카"/>
+
+                <ImageView
+                    android:id="@+id/imageProof"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/oval_white"
+                    android:layout_marginStart="31dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageBase" />
+                <TextView
+                    android:id="@+id/textProof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/imageProof"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageProof"
+                    app:layout_constraintEnd_toStartOf="@id/textProofString"
+                    android:textSize="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/navy000782"
+                    android:fontFamily="@font/pretendard_bold"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:text="@{String.valueOf(myPageLaterRecipeItem.proof)}"
+                    android:includeFontPadding="false"
+                    tools:text="18"/>
+                <TextView
+                    android:id="@+id/textProofString"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/textProof"
+                    app:layout_constraintTop_toTopOf="@+id/textProof"
+                    app:layout_constraintBottom_toBottomOf="@+id/textProof"
+                    android:textSize="11dp"
+                    app:layout_constraintEnd_toEndOf="@id/imageProof"
+                    android:textColor="@color/navy000782"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:includeFontPadding="false"
+                    android:text="도"/>
+
+
+                <ImageView
+                    android:id="@+id/imageSkill"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/oval_white"
+                    android:layout_marginStart="31dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageProof"/>
+                <TextView
+                    android:id="@+id/textSkill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/imageSkill"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageSkill"
+                    app:layout_constraintEnd_toEndOf="@id/imageSkill"
+                    android:layout_marginHorizontal="15dp"
+                    android:ems="4"
+                    android:textSize="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/navy000782"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="@{myPageLaterRecipeItem.skill.name}"
+                    android:includeFontPadding="false"
+                    tools:text="쉐이킹"/>
+
+                <ImageView
+                    android:id="@+id/imageGlass"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/oval_white"
+                    android:layout_marginStart="31dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageSkill"/>
+                <TextView
+                    android:id="@+id/textGlass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/imageGlass"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageGlass"
+                    app:layout_constraintEnd_toEndOf="@+id/imageGlass"
+                    android:ems="4"
+                    android:textSize="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/navy000782"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="@{myPageLaterRecipeItem.glass.name}"
+                    android:includeFontPadding="false"
+                    tools:text="온더락"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
