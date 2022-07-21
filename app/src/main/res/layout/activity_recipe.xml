@@ -1,236 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.recipe.RecipeActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="org.sopt.appzam.nobar_android.data.remote.response.RecipeDetailResponse" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageBookmark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="14dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bookmark" />
-
-        <ImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        android:layout_height="match_parent"
+        tools:context=".presentation.recipe.RecipeActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textKoreanName"
+            <ImageView
+                android:id="@+id/imageBookmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/pretendard_bold"
-                android:textColor="@color/black"
-                android:textSize="20sp"
+                android:padding="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_bookmark" />
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="롱 아일랜드 아이스 티" />
+                app:srcCompat="@drawable/ic_arrow_back" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/textEnglishName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/pretendard_regular"
-                android:textColor="@color/gray81"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
-                tools:text="Long Island Iced Tea" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerPreparation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/rectangle_radius_10"
-                android:backgroundTint="@color/grayFB"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_core_info"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEnglishName">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/textKoreanName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:text="@{model.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="롱 아일랜드 아이스 티" />
 
-            <TextView
-                android:id="@+id/textFirst"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/recipeFirst"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerPreparation" />
+                <TextView
+                    android:id="@+id/textEnglishName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="@color/gray81"
+                    android:text="@{model.enName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
+                    tools:text="Long Island Iced Tea" />
 
-            <TextView
-                android:id="@+id/textLetsReady"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/recipeLetsReady"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="18sp"
-                android:textColor="@color/navy000782"
-                app:layout_constraintBottom_toBottomOf="@+id/textFirst"
-                app:layout_constraintStart_toEndOf="@+id/textFirst"
-                app:layout_constraintTop_toTopOf="@+id/textFirst" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCoreInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/rectangle_radius_10"
+                    android:backgroundTint="@color/grayFB"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_core_info"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEnglishName">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerIngredients"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="24dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFirst"
-                app:spanCount="3"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_ingredient">
+                </androidx.recyclerview.widget.RecyclerView>
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/textFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/recipeFirst"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerCoreInfo" />
 
-            <TextView
-                android:id="@+id/textTimeToBartender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:text="@string/recipeTimeToBartender"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerIngredients" />
+                <TextView
+                    android:id="@+id/textLetsReady"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipeLetsReady"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/navy000782"
+                    app:layout_constraintBottom_toBottomOf="@+id/textFirst"
+                    app:layout_constraintStart_toEndOf="@+id/textFirst"
+                    app:layout_constraintTop_toTopOf="@+id/textFirst" />
 
-            <TextView
-                android:id="@+id/textLetsMake"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/pretendard_bold"
-                android:text="@string/recipeLetsMake"
-                android:textColor="@color/navy000782"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textTimeToBartender"
-                app:layout_constraintStart_toEndOf="@+id/textTimeToBartender"
-                app:layout_constraintTop_toTopOf="@+id/textTimeToBartender" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerIngredients"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="24dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textFirst"
+                    app:spanCount="3"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/item_ingredient">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerSteps"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="24dp"
-                tools:listitem="@layout/item_step"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTimeToBartender"
-                tools:itemCount="3">
+                </androidx.recyclerview.widget.RecyclerView>
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/textTimeToBartender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="45dp"
+                    android:text="@string/recipeTimeToBartender"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerIngredients" />
 
-            <TextView
-                android:id="@+id/textTodayExperience"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="40dp"
-                android:text="@string/recipeTodayExperience"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerSteps" />
+                <TextView
+                    android:id="@+id/textLetsMake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="@string/recipeLetsMake"
+                    android:textColor="@color/navy000782"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTimeToBartender"
+                    app:layout_constraintStart_toEndOf="@+id/textTimeToBartender"
+                    app:layout_constraintTop_toTopOf="@+id/textTimeToBartender" />
 
-            <TextView
-                android:id="@+id/textLetsRecord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/recipeLetsRecord"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="18sp"
-                android:textColor="@color/navy000782"
-                app:layout_constraintBottom_toBottomOf="@+id/textTodayExperience"
-                app:layout_constraintStart_toEndOf="@+id/textTodayExperience"
-                app:layout_constraintTop_toTopOf="@+id/textTodayExperience" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSteps"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="24dp"
+                    tools:listitem="@layout/item_step"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTimeToBartender"
+                    tools:itemCount="3">
 
-            <TextView
-                android:id="@+id/textGuide"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="26dp"
-                android:fontFamily="@font/pretendard_light"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTodayExperience"
-                tools:text="같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textTodayExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/recipeTodayExperience"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerSteps" />
+
+                <TextView
+                    android:id="@+id/textLetsRecord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipeLetsRecord"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/navy000782"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTodayExperience"
+                    app:layout_constraintStart_toEndOf="@+id/textTodayExperience"
+                    app:layout_constraintTop_toTopOf="@+id/textTodayExperience" />
+
+                <TextView
+                    android:id="@+id/textGuide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="26dp"
+                    android:fontFamily="@font/pretendard_light"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTodayExperience"
+                    tools:text="같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요
 어제의 홈텐딩과 오늘의 홈텐딩은 다르니까요
 오늘 마신 칵테일로 오늘을 기억해보는 것은 어때요?
 당신의 하루가 더 오래 기억되길 바라요" />
 
-            <TextView
-                android:id="@+id/buttonWriteTatstingNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:background="@drawable/rectangle_radius_108_border_graydd"
-                android:text="@string/recipeWritingTastingNote"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="22dp"
-                android:fontFamily="@font/pretendard_bold"
-                android:textSize="13sp"
-                android:textColor="@color/gray81"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textGuide" />
+                <TextView
+                    android:id="@+id/buttonWriteTatstingNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/rectangle_radius_108_border_graydd"
+                    android:text="@string/recipeWritingTastingNote"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="22dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="13sp"
+                    android:textColor="@color/gray81"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textGuide" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
