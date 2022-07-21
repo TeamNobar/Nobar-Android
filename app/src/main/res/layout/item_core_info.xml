@@ -54,7 +54,7 @@
             android:fontFamily="@font/pretendard_medium"
             tools:text="쉐이킹"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@{model.content}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
