@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import org.sopt.appzam.nobar_android.data.remote.api.ServiceCreator
 import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
-import org.sopt.appzam.nobar_android.data.remote.response.api.ServiceCreator
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 
 class HomeViewModel : ViewModel() {
