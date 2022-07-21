@@ -67,7 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     //Adapter 선언
     private fun laterRecipeAdapter() {
         //레시피 클릭시 칵테일 상세보기로 이동로직
-        laterRecipeAdapter = LaterRecipeAdapter{
+        laterRecipeAdapter = LaterRecipeAdapter {
             val intent = Intent(requireContext(), RecipeActivity::class.java)
             intent.putExtra("recipeId", it.id)
             startActivity(intent)
@@ -76,7 +76,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun guideAdapter() {
-        guideAdapter = GuideAdapter{
+        guideAdapter = GuideAdapter {
             val intent = Intent(requireContext(), HomeLaterRecipeDetailActivity::class.java)
             intent.putExtra("guideId", it.id)
             startActivity(intent)
@@ -84,8 +84,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.recyclerGuide.adapter = guideAdapter
 
     }
-
-
 
     private fun recipeAdapter() {
         val randomIntList = mutableListOf<Int>()
@@ -100,7 +98,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         }
 
-        nobarRecipeAdapter = NobarRecipeAdapter(randomIntList)
+        nobarRecipeAdapter = NobarRecipeAdapter(randomIntList) {
+            val intent = Intent(requireContext(), HomeLaterRecipeDetailActivity::class.java)
+            intent.putExtra("nobarRecipeId", it.id)
+            startActivity(intent)
+        }
         binding.recyclerNobarRecipe.adapter = nobarRecipeAdapter
     }
 
@@ -136,8 +138,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
-    private fun seeAllClick(){
-        binding.textAllSee.setOnClickListener{
+    private fun seeAllClick() {
+        binding.textAllSee.setOnClickListener {
             val intent = Intent(requireActivity(), HomeLaterRecipeDetailActivity::class.java)
             startActivity(intent)
         }

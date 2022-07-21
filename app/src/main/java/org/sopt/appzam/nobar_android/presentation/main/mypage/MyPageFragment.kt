@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentMypageBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
-import org.sopt.appzam.nobar_android.presentation.main.home.HomeViewModel
+import org.sopt.appzam.nobar_android.presentation.main.setting.SettingActivity
 
 class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
     private lateinit var adapter : MyPageStatePagerAdapter
@@ -29,9 +30,10 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAadapter()
+        initAdapter()
         clickToggle()
         connectViewPager2Toggle()
+        clickSettingButton()
     }
 
     private fun connectViewPager2Toggle() {
@@ -90,8 +92,15 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
         }
     }
 
-    private fun initAadapter() {
+    private fun initAdapter() {
         adapter = MyPageStatePagerAdapter(requireActivity())
         binding.viewPager.adapter = adapter
+    }
+
+    private fun clickSettingButton(){
+        binding.imageSetting.setOnClickListener {
+            val intent = Intent(requireActivity(), SettingActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
