@@ -19,7 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:paddingBottom="16dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="16dp"
+            android:layout_marginBottom="16dp">
             <TextView
                 android:id="@+id/textName"
                 android:layout_width="0dp"
@@ -28,12 +30,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@{myPageLaterRecipeItem.name}"
                 android:ems="6"
-                tools:text="피치 크러쉬"
-                android:textSize="16dp"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/black"
                 android:layout_marginStart="23dp"
-                android:fontFamily="@font/pretendard_extrabold"/>
+                android:fontFamily="@font/pretendard_extrabold"
+                tools:text="피치 크러쉬"/>
             <TextView
                 android:id="@+id/textEnglishName"
                 android:layout_width="0dp"
@@ -49,20 +50,6 @@
                 android:layout_marginBottom="16dp"
                 tools:text="Peach Crush"/>
 
-            <!--<androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerTag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/textEnglishName"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                tools:listitem="@layout/item_my_page_recipe"
-                tools:itemCount="4"/>-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
