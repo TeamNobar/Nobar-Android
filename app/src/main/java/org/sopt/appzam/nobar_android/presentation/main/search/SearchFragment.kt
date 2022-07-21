@@ -12,12 +12,13 @@ import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchBase
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchResultAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SpinnerAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchViewModel
+import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
     private lateinit var spinnerAdapter: SpinnerAdapter
     private lateinit var baseAdapter: SearchBaseAdapter
-    private lateinit var searchResultAdapter : SearchResultAdapter
+    private lateinit var searchResultAdapter: SearchResultAdapter
     private val searchViewModel: SearchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         clickSearchBar()
     }
 
-    private fun getBaseList(){
+    private fun getBaseList() {
         searchViewModel.initBaseNetwork()
     }
 
@@ -58,13 +59,19 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         }
     }
 
-    private fun initSearchResultAdapter(){
-        searchResultAdapter= SearchResultAdapter()
-        binding.recyclerResult.adapter=searchResultAdapter
+    private fun initSearchResultAdapter() {
+        searchResultAdapter = SearchResultAdapter { clickResultItem(it) }
+        binding.recyclerResult.adapter = searchResultAdapter
     }
 
-    private fun observingSearchingResult(){
-        searchViewModel.baseSearchResultList.observe(viewLifecycleOwner){
+    private fun clickResultItem(id: String) {
+        val intent = Intent(requireActivity(), RecipeActivity::class.java)
+        intent.putExtra("cocktailId", id)
+        startActivity(intent)
+    }
+
+    private fun observingSearchingResult() {
+        searchViewModel.baseSearchResultList.observe(viewLifecycleOwner) {
             searchResultAdapter.submitList(it)
         }
     }
