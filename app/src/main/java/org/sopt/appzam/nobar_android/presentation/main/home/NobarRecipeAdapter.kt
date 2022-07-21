@@ -34,6 +34,7 @@ class NobarRecipeAdapter(private val randomIntList: List<Int>) :
     }
 
     override fun onBindViewHolder(holder: NobarRecipeViewHolder, position: Int) {
+        Log.d("안녕",position.toString())
         holder.onBind(getItem(position), randomIntList[position])
     }
 

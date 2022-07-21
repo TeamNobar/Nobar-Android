@@ -6,5 +6,5 @@ data class IngredientDetailModel(
     val enName : String,
     val proof : Int,
     val category : String,
-    val quantity : String?
+    val quantity : String
 )

@@ -28,7 +28,6 @@ class LaterRecipeAdapter :
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
-        Log.d("sflksdj",position.toString())
         holder.onBind(getItem(position))
     }
 

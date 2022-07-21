@@ -17,11 +17,11 @@ class MyLaterRecipeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: MyPageLaterRecipeResponse) {
             binding.myPageLaterRecipeItem = data
-            val recipeTagAdapter = LaterRecipeTagAdapter().apply {
+            /*val recipeTagAdapter = LaterRecipeTagAdapter().apply {
                 currentList.clear()
-                currentList.addAll(data.steps)
+                currentList.addAll(data)
             }
-            binding.recyclerTag.adapter = recipeTagAdapter
+            binding.recyclerTag.adapter = recipeTagAdapter*/
         }
 
     }

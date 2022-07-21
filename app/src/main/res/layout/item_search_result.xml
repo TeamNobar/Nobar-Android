@@ -18,6 +18,7 @@
         android:background="@drawable/rectangle_radius_5_border_graydd"
         android:elevation="2dp">
 
+
         <TextView
             android:id="@+id/textKoreanName"
             android:layout_width="wrap_content"

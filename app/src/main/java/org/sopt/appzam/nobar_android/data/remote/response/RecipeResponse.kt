@@ -16,6 +16,6 @@ data class RecipeResponse(
     val glass : GlassModel,
     val ingredients : List<IngredientDetailModel>,
     val steps : List<String>,
-    val defaultRecipe : String,
+    val defaultRecipe : String?,
     val proofIcon : String
 )

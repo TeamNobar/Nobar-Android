@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.mypage.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -18,6 +19,10 @@ class MultiViewAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: MyPageTastingResponse) {
             binding.tastingNoteDateItem = data
+
+            val recipeTagAdapter = TastingNoteTagAdapter()
+            binding.recyclerTag.adapter = recipeTagAdapter
+            recipeTagAdapter.submitList(data.tag)
         }
     }
 

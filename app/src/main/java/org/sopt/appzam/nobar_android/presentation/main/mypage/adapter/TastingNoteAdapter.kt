@@ -19,7 +19,7 @@ class TastingNoteAdapter :
             binding.myPageTastingNoteItem = data
             val tastingTagAdapter = TastingNoteTagAdapter().apply {
                 currentList.clear()
-                currentList.addAll(data.tag)
+                //currentList.addAll(data.tag)
             }
             binding.recyclerTag.adapter = tastingTagAdapter
         }
