@@ -3,6 +3,7 @@ package org.sopt.appzam.nobar_android.presentation.main.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
 import org.sopt.appzam.nobar_android.R
@@ -17,12 +18,12 @@ class HomeLaterRecipeDetailActivity :
     private lateinit var laterRecipeDetailAdapter: LaterRecipeAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_later_reipe_detail)
         binding.laterRecipeDetailViewModel = homeViewModel
 
         laterRecipeDetailAdapter()
         homeDetailNetwork()
         laterRecipeDetailObserver()
+        clickButton()
     }
 
     private fun homeDetailNetwork() {
@@ -41,6 +42,12 @@ class HomeLaterRecipeDetailActivity :
     private fun laterRecipeDetailObserver() {
         homeViewModel.laterRecipeList.observe(this){
             laterRecipeDetailAdapter.submitList(it)
+        }
+    }
+
+    private fun clickButton(){
+        binding.imageX.setOnClickListener {
+            finish()
         }
     }
 
