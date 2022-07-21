@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.main.setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.main.home.GuideDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.main.home.HomeLaterRecipeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.main.search.SearchDetailActivity"
             android:exported="false" />
         <activity
@@ -25,11 +34,11 @@
             android:exported="false" />
         <activity
             android:name=".presentation.main.record.RecordActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.main.HomeActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,14 +48,11 @@
         <activity
             android:name=".presentation.recipe.RecipeActivity"
             android:exported="false" />
-
         <activity
             android:name=".presentation.login.KakaoLoginExampleActivity"
-            android:exported="true">
-
-        </activity>
-
-        <!--<activity
+            android:exported="true" />
+        <!--
+<activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
@@ -59,8 +65,8 @@
                     android:host="oauth"
                     android:scheme="@string/kakaoAppKeyScheme" />
             </intent-filter>
-        </activity>-->
-
+        </activity>
+        -->
         <activity android:name=".presentation.login.LoginActivity" />
     </application>
 

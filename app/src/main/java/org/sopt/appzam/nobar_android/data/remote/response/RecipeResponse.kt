@@ -9,7 +9,6 @@ data class RecipeResponse(
     val id : String,
     val name : String,
     val enName : String,
-    val version : List<String>,
     val base : BaseModel,
     val proof : Int,
     val skill : SkillModel,
