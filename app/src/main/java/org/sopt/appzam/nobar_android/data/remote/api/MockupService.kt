@@ -2,9 +2,7 @@ package org.sopt.appzam.nobar_android.data.remote.api
 
 import org.sopt.appzam.nobar_android.data.remote.response.*
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface MockupService {
     @GET("/search/tag")
@@ -21,7 +19,7 @@ interface MockupService {
     @GET("/recipe/{recipeId}")
     fun getRecipeDetail(
         @Path("recipeId") recipeId: String?
-    ): Call<RecipeResponse>
+    ): Call<RecipeDetailResponse>
 
     @GET("/mypage")
     fun getMyPageItem(): Call<MyPageResponse>
@@ -36,6 +34,12 @@ interface MockupService {
 
     @GET("search/keyword")
     fun getSearchResult(
-        @Query("keyword") keyword: String
-    ): Call<SearchResultResponse>
+        @Query("keyword") keyword : String
+    ):Call<SearchResultResponse>
+
+    @PATCH("recipe/{recipeId}")
+    fun patchScrap(
+        @Path("recipeId")recipeId: String,
+        @Body body : Boolean
+    ):Call<RecipeDetailResponse>
 }
