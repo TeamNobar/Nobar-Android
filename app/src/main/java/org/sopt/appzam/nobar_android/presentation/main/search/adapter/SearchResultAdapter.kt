@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemSearchResultBinding
 
-class SearchResultAdapter() :
+class SearchResultAdapter(private val itemClick: (id: String) -> Unit) :
     ListAdapter<RecipeResponse, SearchResultAdapter.SearchResultViewHolder>(SearchResultComparator()) {
 
     class SearchResultViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: RecipeResponse) {
+        fun onBind(data: RecipeResponse, itemClick: (id: String) -> Unit) {
             binding.searchResultItem = data
+            itemView.setOnClickListener {
+                itemClick(data.id)
+            }
         }
     }
 
@@ -35,6 +38,6 @@ class SearchResultAdapter() :
     }
 
     override fun onBindViewHolder(holder: SearchResultViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(getItem(position), itemClick)
     }
 }

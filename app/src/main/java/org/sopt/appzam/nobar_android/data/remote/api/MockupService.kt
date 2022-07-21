@@ -18,4 +18,9 @@ interface MockupService {
 
     @GET("/search")
     fun getSearchKeywords(): Call<SearchKeywordsResponse>
+
+    @GET("search/keyword")
+    fun getSearchResult(
+        @Query("keyword") keyword : String
+    ):Call<SearchResultResponse>
 }

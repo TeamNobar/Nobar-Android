@@ -11,6 +11,7 @@ import org.sopt.appzam.nobar_android.databinding.FragmentSearchAfterTypingBindin
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchAfterAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchIngredientsAdapter
+import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchResultAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.viewmodel.SearchDetailViewModel
 import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 
@@ -18,17 +19,22 @@ class SearchAfterTypingFragment :
     BaseFragment<FragmentSearchAfterTypingBinding>(R.layout.fragment_search_after_typing) {
     private val searchDetailViewModel: SearchDetailViewModel by activityViewModels()
     private lateinit var recipeAdapter: SearchAfterAdapter
+    private lateinit var resultAdapter: SearchResultAdapter
+    private lateinit var ingredientAdapter: SearchIngredientsAdapter
     private lateinit var recipeList: ArrayList<RecipeResponse>
     private lateinit var ingredientsList: ArrayList<IngredientResponse>
-    private lateinit var ingredientAdapter: SearchIngredientsAdapter
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = searchDetailViewModel
         initPreviewAdapter()
+        initResultAdapter()
         initIngerdientsAdapter()
         getList()
         observingWord()
+        observingResult()
+        clickViewAll()
     }
 
     private fun cocktailPreviewItemClick() {
@@ -41,9 +47,27 @@ class SearchAfterTypingFragment :
         binding.recyclerPreview.adapter = recipeAdapter
     }
 
+    private fun initResultAdapter() {
+        resultAdapter = SearchResultAdapter { clickResultItem(it) }
+        binding.recyclerResult.adapter = resultAdapter
+    }
+
+    private fun clickResultItem(id: String) {
+        val intent = Intent(requireActivity(), RecipeActivity::class.java)
+        intent.putExtra("cocktailId", id)
+        startActivity(intent)
+    }
+
     private fun initIngerdientsAdapter() {
         ingredientAdapter = SearchIngredientsAdapter()
         binding.recyclerIngredients.adapter = ingredientAdapter
+    }
+
+    private fun clickViewAll() {
+        binding.textViewAll.setOnClickListener {
+            val intent = Intent(requireActivity(), SearchResultActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun observingWord() {
@@ -51,6 +75,12 @@ class SearchAfterTypingFragment :
             searchingRecipes(it)
             searchingIngredients(it)
             searchDetailViewModel.resultAndXVisibility.value = true
+        }
+    }
+
+    private fun observingResult() {
+        searchDetailViewModel.searchResult.observe(viewLifecycleOwner) {
+            resultAdapter.submitList(it)
         }
     }
 
