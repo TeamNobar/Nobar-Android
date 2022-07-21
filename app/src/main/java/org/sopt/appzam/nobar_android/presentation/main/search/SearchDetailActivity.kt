@@ -28,6 +28,7 @@ class SearchDetailActivity :
         observingWord()
         clickEnter()
         clickX()
+        clickBack()
         observingRecent()
     }
 
@@ -104,6 +105,12 @@ class SearchDetailActivity :
     private fun clickX() {
         binding.imageX.setOnClickListener {
             searchDetailViewModel.searchingWord.value = ""
+        }
+    }
+
+    private fun clickBack(){
+        binding.imageBack.setOnClickListener{
+            finish()
         }
     }
 }
