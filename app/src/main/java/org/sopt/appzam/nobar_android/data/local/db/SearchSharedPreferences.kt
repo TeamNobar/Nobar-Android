@@ -20,9 +20,9 @@ object SearchSharedPreferences {
 
     fun addString2Pref(key: String, text: String) {
         val list = getStringArrayPref(key)
-        list.add(text)
-        while (list.size > 5) {
-            list.removeAt(0)
+        list.add(0,text)
+        while (list.size > 10) {
+            list.removeAt(list.size-1)
         }
         val convertedData: String = Gson().toJson(list)
         editor.putString(key, convertedData).apply()
@@ -34,7 +34,7 @@ object SearchSharedPreferences {
 
         if (json != null) {
             val tmp = JSONArray(json)
-            for (i in (tmp.length() - 1) downTo 0) {
+            for (i in 0..(tmp.length() - 1)) {
                 list.add(tmp.optString(i))
             }
         }
