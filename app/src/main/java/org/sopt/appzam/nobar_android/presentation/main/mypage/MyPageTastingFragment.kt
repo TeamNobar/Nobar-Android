@@ -39,20 +39,18 @@ class MyPageTastingFragment :
         initObserver()
     }
 
-    private fun tastingNoteAdapter(){
+    private fun tastingNoteAdapter() {
         multiViewAdapter = MultiViewAdapter()
         binding.recyclerMyPageTasting.adapter = multiViewAdapter
     }
 
-    private fun initNetwork(){
+    private fun initNetwork() {
         myPageViewModel.myPageNetwork()
     }
 
-    private fun initObserver(){
-        myPageViewModel.tastingNotes.observe(viewLifecycleOwner){
-            myPageViewModel.tastingNotes.observe(viewLifecycleOwner){
-                multiViewAdapter.submitList(it)
-            }
+    private fun initObserver() {
+        myPageViewModel.tastingNotes.observe(viewLifecycleOwner) {
+            multiViewAdapter.submitList(it)
         }
 
     }

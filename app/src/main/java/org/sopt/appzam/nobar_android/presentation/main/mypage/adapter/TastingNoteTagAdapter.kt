@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageTastingTagBinding
 
 class TastingNoteTagAdapter :
-    ListAdapter<String, TastingNoteTagAdapter.TastingTagViewHolder>(TastingNoteTagComparator()) {
+    ListAdapter<Int, TastingNoteTagAdapter.TastingTagViewHolder>(TastingNoteTagComparator()) {
 
     class TastingTagViewHolder(private val binding: ItemMyPageTastingTagBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: String) {
-            binding.textTagName.text = data
+        fun onBind(data: Int) {
+            binding.textTagName.text = data.toString()
         }
     }
 
@@ -27,16 +27,16 @@ class TastingNoteTagAdapter :
         holder.onBind(getItem(position))
     }
 
-    class TastingNoteTagComparator : DiffUtil.ItemCallback<String>() {
+    class TastingNoteTagComparator : DiffUtil.ItemCallback<Int>() {
         override fun areItemsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: Int,
+            newItem: Int
         ): Boolean =
             oldItem == newItem
 
         override fun areContentsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: Int,
+            newItem: Int
         ): Boolean = oldItem == newItem
     }
 }

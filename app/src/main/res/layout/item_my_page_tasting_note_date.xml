@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:includeFontPadding="false"
-            android:text="@{tastingNoteDateItem.createdAt}"
+            android:text="@{String.valueOf(tastingNoteDateItem.createdAt)}"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/viewLineLeft"
             app:layout_constraintEnd_toStartOf="@+id/viewLineRight"
@@ -67,7 +67,7 @@
                 android:layout_marginEnd="160dp"
                 android:fontFamily="@font/pretendard_extrabold"
                 android:includeFontPadding="false"
-                android:text="@{tastingNoteDateItem.title}"
+                android:text="@{tastingNoteDateItem.recipe.name}"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                 android:layout_marginEnd="122dp"
                 android:fontFamily="@font/pretendard_light"
                 android:includeFontPadding="false"
-                android:text="@{tastingNoteDateItem.id}"
+                android:text="@{tastingNoteDateItem.recipe.enName}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitle"
@@ -99,6 +99,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textEnName" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerTag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

@@ -30,12 +30,12 @@
             android:id="@+id/textTagName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="다섯글자로"
             app:layout_constraintStart_toEndOf="@+id/imageTag"
             android:layout_marginStart="2dp"
             android:textColor="@color/navy000782"
             android:fontFamily="@font/pretendard_bold"
-            android:includeFontPadding="false"/>
+            android:includeFontPadding="false"
+            tools:text="다섯글자로"/>
 
 
 
