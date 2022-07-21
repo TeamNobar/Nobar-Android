@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -33,19 +34,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*binding.recyclerToDoRecipe.addItemDecoration(
-            ItemDecoration(
-                R.dimen.margin4,
-                R.dimen.margin9,
-                2
-            )
-        )*/
 
         initObserver()
         laterRecipeAdapter()
         recipeAdapter()
         guideAdapter()
         scrollChange()
+        seeAllClick()
     }
 
     private fun onRefresh() {
@@ -95,9 +90,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.recyclerNobarRecipe.adapter = nobarRecipeAdapter
     }
 
+    //viewModel 관련
     private fun initObserver() {
         homeViewModel.laterRecipeList.observe(viewLifecycleOwner) {
-            laterRecipeAdapter.submitList(it)
+            if (it.isEmpty()) {
+                binding.constraintStart.visibility = View.VISIBLE
+                binding.recyclerToDoRecipe.visibility = View.GONE
+            } else {
+                binding.constraintStart.visibility = View.GONE
+                binding.recyclerToDoRecipe.visibility = View.VISIBLE
+                laterRecipeAdapter.submitList(it)
+            }
         }
 
         homeViewModel.guideList.observe(viewLifecycleOwner) {
@@ -109,13 +112,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
-
+    //스크롤 했을 때 선 생기도록 설정
     private fun scrollChange() {
         binding.scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (binding.scrollView.scrollY == 0)
                 binding.viewLine.visibility = View.GONE
             else
                 binding.viewLine.visibility = View.VISIBLE
+        }
+    }
+
+    private fun seeAllClick(){
+        binding.textAllSee.setOnClickListener{
+            val intent = Intent(requireActivity(), HomeLaterRecipeDetailActivity::class.java)
+            startActivity(intent)
         }
     }
 
