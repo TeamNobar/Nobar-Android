@@ -18,13 +18,36 @@ class RecipeViewModel : NobarViewModel() {
     val recipeDetail: LiveData<RecipeDetailResponse> = _recipeDetail
 
     private var _recipeCoreInfo = MutableLiveData<List<RecipeCoreInfo>>()
-    val recipeCoreInfo : LiveData<List<RecipeCoreInfo>> = _recipeCoreInfo
+    val recipeCoreInfo: LiveData<List<RecipeCoreInfo>> = _recipeCoreInfo
+
+    private var _stepSize = MutableLiveData<Int>()
+    val stepSize: LiveData<Int> = _stepSize
+
+    var scrap: Boolean = false
+
+    fun initStepSize(size: Int) {
+        _stepSize.value = size
+    }
 
     fun initRecipeDetail(recipId: String) {
         val call: Call<RecipeDetailResponse> = ServiceCreator.mockupService.getRecipeDetail(recipId)
         call.enqueueUtil(
-            onSuccess = { _recipeDetail.value = it
-                          _recipeCoreInfo.value=mapData(it.base, it.proof, it.proofIcon, it.skill, it.glass)},
+            onSuccess = {
+                _recipeDetail.value = it
+                _recipeCoreInfo.value = mapData(it.base, it.proof, it.proofIcon, it.skill, it.glass)
+            },
+            onError = { Log.d("server", "오류") }
+        )
+    }
+
+    fun patchScrap(recipeId: String, scrap: Boolean) {
+        val call: Call<RecipeDetailResponse> =
+            ServiceCreator.mockupService.patchScrap(recipeId, scrap)
+        call.enqueueUtil(
+            onSuccess = {
+                _recipeDetail.value = it
+                _recipeCoreInfo.value = mapData(it.base, it.proof, it.proofIcon, it.skill, it.glass)
+            },
             onError = { Log.d("server", "오류") }
         )
     }
