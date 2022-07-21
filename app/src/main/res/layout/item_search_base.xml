@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel" />
@@ -11,20 +12,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@drawable/selector_rectangle_radius_10">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageBase"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="centerCrop"
             android:layout_marginEnd="8dp"
+            android:elevation="0dp"
+            app:cardCornerRadius="10dp"
+            app:strokeWidth="0dp"
+            app:strokeColor="@color/pinkE93370"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageBase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cocktail_sample" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/textBase"
@@ -33,13 +44,13 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/pretendard_regular"
             android:gravity="center"
+            android:text="@{model.name}"
             android:textColor="@color/black"
             android:textSize="13dp"
-            android:text="@{model.name}"
-            app:layout_constraintStart_toStartOf="@id/imageBase"
-            app:layout_constraintEnd_toEndOf="@id/imageBase"
-            app:layout_constraintTop_toBottomOf="@id/imageBase"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
             tools:text="보드카" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="searchResultItem"
             type="org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse" />
@@ -12,10 +13,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_radius_5_border_graydd"
-        android:elevation="2dp"
+        android:layout_marginHorizontal="4dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="4dp">
+        android:background="@drawable/rectangle_radius_5_border_graydd"
+        android:elevation="2dp">
+
 
         <TextView
             android:id="@+id/textKoreanName"
@@ -24,13 +26,13 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/pretendard_bold"
+            android:text="@{searchResultItem.name}"
             android:textColor="@color/black"
             android:textSize="13dp"
             app:layout_constraintBottom_toTopOf="@+id/textEnglishName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            android:text="@{searchResultItem.name}"
             tools:text="피치 크러쉬" />
 
         <TextView
@@ -39,12 +41,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/pretendard_light"
+            android:text="@{searchResultItem.enName}"
             android:textColor="@color/gray81"
             android:textSize="10dp"
             app:layout_constraintBottom_toTopOf="@+id/textBase"
             app:layout_constraintStart_toStartOf="@+id/textKoreanName"
             app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
-            android:text="@{searchResultItem.enName}"
             tools:text="Peach Crush" />
 
         <TextView
@@ -57,9 +59,9 @@
             android:fontFamily="@font/pretendard_medium"
             android:paddingHorizontal="5dp"
             android:paddingVertical="3dp"
+            android:text="@{searchResultItem.base.name}"
             android:textColor="@color/black"
             android:textSize="9dp"
-            android:text="@{searchResultItem.base.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/textEnglishName"
             app:layout_constraintTop_toBottomOf="@id/textEnglishName"
@@ -74,9 +76,9 @@
             android:fontFamily="@font/pretendard_medium"
             android:paddingHorizontal="5dp"
             android:paddingVertical="3dp"
+            android:text="@{String.valueOf(searchResultItem.proof) + '도'}"
             android:textColor="@color/redEB5757"
             android:textSize="9dp"
-            android:text="@{String.valueOf(searchResultItem.proof)}"
             app:layout_constraintBottom_toBottomOf="@id/textBase"
             app:layout_constraintStart_toEndOf="@id/textBase"
             app:layout_constraintTop_toTopOf="@id/textBase"
@@ -91,9 +93,9 @@
             android:fontFamily="@font/pretendard_medium"
             android:paddingHorizontal="5dp"
             android:paddingVertical="3dp"
+            android:text="@{searchResultItem.skill.name}"
             android:textColor="@color/navy000782"
             android:textSize="9dp"
-            android:text="@{searchResultItem.skill.name}"
             app:layout_constraintBottom_toBottomOf="@id/textBase"
             app:layout_constraintStart_toEndOf="@id/textProof"
             app:layout_constraintTop_toTopOf="@id/textBase"
@@ -108,9 +110,9 @@
             android:fontFamily="@font/pretendard_medium"
             android:paddingHorizontal="5dp"
             android:paddingVertical="3dp"
+            android:text="@{searchResultItem.glass.name}"
             android:textColor="@color/pinkE93370"
             android:textSize="9dp"
-            android:text="@{searchResultItem.glass.name}"
             app:layout_constraintBottom_toBottomOf="@id/textBase"
             app:layout_constraintStart_toEndOf="@id/textSkill"
             app:layout_constraintTop_toTopOf="@id/textBase"

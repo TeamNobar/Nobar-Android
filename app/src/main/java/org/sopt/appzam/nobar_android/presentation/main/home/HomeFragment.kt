@@ -3,7 +3,6 @@ package org.sopt.appzam.nobar_android.presentation.main.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,6 +60,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
+
     private fun initNetwork() {
         homeViewModel.homeNetwork()
     }
@@ -82,7 +82,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val randomIntList = mutableListOf<Int>()
         randomIntList.clear()
         while (randomIntList.count() < 5) {
-            var num = Random.nextInt(0, 5)
+            val num = Random.nextInt(0, 5)
             if (randomIntList.contains(num))
                 continue
             else {
@@ -108,6 +108,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             nobarRecipeAdapter.submitList(it)
         }
     }
+
 
     private fun scrollChange() {
         binding.scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
