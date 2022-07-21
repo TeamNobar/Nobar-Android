@@ -19,7 +19,7 @@ interface MockupService {
     @GET("/recipe/{recipeId}")
     fun getRecipeDetail(
         @Path("recipeId") recipeId: String?
-    ): Call<RecipeResponse>
+    ): Call<RecipeDetailResponse>
 
     @GET("/mypage")
     fun getMyPageItem(): Call<MyPageResponse>
