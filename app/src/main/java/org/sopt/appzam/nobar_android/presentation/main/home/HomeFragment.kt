@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentHomeBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 import kotlin.random.Random
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -35,10 +36,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initObserver()
+        homeObserver()
+        //Adapter 연결
         laterRecipeAdapter()
         recipeAdapter()
         guideAdapter()
+
         scrollChange()
         seeAllClick()
     }
@@ -63,15 +66,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     //Adapter 선언
     private fun laterRecipeAdapter() {
-        laterRecipeAdapter = LaterRecipeAdapter()
+        //레시피 클릭시 칵테일 상세보기로 이동로직
+        laterRecipeAdapter = LaterRecipeAdapter{
+            val intent = Intent(requireContext(), RecipeActivity::class.java)
+            intent.putExtra("recipeId", it.id)
+            startActivity(intent)
+        }
         binding.recyclerToDoRecipe.adapter = laterRecipeAdapter
     }
 
     private fun guideAdapter() {
-        guideAdapter = GuideAdapter()
+        guideAdapter = GuideAdapter{
+            val intent = Intent(requireContext(), HomeLaterRecipeDetailActivity::class.java)
+            intent.putExtra("guideId", it.id)
+            startActivity(intent)
+        }
         binding.recyclerGuide.adapter = guideAdapter
 
     }
+
+
 
     private fun recipeAdapter() {
         val randomIntList = mutableListOf<Int>()
@@ -91,7 +105,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     //viewModel 관련
-    private fun initObserver() {
+    private fun homeObserver() {
         homeViewModel.laterRecipeList.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
                 binding.constraintStart.visibility = View.VISIBLE
