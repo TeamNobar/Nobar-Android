@@ -24,16 +24,19 @@
                 android:id="@+id/imageBookmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:padding="14dp"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_bookmark" />
+                app:srcCompat="@drawable/ic_bookmark_empty" />
 
             <ImageView
                 android:id="@+id/imageBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
                 android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +60,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/pretendard_bold"
+                    android:text="@{model.name}"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:text="@{model.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -71,8 +74,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:textColor="@color/gray81"
                     android:text="@{model.enName}"
+                    android:textColor="@color/gray81"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textKoreanName"
@@ -82,18 +86,18 @@
                     android:id="@+id/recyclerCoreInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="24dp"
                     android:background="@drawable/rectangle_radius_10"
                     android:backgroundTint="@color/grayFB"
-                    tools:itemCount="4"
-                    tools:listitem="@layout/item_core_info"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textEnglishName">
+                    app:layout_constraintTop_toBottomOf="@+id/textEnglishName"
+                    app:spanCount="4"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_core_info">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -103,10 +107,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:text="@string/recipeFirst"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="18sp"
+                    android:text="@string/recipeFirst"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerCoreInfo" />
 
@@ -114,10 +118,10 @@
                     android:id="@+id/textLetsReady"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recipeLetsReady"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="18sp"
+                    android:text="@string/recipeLetsReady"
                     android:textColor="@color/navy000782"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textFirst"
                     app:layout_constraintStart_toEndOf="@+id/textFirst"
                     app:layout_constraintTop_toTopOf="@+id/textFirst" />
@@ -126,8 +130,9 @@
                     android:id="@+id/recyclerIngredients"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="18dp"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -144,10 +149,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="45dp"
-                    android:text="@string/recipeTimeToBartender"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="18sp"
+                    android:text="@string/recipeTimeToBartender"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerIngredients" />
 
@@ -169,12 +174,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="18dp"
-                    tools:listitem="@layout/item_step"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textTimeToBartender"
-                    tools:itemCount="3">
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_step">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -183,11 +189,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/recipeTodayExperience"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="18sp"
+                    android:text="@string/recipeTodayExperience"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerSteps" />
 
@@ -195,10 +201,10 @@
                     android:id="@+id/textLetsRecord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recipeLetsRecord"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="18sp"
+                    android:text="@string/recipeLetsRecord"
                     android:textColor="@color/navy000782"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textTodayExperience"
                     app:layout_constraintStart_toEndOf="@+id/textTodayExperience"
                     app:layout_constraintTop_toTopOf="@+id/textTodayExperience" />
@@ -211,28 +217,26 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="24dp"
                     android:fontFamily="@font/pretendard_light"
+                    android:text="@string/recipeDetailDescription"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textTodayExperience"
-                    tools:text="같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요
-어제의 홈텐딩과 오늘의 홈텐딩은 다르니까요
-오늘 마신 칵테일로 오늘을 기억해보는 것은 어때요?
-당신의 하루가 더 오래 기억되길 바라요" />
+                    app:layout_constraintTop_toBottomOf="@+id/textTodayExperience" />
 
                 <TextView
                     android:id="@+id/buttonWriteTatstingNote"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
+                    android:layout_marginBottom="36dp"
                     android:background="@drawable/rectangle_radius_108_border_graydd"
-                    android:text="@string/recipeWritingTastingNote"
-                    android:paddingVertical="12dp"
-                    android:paddingHorizontal="22dp"
                     android:fontFamily="@font/pretendard_bold"
-                    android:textSize="13sp"
+                    android:paddingHorizontal="22dp"
+                    android:paddingVertical="12dp"
+                    android:text="@string/recipeWritingTastingNote"
                     android:textColor="@color/gray81"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
