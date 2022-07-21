@@ -42,4 +42,7 @@ interface MockupService {
         @Path("recipeId")recipeId: String,
         @Body body : Boolean
     ):Call<RecipeDetailResponse>
+
+    @GET("/note/tag")
+    fun getTagList():Call<List<TagResponse>>
 }
