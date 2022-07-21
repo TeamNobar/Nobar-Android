@@ -3,6 +3,7 @@ package org.sopt.appzam.nobar_android.presentation.main.home
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -32,9 +33,19 @@ class NobarRecipeAdapter(
                 3 -> binding.layout.setBackgroundResource(R.drawable.home_navy_box4)
                 4 -> binding.layout.setBackgroundResource(R.drawable.home_navy_box5)
             }
+
+            when(data.id) {
+                "1" -> binding.textName.setText(R.string.homeAdapter1)
+                "2" -> binding.textName.setText(R.string.homeAdapter2)
+                "3" -> binding.textName.setText(R.string.homeAdapter3)
+                "4" -> binding.textName.setText(R.string.homeAdapter4)
+                "5" -> binding.textName.setText(R.string.homeAdapter5)
+            }
+
             binding.root.setOnClickListener {
                 itemClick(data)
             }
+
         }
     }
 

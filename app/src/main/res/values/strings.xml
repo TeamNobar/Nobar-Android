@@ -75,5 +75,11 @@
     <string name="settingPolicy">약관 및 정책</string>
     <string name="settingInquire">문의하기</string>
     <string name="settingSetting">설정</string>
+
+    <string name="homeAdapter1">몰디브 아니죠. 쿠바가 원조입니다.\n"<b>"모히또"</b>" 가서 쿠바 한 잔?</string>
+    <string name="homeAdapter2">달콤한 화이트 럼과 떠나는\n와이키키 해변, "<b>"블루하와이"</b>"</string>
+    <string name="homeAdapter3">뜨거운 여름엔 이 칵테일!\n"<b>"섹스 온 더 비치"</b>"</string>
+    <string name="homeAdapter4">그 그 그 복숭아 맛 나는 칵테일\n달달한 아 그 "<b>"피치 크러쉬!"</b>"</string>
+    <string name="homeAdapter5">12시 귀가를 보장하는\n논알콜 칵테일, "<b>"신데렐라"</b>"</string>
 </resources>
 

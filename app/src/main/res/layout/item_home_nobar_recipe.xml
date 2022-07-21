@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/pretendard_extrabold"
+            android:fontFamily="@font/pretendard_medium"
             android:maxLines="2"
             android:text="@{nobarRecipeItem.title}"
             android:textColor="@color/grayFB"
