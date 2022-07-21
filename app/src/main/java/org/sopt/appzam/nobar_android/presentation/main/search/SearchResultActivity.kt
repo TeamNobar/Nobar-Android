@@ -18,17 +18,15 @@ class SearchResultActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("asdf", "oncreate")
         initResultNetwork()
         initResultAdapter()
         observingData()
+        clickX()
     }
 
     private fun initResultAdapter() {
-        Log.d("asdf", "initadapter first")
         searchResultAdapter = SearchResultAdapter { clickResultItem(it) }
         binding.recyclerResult.adapter = searchResultAdapter
-        Log.d("asdf", "initadapter end")
     }
 
     private fun initResultNetwork() {
@@ -45,6 +43,12 @@ class SearchResultActivity :
     private fun observingData() {
         searchResultViewModel.searchResult.observe(this) {
             searchResultAdapter.submitList(it)
+        }
+    }
+
+    private fun clickX(){
+        binding.imageX.setOnClickListener{
+            finish()
         }
     }
 }
