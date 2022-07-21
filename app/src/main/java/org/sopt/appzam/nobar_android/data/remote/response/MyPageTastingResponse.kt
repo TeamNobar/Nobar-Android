@@ -4,8 +4,8 @@ data class MyPageTastingResponse(
     val id : String,
     val rate : Int,
     val title : String,
-    val recipe : String,
-    val tag : List<String>,
+    val recipe : RecipeResponse,
+    val tag : List<Int>,
     val tasteContent : String,
     val experienceContent : String,
     val createdAt : Int

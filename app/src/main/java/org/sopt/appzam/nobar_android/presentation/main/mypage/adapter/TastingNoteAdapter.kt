@@ -12,15 +12,14 @@ class TastingNoteAdapter :
     ListAdapter<MyPageTastingResponse, TastingNoteAdapter.TastingNoteViewHolder>(
         TastingNoteComparator()
     ) {
-    private val tastingNoteList = mutableListOf<MyPageTastingResponse>()
 
     class TastingNoteViewHolder(private val binding: ItemMyPageTastingNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: MyPageTastingResponse) {
             binding.myPageTastingNoteItem = data
             val tastingTagAdapter = TastingNoteTagAdapter().apply {
-                tastingTagList.clear()
-                tastingTagList.addAll(data.tag)
+                currentList.clear()
+                //currentList.addAll(data.tag)
             }
             binding.recyclerTag.adapter = tastingTagAdapter
         }
@@ -33,7 +32,7 @@ class TastingNoteAdapter :
     }
 
     override fun onBindViewHolder(holder: TastingNoteViewHolder, position: Int) {
-        holder.onBind(tastingNoteList[position])
+        holder.onBind(getItem(position))
     }
 
     class TastingNoteComparator : DiffUtil.ItemCallback<MyPageTastingResponse>() {

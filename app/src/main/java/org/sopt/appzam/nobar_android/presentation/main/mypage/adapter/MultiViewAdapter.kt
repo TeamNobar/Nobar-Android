@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.mypage.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,12 +13,16 @@ import java.lang.RuntimeException
 
 class MultiViewAdapter :
     ListAdapter<MyPageTastingResponse, RecyclerView.ViewHolder>(TastingNoteTagComparator()) {
-    private val multiDataList = mutableListOf<MyPageTastingResponse>()
+
 
     inner class DateViewHolder(private val binding: ItemMyPageTastingNoteDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: MyPageTastingResponse) {
             binding.tastingNoteDateItem = data
+
+            val recipeTagAdapter = TastingNoteTagAdapter()
+            binding.recyclerTag.adapter = recipeTagAdapter
+            recipeTagAdapter.submitList(data.tag)
         }
     }
 
@@ -63,7 +68,7 @@ class MultiViewAdapter :
     override fun getItemViewType(position: Int): Int {
         return if (position == 0) {
             DATE
-        } else if (multiDataList[position].createdAt == multiDataList[position - 1].createdAt) {
+        } else if (getItem(position).createdAt == getItem(position - 1).createdAt) {
             TASTING_VIEW
         } else {
             DATE
@@ -80,7 +85,7 @@ class MultiViewAdapter :
             oldItem: MyPageTastingResponse,
             newItem: MyPageTastingResponse
         ): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(
             oldItem: MyPageTastingResponse,

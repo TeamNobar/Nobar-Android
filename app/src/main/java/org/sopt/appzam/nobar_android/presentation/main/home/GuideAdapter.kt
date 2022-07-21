@@ -9,7 +9,6 @@ import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
 import org.sopt.appzam.nobar_android.databinding.ItemHomeGuideBinding
 
 class GuideAdapter : ListAdapter<GuideResponse, GuideAdapter.GuideViewHolder>(guideDiffUtil) {
-    private val guideList = mutableListOf<GuideResponse>()
 
     class GuideViewHolder(private val binding: ItemHomeGuideBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +24,7 @@ class GuideAdapter : ListAdapter<GuideResponse, GuideAdapter.GuideViewHolder>(gu
     }
 
     override fun onBindViewHolder(holder: GuideViewHolder, position: Int) {
-        holder.onBind(guideList[position])
+        holder.onBind(getItem(position))
     }
 
     companion object {

@@ -27,9 +27,7 @@ class ItemDecoration(
             outRect.left = horizontalMargin
         }
 
-        if (position < spanCount) {
-            outRect.bottom = verticalMargin
-        }
+        outRect.bottom = verticalMargin
 
     }
 }

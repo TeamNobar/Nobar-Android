@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="myPageLaterRecipeViewModel"
+            type="org.sopt.appzam.nobar_android.presentation.main.mypage.MyPageViewModel" />
 
     </data>
 
