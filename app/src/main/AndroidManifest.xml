@@ -46,7 +46,7 @@
 
         </activity>
 
-        <activity
+        <!--<activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
@@ -59,7 +59,7 @@
                     android:host="oauth"
                     android:scheme="@string/kakaoAppKeyScheme" />
             </intent-filter>
-        </activity>
+        </activity>-->
 
         <activity android:name=".presentation.login.LoginActivity" />
     </application>
