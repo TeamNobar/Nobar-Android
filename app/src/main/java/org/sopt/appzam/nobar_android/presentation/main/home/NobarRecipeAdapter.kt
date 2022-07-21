@@ -9,20 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.GuideResponse
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse
+import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipesResponse
 import org.sopt.appzam.nobar_android.databinding.ItemHomeNobarRecipeBinding
 
 class NobarRecipeAdapter(
     private val randomIntList: List<Int>,
-    private val itemClick: (NobarRecipeResponse) -> (Unit)
+    private val itemClick: (NobarRecipesResponse) -> (Unit)
 ) :
-    ListAdapter<NobarRecipeResponse, NobarRecipeAdapter.NobarRecipeViewHolder>(NobarRecipeComparator()) {
+    ListAdapter<NobarRecipesResponse, NobarRecipeAdapter.NobarRecipeViewHolder>(NobarRecipeComparator()) {
 
     class NobarRecipeViewHolder(
         private val binding: ItemHomeNobarRecipeBinding,
-        private val itemClick: (NobarRecipeResponse) -> Unit
+        private val itemClick: (NobarRecipesResponse) -> Unit
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: NobarRecipeResponse, colorInt: Int) {
+        fun onBind(data: NobarRecipesResponse, colorInt: Int) {
             binding.nobarRecipeItem = data
             when (colorInt) {
                 0 -> binding.layout.setBackgroundResource(R.drawable.home_navy_box)
@@ -49,16 +50,16 @@ class NobarRecipeAdapter(
     }
 
 
-    class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipeResponse>() {
+    class NobarRecipeComparator : DiffUtil.ItemCallback<NobarRecipesResponse>() {
         override fun areItemsTheSame(
-            oldItem: NobarRecipeResponse,
-            newItem: NobarRecipeResponse
+            oldItem: NobarRecipesResponse,
+            newItem: NobarRecipesResponse
         ): Boolean =
             oldItem.id == newItem.id
 
         override fun areContentsTheSame(
-            oldItem: NobarRecipeResponse,
-            newItem: NobarRecipeResponse
+            oldItem: NobarRecipesResponse,
+            newItem: NobarRecipesResponse
         ): Boolean =
             oldItem == newItem
     }
