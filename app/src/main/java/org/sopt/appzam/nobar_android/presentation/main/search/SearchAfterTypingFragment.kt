@@ -66,6 +66,7 @@ class SearchAfterTypingFragment :
     private fun clickViewAll() {
         binding.textViewAll.setOnClickListener {
             val intent = Intent(requireActivity(), SearchResultActivity::class.java)
+            intent.putExtra("id", searchDetailViewModel.shareKeyword)
             startActivity(intent)
         }
     }

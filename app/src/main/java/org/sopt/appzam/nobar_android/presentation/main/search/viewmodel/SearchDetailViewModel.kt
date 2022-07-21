@@ -20,6 +20,10 @@ class SearchDetailViewModel : ViewModel() {
     var searchingWord = MutableLiveData<String>()
     var resultAndXVisibility = MutableLiveData<Boolean>(false)
     var recentVisibility = MutableLiveData<Boolean>(false)
+    var shareKeyword: String = ""
+
+    private var _recentKeyword = MutableLiveData<String>()
+    val recentKeyword: LiveData<String> = _recentKeyword
 
     private var _searchKeyRecommends = MutableLiveData<List<RecommendModel>>()
     val searchKeyRecommends: LiveData<List<RecommendModel>> = _searchKeyRecommends
@@ -33,6 +37,10 @@ class SearchDetailViewModel : ViewModel() {
     private var _searchResult = MutableLiveData<List<RecipeResponse>>()
     val searchResult: LiveData<List<RecipeResponse>> = _searchResult
 
+    fun modifyRecentKeyword(keyword: String) {
+        _recentKeyword.value = keyword
+    }
+
     fun initSearchDetailNetwork() {
         val call: Call<SearchKeywordsResponse> = ServiceCreator.mockupService.getSearchKeywords()
         call.enqueueUtil(
@@ -45,10 +53,11 @@ class SearchDetailViewModel : ViewModel() {
         )
     }
 
-    fun initSearchResultNetWork(keyword : String){
-        val call : Call<SearchResultResponse> = ServiceCreator.mockupService.getSearchResult(keyword)
+    fun initSearchResultNetWork(keyword: String) {
+        val call: Call<SearchResultResponse> = ServiceCreator.mockupService.getSearchResult(keyword)
+        shareKeyword = keyword
         call.enqueueUtil(
-            onSuccess = { _searchResult.value=it.recipes },
+            onSuccess = { _searchResult.value = it.recipes },
             onError = { Log.d("server", "오류") }
         )
     }
@@ -69,7 +78,7 @@ class SearchDetailViewModel : ViewModel() {
         return list
     }
 
-    fun deleteLocal(context: Context){
+    fun deleteLocal(context: Context) {
         SearchSharedPreferences.init(context, RECENT)
         SearchSharedPreferences.clearPref(RECENT)
     }
