@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/rectangle_radius_100_border_graydd_fill_grayfb"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="6dp"
+    android:layout_marginBottom="12dp">
 
     <ImageView
         android:id="@+id/imageIcon"
