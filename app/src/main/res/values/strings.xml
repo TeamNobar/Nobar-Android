@@ -66,6 +66,8 @@
     <string name="tastingNoteWriteEvaluation">맛에 대한 주관적인 평가를 적어주세요</string>
     <string name="tastingNoteWriteExperience">칵테일을 만들면서, 마시면서 있었던 모든 경험을\n이곳에서 기억해보세요</string>
     <string name="homeGuideRecipeSee">레시피 보기</string>
+
+    <string name="recipeDetailDescription">같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요\n어제의 홈텐딩과 오늘의 홈텐딩은 다르니까요\n오늘 마신 칵테일로 오늘을 기억해보는 것은 어때요?\n당신의 하루가 더 오래 기억되길 바라요</string>
     <string name="homeLaterRecipeTitle">나중에 만들 레시피</string>
     <string name="settingCenter">고객센터</string>
     <string name="settingWithdraw">회원 탈퇴</string>
