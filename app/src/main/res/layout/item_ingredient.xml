@@ -13,14 +13,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:background="@drawable/rectangle_radius_8"
-        android:backgroundTint="@color/grayFB"
-        android:padding="12dp"
-        android:layout_margin="4dp">
+        android:backgroundTint="@color/grayFB">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingHorizontal="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1.08:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
                 android:fontFamily="@font/pretendard_semibold"
                 android:text="@{model.name}"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="12dp"
                 app:layout_constraintBottom_toTopOf="@+id/imageCircle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
 
             <TextView
                 android:id="@+id/textKind"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/pretendard_medium"
@@ -63,21 +63,23 @@
                 android:textColor="@color/pinkE93370"
                 android:textSize="10dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageCircle"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imageCircle"
                 app:layout_constraintTop_toTopOf="@+id/imageCircle"
                 tools:text="alcohol" />
 
             <TextView
                 android:id="@+id/textAmount"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/pretendard_bold"
                 android:text="@{model.quantity}"
-                android:textColor="#01239D"
+                android:textColor="@color/navy01239D"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageCircle"
                 tools:text="45ml" />
