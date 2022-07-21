@@ -27,6 +27,7 @@
             android:fontFamily="@font/pretendard_medium"
             android:paddingVertical="14dp"
             android:layout_marginTop="36dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMyPageTasting"
             android:layout_width="match_parent"
