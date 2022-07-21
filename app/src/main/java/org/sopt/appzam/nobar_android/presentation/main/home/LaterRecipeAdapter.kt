@@ -11,20 +11,26 @@ import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemHomeLaterRecipeBinding
 import org.sopt.appzam.nobar_android.databinding.ItemSearchResultBinding
 
-class LaterRecipeAdapter :
+class LaterRecipeAdapter(private val itemClick: (RecipeResponse) -> Unit) :
     ListAdapter<RecipeResponse, LaterRecipeAdapter.LaterRecipeViewHolder>(LaterRecipeComparator()) {
 
-    class LaterRecipeViewHolder(private val binding: ItemSearchResultBinding) :
+    class LaterRecipeViewHolder(
+        private val binding: ItemSearchResultBinding,
+        private val itemClick: (RecipeResponse) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: RecipeResponse) {
             binding.searchResultItem = data
+            binding.root.setOnClickListener{
+                itemClick(data)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LaterRecipeViewHolder {
         val binding =
             ItemSearchResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LaterRecipeViewHolder(binding)
+        return LaterRecipeViewHolder(binding, itemClick)
     }
 
     override fun onBindViewHolder(holder: LaterRecipeViewHolder, position: Int) {
