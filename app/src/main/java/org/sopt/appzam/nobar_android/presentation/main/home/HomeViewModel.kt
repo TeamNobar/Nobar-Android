@@ -11,8 +11,6 @@ import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 
 class HomeViewModel : ViewModel() {
-    private val call = ServiceCreator.mockupService.getHomeItem()
-
     private var _state = MutableLiveData<Boolean>()
     val state: LiveData<Boolean> get() = _state
 
@@ -26,6 +24,7 @@ class HomeViewModel : ViewModel() {
     val nobarRecipeList: LiveData<List<NobarRecipeResponse>> get() = _nobarRecipeList
 
     fun homeNetwork() {
+        val call = ServiceCreator.mockupService.getHomeItem()
         call.enqueueUtil(
             onSuccess = {
                 _state.value = true
@@ -38,28 +37,18 @@ class HomeViewModel : ViewModel() {
             }
         )
     }
-/*
-    fun guideNetwork(){
+
+    //레시피 전체보기 서버통신
+    fun homeRecipeDetailNetwork(){
+        val call = ServiceCreator.mockupService.getHomeItem()
         call.enqueueUtil(
             onSuccess = {
                 _state.value = true
-                _guideList.value = it.guideList
+                _laterRecipeList.value = it.laterRecipeList
             },
             onError = {
-                Log.d("status",it.toString())
+                Log.d("status", it.toString())
             }
         )
     }
-
-    fun nobarRecipeNetwork(){
-        call.enqueueUtil(
-            onSuccess = {
-                _state.value = true
-
-            },
-            onError = {
-                Log.d("status",it.toString())
-            }
-        )
-    }*/
 }

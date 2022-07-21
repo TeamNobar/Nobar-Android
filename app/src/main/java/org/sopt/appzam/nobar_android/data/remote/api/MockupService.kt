@@ -11,6 +11,16 @@ interface MockupService {
     @GET("/home")
     fun getHomeItem(): Call<HomeResponse>
 
+    @GET("/guide/{guideId}")
+    fun getGuideDetail(
+        @Path("guideId") guideId: String?
+    ): Call<GuideResponse>
+
+    @GET("/recipe/{recipeId}")
+    fun getRecipeDetail(
+        @Path("recipeId") recipeId: String?
+    ): Call<RecipeResponse>
+
     @GET("/mypage")
     fun getMyPageItem(): Call<MyPageResponse>
 
@@ -26,11 +36,6 @@ interface MockupService {
     fun getSearchResult(
         @Query("keyword") keyword : String
     ):Call<SearchResultResponse>
-
-    @GET("recipe/{recipeId}")
-    fun getRecipeDetail(
-        @Path("recipeId")recipeId :String
-    ):Call<RecipeDetailResponse>
 
     @PATCH("recipe/{recipeId}")
     fun patchScrap(
