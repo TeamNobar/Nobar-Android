@@ -38,6 +38,7 @@ class SearchDetailActivity :
             var handled = false
             if (action == EditorInfo.IME_ACTION_DONE) {
                 searchDetailViewModel.add2Local(this, binding.editSearch)
+                searchDetailViewModel.initSearchResultNetWork(binding.editSearch.text.toString())
                 searchDetailViewModel.resultAndXVisibility.value = false
                 hideKeyboard(binding.editSearch)
                 handled = true

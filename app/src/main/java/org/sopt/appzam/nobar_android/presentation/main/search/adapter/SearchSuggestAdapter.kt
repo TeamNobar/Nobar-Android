@@ -9,15 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.common.RecommendModel
 import org.sopt.appzam.nobar_android.databinding.ItemSearchSuggestBinding
 
-class SearchSuggestAdapter() :
+class SearchSuggestAdapter(private val itemClick: (id: String) -> Unit) :
     ListAdapter<RecommendModel, SearchSuggestAdapter.SearchSuggetViewHolder>(SearchSuggestComparator()) {
 
     class SearchSuggetViewHolder(private val binding: ItemSearchSuggestBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: RecommendModel) {
+        fun onBind(data: RecommendModel, itemClick: (id: String) -> Unit) {
             val position: Int = adapterPosition
             binding.model = data
             binding.textRanking.text = (position + 1).toString()
+            itemView.setOnClickListener{
+                itemClick(data.recipeId)
+            }
         }
     }
 
@@ -39,6 +42,6 @@ class SearchSuggestAdapter() :
     }
 
     override fun onBindViewHolder(holder: SearchSuggetViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(getItem(position), itemClick)
     }
 }

@@ -19,7 +19,7 @@ class SearchBaseAdapter(private val itemClick: (String) -> Unit) :
             binding.model = data
 
             if (itemView.isSelected)
-                binding.cardView.strokeWidth = 2
+                binding.cardView.strokeWidth = 5
             else
                 binding.cardView.strokeWidth = 0
 

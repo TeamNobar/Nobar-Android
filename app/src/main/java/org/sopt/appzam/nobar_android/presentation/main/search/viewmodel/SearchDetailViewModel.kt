@@ -11,6 +11,7 @@ import org.sopt.appzam.nobar_android.data.remote.api.ServiceCreator
 import org.sopt.appzam.nobar_android.data.remote.response.IngredientResponse
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.data.remote.response.SearchKeywordsResponse
+import org.sopt.appzam.nobar_android.data.remote.response.SearchResultResponse
 import org.sopt.appzam.nobar_android.data.remote.response.common.RecommendModel
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call
@@ -29,6 +30,9 @@ class SearchDetailViewModel : ViewModel() {
     private var _searchKeyRecipe = MutableLiveData<List<RecipeResponse>>()
     val searchKeyRecipe: LiveData<List<RecipeResponse>> = _searchKeyRecipe
 
+    private var _searchResult = MutableLiveData<List<RecipeResponse>>()
+    val searchResult: LiveData<List<RecipeResponse>> = _searchResult
+
     fun initSearchDetailNetwork() {
         val call: Call<SearchKeywordsResponse> = ServiceCreator.mockupService.getSearchKeywords()
         call.enqueueUtil(
@@ -37,6 +41,14 @@ class SearchDetailViewModel : ViewModel() {
                 _searchKeyIngredients.value = it.ingredients
                 _searchKeyRecipe.value = it.recipes
             },
+            onError = { Log.d("server", "오류") }
+        )
+    }
+
+    fun initSearchResultNetWork(keyword : String){
+        val call : Call<SearchResultResponse> = ServiceCreator.mockupService.getSearchResult(keyword)
+        call.enqueueUtil(
+            onSuccess = { _searchResult.value=it.recipes },
             onError = { Log.d("server", "오류") }
         )
     }
