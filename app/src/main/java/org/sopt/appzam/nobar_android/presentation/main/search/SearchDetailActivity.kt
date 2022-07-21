@@ -2,6 +2,7 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Context
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -27,6 +28,7 @@ class SearchDetailActivity :
         observingWord()
         clickEnter()
         clickX()
+        observingRecent()
     }
 
     private fun getKeywords() {
@@ -61,6 +63,17 @@ class SearchDetailActivity :
             } else {
                 change2BeforeFragment()
                 searchDetailViewModel.resultAndXVisibility.value = false
+            }
+        }
+    }
+
+    private fun observingRecent() {
+        searchDetailViewModel.recentKeyword.observe(this) {
+            val str = SpannableStringBuilder(it)
+            if (it != "") {
+                binding.editSearch.text = str
+                searchDetailViewModel.modifyRecentKeyword("")
+                binding.editSearch.setSelection(binding.editSearch.text.length)
             }
         }
     }
