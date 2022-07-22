@@ -4,41 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="myPageTastingTagItem"
             type="org.sopt.appzam.nobar_android.data.remote.response.TagResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/rectangle_radius_100_navy00"
         android:paddingHorizontal="10dp"
-        android:paddingVertical="8dp"
-        android:layout_marginEnd="5dp">
+        android:paddingVertical="8dp">
 
         <ImageView
             android:id="@+id/imageTag"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@drawable/ic_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="@+id/textTagName"
+            app:layout_constraintEnd_toStartOf="@+id/textTagName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textTagName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/imageTag"
-            android:layout_marginStart="2dp"
-            android:textColor="@color/navy000782"
-            android:fontFamily="@font/pretendard_bold"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/pretendard_medium"
             android:includeFontPadding="false"
             android:text="@{myPageTastingTagItem.content}"
-            tools:text="다섯글자로"/>
-
-
+            android:textColor="@color/navy000782"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageTag"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="다섯글자로" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
