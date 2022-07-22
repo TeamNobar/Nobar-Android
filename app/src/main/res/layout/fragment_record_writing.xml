@@ -7,6 +7,7 @@
         <variable
             name="viewmodel"
             type="org.sopt.appzam.nobar_android.presentation.main.record.RecordViewModel" />
+        <import type="org.sopt.appzam.nobar_android.R"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -125,6 +126,7 @@
                         android:paddingVertical="10dp"
                         android:textColor="@color/grayA0"
                         android:textSize="13sp"
+                        android:text="@={viewmodel.cocktailName}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/imageSearch"
@@ -159,6 +161,7 @@
                     android:paddingStart="13dp"
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
+                    android:text="@={viewmodel.drinkingDate}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textWhenDrink" />
@@ -225,6 +228,8 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    app:srb_minimumStars="0.5"
+                    app:srb_rating="@={viewmodel.rating}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textMyScore"
@@ -264,6 +269,7 @@
                     android:inputType="textMultiLine"
                     android:maxLines="8"
                     android:minLines="8"
+                    android:text="@={viewmodel.cocktailEvaluation}"
                     android:padding="12dp"
                     android:paddingHorizontal="16dp"
                     android:paddingTop="16dp"
@@ -283,6 +289,7 @@
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/grayA0"
                     android:textSize="10dp"
+                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.EvaluationCount)}"
                     app:layout_constraintBottom_toBottomOf="@+id/editDetailEvaluation"
                     app:layout_constraintEnd_toEndOf="@+id/editDetailEvaluation"
                     tools:text="0/200" />
@@ -301,7 +308,7 @@
                     app:layout_constraintTop_toBottomOf="@id/editDetailEvaluation" />
 
                 <EditText
-                    android:id="@+id/editExperience"
+                    android:id="@+id/textTip"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -320,13 +327,14 @@
                     android:paddingBottom="28dp"
                     android:textColor="@color/grayA0"
                     android:textSize="14dp"
+                    android:text="@={viewmodel.cocktailTip}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textExperience" />
 
                 <TextView
-                    android:id="@+id/textExperienceCount"
+                    android:id="@+id/textTipCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
@@ -334,8 +342,9 @@
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="@color/grayA0"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/editExperience"
-                    app:layout_constraintEnd_toEndOf="@+id/editExperience"
+                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.TipCount)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTip"
+                    app:layout_constraintEnd_toEndOf="@+id/textTip"
                     tools:text="0/200" />
 
 
