@@ -45,6 +45,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.activity:activity-ktx:1.5.0'
     implementation "com.tbuonomo:dotsindicator:4.3"
+    implementation "com.airbnb.android:lottie:5.2.0"
 
     //lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
