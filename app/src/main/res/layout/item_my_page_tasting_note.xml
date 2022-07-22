@@ -6,7 +6,7 @@
     <data>
         <variable
             name="myPageTastingNoteItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse" />
 
     </data>
 

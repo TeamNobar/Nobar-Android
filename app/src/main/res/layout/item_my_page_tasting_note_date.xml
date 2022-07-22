@@ -7,7 +7,7 @@
 
         <variable
             name="tastingNoteDateItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

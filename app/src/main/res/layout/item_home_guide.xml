@@ -35,12 +35,12 @@
         <TextView
             android:id="@+id/textTastingGuide"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="12dp"
             android:ems="6"
             android:maxLines="2"
-            android:text="@{guideItem.content}"
+            android:text="@{guideItem.title}"
             android:textColor="@color/black"
             android:textSize="13sp"
             android:fontFamily="@font/pretendard_bold"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageGuide"
             app:layout_constraintTop_toBottomOf="@+id/imageGuide"
             android:includeFontPadding="false"
-            tools:text="테이스팅 노트를 작성해보슈" />
+            tools:text="테이스팅 슈" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

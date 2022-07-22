@@ -1,8 +1,9 @@
 package org.sopt.appzam.nobar_android.data.remote.response
 
 data class TagResponse(
-    val id : String,
+    val id : Int,
     val content : String,
-    val icon : String,
+    val activeIcon : String,
+    val inActiveIcon : String,
     var isSelected : Boolean
 )

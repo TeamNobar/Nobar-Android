@@ -6,7 +6,7 @@
     <data>
         <variable
             name="myPageLaterRecipeItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.MyPageLaterRecipeResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +64,7 @@
                     android:layout_height="42dp"
                     android:src="@drawable/oval_white"
                     android:layout_marginStart="30dp"
+                    setImage="@{myPageLaterRecipeItem.base.url}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
                 <TextView
@@ -92,6 +93,7 @@
                     android:src="@drawable/oval_white"
                     android:layout_marginStart="31dp"
                     app:layout_constraintTop_toTopOf="parent"
+                    setImage="@{myPageLaterRecipeItem.proofIcon}"
                     app:layout_constraintStart_toEndOf="@+id/imageBase" />
                 <TextView
                     android:id="@+id/textProof"
@@ -132,6 +134,7 @@
                     android:src="@drawable/oval_white"
                     android:layout_marginStart="31dp"
                     app:layout_constraintTop_toTopOf="parent"
+                    setImage="@{myPageLaterRecipeItem.skill.url}"
                     app:layout_constraintStart_toEndOf="@id/imageProof"/>
                 <TextView
                     android:id="@+id/textSkill"
@@ -159,6 +162,7 @@
                     android:src="@drawable/oval_white"
                     android:layout_marginStart="31dp"
                     app:layout_constraintTop_toTopOf="parent"
+                    setImage="@{myPageLaterRecipeItem.glass.url}"
                     app:layout_constraintStart_toEndOf="@id/imageSkill"/>
                 <TextView
                     android:id="@+id/textGlass"

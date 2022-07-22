@@ -16,7 +16,7 @@ class TastingNoteAdapter :
     class TastingNoteViewHolder(private val binding: ItemMyPageTastingNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: MyPageTastingResponse) {
-            binding.myPageTastingNoteItem = data
+            //binding.myPageTastingNoteItem = data
             val tastingTagAdapter = TastingNoteTagAdapter().apply {
                 currentList.clear()
                 //currentList.addAll(data.tag)
