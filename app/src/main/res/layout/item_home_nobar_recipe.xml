@@ -7,7 +7,7 @@
 
         <variable
             name="nobarRecipeItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.NobarRecipeResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.NobarRecipesResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,23 +16,23 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="4dp"
         android:background="@drawable/home_navy_box4"
-        android:paddingVertical="16dp">
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/textName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:ems="15"
-            android:fontFamily="@font/pretendard_semibold"
+            android:fontFamily="@font/pretendard_medium"
             android:maxLines="2"
             android:text="@{nobarRecipeItem.title}"
             android:textColor="@color/grayFB"
-            android:textSize="17sp"
+            android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="177dp"
+            app:layout_constraintEnd_toStartOf="@id/imageRight"
             tools:text="제목을 입력하세요 입력입력입력입력입력입력입력입력입력입력입력입력" />
         <TextView
             android:layout_width="match_parent"
@@ -40,9 +40,20 @@
             app:layout_constraintTop_toBottomOf="@+id/textName"
             android:text="@string/homeGuideRecipeSee"
             android:textColor="@color/skyBlueAAABBE"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="parent"
+            android:textSize="10dp"
             android:fontFamily="@font/pretendard_medium"
-            android:layout_marginStart="20dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/imageRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            setImage="@{nobarRecipeItem.url}"
+            android:src="@drawable/ic_img_bluehawaii" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
