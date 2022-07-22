@@ -10,6 +10,8 @@ import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.presentation.base.NobarViewModel
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call
+import java.text.SimpleDateFormat
+import java.util.*
 
 class RecordViewModel() : NobarViewModel() {
     //서버에서 받아오는 태그 리스트
@@ -94,16 +96,16 @@ class RecordViewModel() : NobarViewModel() {
         )
     }
 
-    /*fun makeTastingNote(rating: Double): TastingNoteParams {
-        val tastingNoteParams = TastingNoteParams(
-            "",
+    fun makeTastingNote(rating: Float): TastingNoteParams {
+        return TastingNoteParams(
+            recipeId = cocktailId,
             rate = rating,
             tagList = tagList.value ?: error("태그리스트 없음"),
             tasteContent = cocktailEvaluation.value,
             experienceContent = cocktailTip.value,
-            createdAt = ""
+            createdAt = SimpleDateFormat("yyyy-MM-dd").format(Date())
         )
-    }*/
+    }
 
     fun postTastingNote(tastingNoteParams: TastingNoteParams) {
         val call: Call<TastingNoteResponse> =

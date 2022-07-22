@@ -44,6 +44,9 @@ class RecordWritingFragment :
         //글자수 트래킹
         observingEvaluationCount()
         observingTipCount()
+
+        //글쓰기 등록 버튼
+        clickEnrollment(binding.rotationRatingBar.rating)
     }
 
     private fun initTagAdapter() {
@@ -114,11 +117,11 @@ class RecordWritingFragment :
         recordViewModel.setSelectedTag(tagResponse)
     }
 
-    /*private fun clickEnrollment() {
-        binding.textEnrollment.setOnClickListener{
-            recordViewModel.postTastingNote()
+    private fun clickEnrollment(rating: Float) {
+        binding.textEnrollment.setOnClickListener {
+            recordViewModel.postTastingNote(recordViewModel.makeTastingNote(rating))
         }
-    }*/
+    }
 
     private fun observingEvaluationCount() {
         recordViewModel.cocktailEvaluation.observe(viewLifecycleOwner) {

@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.data.remote.api
 
+import org.sopt.appzam.nobar_android.data.remote.params.TastingNoteParams
 import org.sopt.appzam.nobar_android.data.remote.response.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -49,5 +50,10 @@ interface MockupService {
     @GET("/note/{tastingNoteId}")
     fun getNote(
         @Path("tastingNoteId") tastingNoteId: String
+    ): Call<TastingNoteResponse>
+
+    @POST("/note")
+    fun postNote(
+        @Body body: TastingNoteParams
     ): Call<TastingNoteResponse>
 }
