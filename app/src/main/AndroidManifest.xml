@@ -21,6 +21,9 @@
             android:name=".presentation.onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.onboarding.nickname.RegisterNicknameActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.SplashActivity"
             android:exported="true">
             <intent-filter>

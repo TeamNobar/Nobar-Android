@@ -1,7 +1,9 @@
 package org.sopt.appzam.nobar_android.data.remote.api
 
+import org.sopt.appzam.nobar_android.data.remote.params.LoginParams
 import org.sopt.appzam.nobar_android.data.remote.response.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface MockupService {
@@ -50,4 +52,9 @@ interface MockupService {
     fun getNote(
         @Path("tastingNoteId") tastingNoteId: String
     ): Call<TastingNoteResponse>
+
+    @POST("/auth")
+    suspend fun login(
+        @Body loginParams: LoginParams,
+    ): Response<LoginResponse>
 }
