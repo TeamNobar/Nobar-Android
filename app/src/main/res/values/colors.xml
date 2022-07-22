@@ -16,6 +16,7 @@
     <color name="gray81">#818181</color>
     <color name="gray60">#606060</color>
     <color name="gray80dd">#80dddddd</color>
+    <color name="gray19">#191919</color>
     <color name="navy01239D">#01239D</color>
     <color name="navy000782">#000782</color>
     <color name="navy0A2588">#0A2588</color>
@@ -28,6 +29,7 @@
     <color name="blue0E30AA">#0E30AA</color>
     <color name="blue133ed9">#133ed9</color>
     <color name="yellowEAE105">#EAE105</color>
+    <color name="yellowFEE500">#FEE500</color>
 
     <color name="pink15">#26E93370</color>
     <color name="step20">#33E93370</color>
