@@ -102,7 +102,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         //데이터 랜덤을 위한 로직
         val nobarList = listOf(
-            NobarRecipesResponse("1", R.string.homeAdapter1, R.drawable.ic_img_cinderella),
+            NobarRecipesResponse("1", R.string.homeAdapter1,R.drawable.ic_img_sexonthebeach),
             NobarRecipesResponse("2", R.string.homeAdapter2, R.drawable.ic_img_bluehawaii),
             NobarRecipesResponse("3", R.string.homeAdapter3, R.drawable.ic_img_sexonthebeach),
             NobarRecipesResponse("4", R.string.homeAdapter4, R.drawable.ic_img_peachcrush),
