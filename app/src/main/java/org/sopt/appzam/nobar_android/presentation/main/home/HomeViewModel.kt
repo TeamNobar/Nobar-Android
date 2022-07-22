@@ -20,9 +20,9 @@ class HomeViewModel : ViewModel() {
     private var _guideList = MutableLiveData<List<GuideResponse>>()
     val guideList: LiveData<List<GuideResponse>> get() = _guideList
 
-    private var _nobarRecipeList = MutableLiveData<List<NobarRecipeResponse>>()
+   /* private var _nobarRecipeList = MutableLiveData<List<NobarRecipeResponse>>()
     val nobarRecipeList: LiveData<List<NobarRecipeResponse>> get() = _nobarRecipeList
-
+*/
     fun homeNetwork() {
         val call = ServiceCreator.mockupService.getHomeItem()
         call.enqueueUtil(
@@ -30,7 +30,6 @@ class HomeViewModel : ViewModel() {
                 _state.value = true
                 _laterRecipeList.value = it.laterRecipeList
                 _guideList.value = it.guideList
-                _nobarRecipeList.value = it.noBarRecipes
             },
             onError = {
                 Log.d("status", it.toString())
