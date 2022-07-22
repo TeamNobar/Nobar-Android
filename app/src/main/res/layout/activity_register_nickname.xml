@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="org.sopt.appzam.nobar_android.presentation.onboarding.nickname.RegisterNicknameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.onboarding.nickname.RegisterNicknameActivity">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="115dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:letterSpacing="-0.02"
+            android:text="닉네임을 정해볼까요?"
+            android:textColor="@color/navy000782"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
+            android:background="@drawable/rectancle_radius_10_grayfb"
+            android:ems="10"
+            android:hint="최대 7자까지 입력 가능합니다"
+            android:inputType="textPersonName"
+            android:letterSpacing="-0.02"
+            android:paddingStart="18dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="11dp"
+            android:text="@={viewModel.nickname}"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:drawableStart="@drawable/x_circle_1"
+            android:drawablePadding="2dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:text="7자 이내로 입력해주세요"
+            android:textColor="@color/pinkE93370"
+            android:textSize="10dp"
+            android:visibility="@{viewModel.nickname.length() &lt;= 7 ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="71dp"
+            android:background="@drawable/rectangle_radius_100"
+            android:backgroundTint="@color/selector_pink01_graydd_color"
+            android:enabled="@{viewModel.nickname.length() &gt; 0 &amp;&amp; viewModel.nickname.length() &lt;= 7 }"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:onClick="@{(v) -> viewModel.login()}"
+            android:padding="12dp"
+            android:text="시작하기"
+            android:textColor="@color/selector_white_graya0_color"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

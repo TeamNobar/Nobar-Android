@@ -44,6 +44,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.activity:activity-ktx:1.5.0'
+    implementation "com.tbuonomo:dotsindicator:4.3"
+    implementation "com.airbnb.android:lottie:5.2.0"
 
     //lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
@@ -74,7 +76,7 @@ dependencies {
 
     //CustomRatingBar
     implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
-    
+
     //Test
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

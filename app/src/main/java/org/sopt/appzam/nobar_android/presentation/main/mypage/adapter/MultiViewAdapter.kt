@@ -7,17 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse
+import org.sopt.appzam.nobar_android.data.remote.response.TagResponse
+import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageTastingNoteBinding
 import org.sopt.appzam.nobar_android.databinding.ItemMyPageTastingNoteDateBinding
 import java.lang.RuntimeException
 
 class MultiViewAdapter :
-    ListAdapter<MyPageTastingResponse, RecyclerView.ViewHolder>(TastingNoteTagComparator()) {
+    ListAdapter<TastingNoteResponse, RecyclerView.ViewHolder>(TastingNoteTagComparator()) {
 
 
     inner class DateViewHolder(private val binding: ItemMyPageTastingNoteDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: MyPageTastingResponse) {
+        fun onBind(data: TastingNoteResponse) {
             binding.tastingNoteDateItem = data
 
             val recipeTagAdapter = TastingNoteTagAdapter()
@@ -28,8 +30,14 @@ class MultiViewAdapter :
 
     inner class TastingViewHolder(private val binding: ItemMyPageTastingNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: MyPageTastingResponse) {
+        fun onBind(data: TastingNoteResponse) {
             binding.myPageTastingNoteItem = data
+
+            val recipeTagAdapter = TastingNoteTagAdapter()
+
+            binding.recyclerTag.adapter = recipeTagAdapter
+            
+            recipeTagAdapter.submitList(data.tag)
         }
     }
 
@@ -80,16 +88,16 @@ class MultiViewAdapter :
         const val TASTING_VIEW = 2
     }
 
-    class TastingNoteTagComparator : DiffUtil.ItemCallback<MyPageTastingResponse>() {
+    class TastingNoteTagComparator : DiffUtil.ItemCallback<TastingNoteResponse>() {
         override fun areItemsTheSame(
-            oldItem: MyPageTastingResponse,
-            newItem: MyPageTastingResponse
+            oldItem: TastingNoteResponse,
+            newItem: TastingNoteResponse
         ): Boolean =
             oldItem.id == newItem.id
 
         override fun areContentsTheSame(
-            oldItem: MyPageTastingResponse,
-            newItem: MyPageTastingResponse
+            oldItem: TastingNoteResponse,
+            newItem: TastingNoteResponse
         ): Boolean = oldItem == newItem
     }
 }

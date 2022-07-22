@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sopt.appzam.nobar_android.data.remote.api.ServiceCreator
-import org.sopt.appzam.nobar_android.data.remote.response.MyPageLaterRecipeResponse
-import org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse
+import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
+import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 
 class MyPageViewModel : ViewModel() {
@@ -15,11 +15,11 @@ class MyPageViewModel : ViewModel() {
     private var _state = MutableLiveData<Boolean>()
     val state: LiveData<Boolean> get() = _state
 
-    private var _laterRecipes = MutableLiveData<List<MyPageLaterRecipeResponse>>()
-    val laterRecipes : LiveData<List<MyPageLaterRecipeResponse>> get() = _laterRecipes
+    private var _laterRecipes = MutableLiveData<List<RecipeResponse>>()
+    val laterRecipes : LiveData<List<RecipeResponse>> get() = _laterRecipes
 
-    private var _tastingNotes = MutableLiveData<List<MyPageTastingResponse>>()
-    val tastingNotes : LiveData<List<MyPageTastingResponse>> get() = _tastingNotes
+    private var _tastingNotes = MutableLiveData<List<TastingNoteResponse>>()
+    val tastingNotes : LiveData<List<TastingNoteResponse>> get() = _tastingNotes
 
 
     fun myPageNetwork() {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onBoarding"
+            type="org.sopt.appzam.nobar_android.presentation.onboarding.OnBoarding" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textOnBoardingDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:lineSpacingExtra="6sp"
+            android:text="@{onBoarding.descriptionRes}"
+            android:textColor="@color/navy000782"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageOnBoarding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="수많은 홈텐딩 레시피를\n한 곳에서 확인해보세요" />
+
+        <ImageView
+            android:id="@+id/imageOnBoarding"
+            android:layout_width="263dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="34dp"
+            android:src="@{context.getDrawable(onBoarding.imageRes)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textOnBoardingDescription"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

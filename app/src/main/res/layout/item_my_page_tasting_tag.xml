@@ -6,7 +6,7 @@
     <data>
         <variable
             name="myPageTastingTagItem"
-            type="org.sopt.appzam.nobar_android.data.remote.response.MyPageTastingResponse" />
+            type="org.sopt.appzam.nobar_android.data.remote.response.TagResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,6 +35,7 @@
             android:textColor="@color/navy000782"
             android:fontFamily="@font/pretendard_bold"
             android:includeFontPadding="false"
+            android:text="@{myPageTastingTagItem.content}"
             tools:text="다섯글자로"/>
 
 

@@ -17,7 +17,7 @@ class RecordTagAdapter(private val itemClick: (TagResponse) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: TagResponse) {
             binding.model = data
-            Glide.with(binding.imageIcon).load(data.icon).error(R.drawable.cocktail_sample)
+            Glide.with(binding.imageIcon).load(data.activeIcon).error(R.drawable.cocktail_sample)
                 .into(binding.imageIcon)
 
             itemView.setOnClickListener {
