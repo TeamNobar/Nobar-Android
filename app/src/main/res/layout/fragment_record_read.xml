@@ -143,7 +143,6 @@
                     android:fontFamily="@font/pretendard_semibold"
                     android:paddingVertical="13dp"
                     android:paddingStart="13dp"
-                    android:text="@{viewmodel.drinkingDate}"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -204,9 +203,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textMyScore"
                     app:layout_constraintWidth_percent="0.87"
+                    app:srb_clearRatingEnabled="false"
+                    app:srb_clickable="false"
                     app:srb_drawableEmpty="@drawable/ic_heart_empty"
                     app:srb_drawableFilled="@drawable/ic_heart_full"
+                    app:srb_isIndicator="false"
                     app:srb_numStars="5"
+                    app:srb_scrollable="false"
                     app:srb_starPadding="5dp"
                     app:srb_stepSize="0.5">
 
