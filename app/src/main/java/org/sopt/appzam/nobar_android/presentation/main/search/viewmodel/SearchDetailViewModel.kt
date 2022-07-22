@@ -21,6 +21,7 @@ class SearchDetailViewModel : ViewModel() {
     var resultAndXVisibility = MutableLiveData<Boolean>(false)
     var recentVisibility = MutableLiveData<Boolean>(false)
     var shareKeyword: String = ""
+    var from = ""
 
     private var _recentKeyword = MutableLiveData<String>()
     val recentKeyword: LiveData<String> = _recentKeyword
@@ -85,8 +86,6 @@ class SearchDetailViewModel : ViewModel() {
 
 
     companion object {
-        private const val RECIPES = "RECIPES"
-        private const val INGREDIENTS = "INGREDIENTS"
         private const val RECENT = "RECENT"
     }
 }
