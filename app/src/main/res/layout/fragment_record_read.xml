@@ -228,7 +228,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rotationRatingBar" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editDetailEvaluation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -239,7 +239,6 @@
                     android:fontFamily="@font/pretendard_medium"
                     android:gravity="top"
                     android:hint="@string/tastingNoteEvalutaionHint"
-                    android:inputType="textMultiLine"
                     android:maxLines="8"
                     android:minLines="8"
                     android:padding="12dp"
@@ -281,7 +280,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/editDetailEvaluation" />
 
-                <EditText
+                <TextView
                     android:id="@+id/textTip"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -293,7 +292,6 @@
                     android:fontFamily="@font/pretendard_medium"
                     android:gravity="top"
                     android:hint="@string/tastingNoteTipHint"
-                    android:inputType="textMultiLine"
                     android:maxLines="8"
                     android:minLines="8"
                     android:paddingHorizontal="16dp"
