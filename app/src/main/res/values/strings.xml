@@ -76,7 +76,7 @@
     <string name="tastingNoteSatisfaction">칵테일 만족도</string>
     <string name="tastingNoteEvaluation">칵테일 맛 평가</string>
     <string name="tastingNoteTip">나만의 홈텐딩 팁</string>
-    <string name="tastingNoteCount">%d / 200</string>
+    <string name="tastingNoteCount">(%d/200자)</string>
 
     <string name="homeGuideRecipeSee">레시피 보기</string>
 
