@@ -3,6 +3,7 @@ package org.sopt.appzam.nobar_android.presentation.login
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthError
@@ -13,7 +14,7 @@ import org.sopt.appzam.nobar_android.databinding.ActivityKakaoLoginExampleBindin
 
 class KakaoLoginExampleActivity : AppCompatActivity() {
 
-//    private val loginViewModel: LoginViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +41,8 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
     }
 
     private fun loginKakao() {
-//        if (loginViewModel.isLoginRunning()) return
-//        loginViewModel.startLoginRunning()
+        //if (loginViewModel.isLoginRunning())
+            //return loginViewModel.startLoginRunning()
 
         if (isKakaoTalkLoginAvailable()) {
             loginWithKakaoTalk()
@@ -90,7 +91,7 @@ class KakaoLoginExampleActivity : AppCompatActivity() {
         val thumbnailImageUrl: String? = user.kakaoAccount?.profile?.thumbnailImageUrl
         user.hasSignedUp
 
-//        loginViewModel.login()
+       loginViewModel.login()
     }
 
     private fun onLoginCanceled() {

@@ -11,6 +11,6 @@
     <item
         android:id="@+id/menu_mypage"
         android:icon="@drawable/ic_icn_mypage"
-        android:title="@string/mainMypage"/>
+        android:title="@string/mainMypage" />
 
 </menu>

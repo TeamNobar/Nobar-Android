@@ -9,5 +9,9 @@ import org.sopt.appzam.nobar_android.presentation.base.BaseActivity
 class GuideDetailActivity : BaseActivity<ActivityGuideDetailBinding>(R.layout.activity_guide_detail) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding.imageBack.setOnClickListener {
+            finish()
+        }
     }
 }
