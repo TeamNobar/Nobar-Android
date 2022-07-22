@@ -10,12 +10,16 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
+import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentMyPageTastingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.mypage.adapter.MultiViewAdapter
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.MODE
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NEW
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NOTE_ID
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.READ
+import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 
 class MyPageTastingFragment :
     BaseFragment<FragmentMyPageTastingBinding>(R.layout.fragment_my_page_tasting) {
@@ -61,8 +65,15 @@ class MyPageTastingFragment :
     }
 
     private fun tastingNoteAdapter() {
-        multiViewAdapter = MultiViewAdapter()
+        multiViewAdapter = MultiViewAdapter { itemClick(it) }
         binding.recyclerMyPageTasting.adapter = multiViewAdapter
+    }
+
+    private fun itemClick(tastingNoteResponse: TastingNoteResponse) {
+        val intent = Intent(requireContext(), RecordActivity::class.java)
+        intent.putExtra(MODE, READ)
+        intent.putExtra(NOTE_ID, tastingNoteResponse.id)
+        startActivity(intent)
     }
 
     private fun initNetwork() {
