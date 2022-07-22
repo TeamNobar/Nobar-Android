@@ -17,11 +17,7 @@ class TastingNoteTagAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: TagResponse) {
             binding.myPageTastingTagItem = data
-            if(data.isSelected){
-                setImage(binding.imageTag,data.activeIcon)
-            }else{
-                Log.d("d",data.isSelected.toString())
-            }
+            setImage(binding.imageTag,data.activeIcon)
         }
     }
 
