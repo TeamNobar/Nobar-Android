@@ -47,9 +47,11 @@ class SearchAfterTypingFragment :
     private fun checkFrom() {
         if (searchDetailViewModel.from == NOTE) {
             binding.recyclerIngredients.visibility = View.GONE
+            binding.textIngredient.visibility = View.GONE
         }
         if (searchDetailViewModel.from == SEARCH) {
             binding.recyclerIngredients.visibility = View.VISIBLE
+            binding.textIngredient.visibility = View.GONE
         }
     }
 
