@@ -207,7 +207,6 @@
                     app:srb_drawableEmpty="@drawable/ic_heart_empty"
                     app:srb_drawableFilled="@drawable/ic_heart_full"
                     app:srb_numStars="5"
-                    app:srb_rating="@{viewmodel.note.rate}"
                     app:srb_starPadding="5dp"
                     app:srb_stepSize="0.5">
 
@@ -247,7 +246,7 @@
                     android:text="@{viewmodel.cocktailEvaluation}"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grayA0"
-                    android:textSize="14dp"
+                    android:textSize="13dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textDetailEvaluation" />
@@ -299,7 +298,7 @@
                     android:paddingBottom="28dp"
                     android:text="@{viewmodel.note.experienceContent}"
                     android:textColor="@color/grayA0"
-                    android:textSize="14dp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
