@@ -13,6 +13,8 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentRecordWritingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity
+import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.FROM
+import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.NOTE
 import java.util.*
 
 class RecordWritingFragment :
@@ -24,6 +26,8 @@ class RecordWritingFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.viewmodel = recordViewModel
+
         //tag
         getTagList()
         initTagAdapter()
@@ -34,7 +38,7 @@ class RecordWritingFragment :
         setSearchResult()
 
         //date picker
-        initDatePickerDialog()
+        clickDatePicker()
 
         //글자수 트래킹
         observingEvaluationCount()
@@ -59,7 +63,7 @@ class RecordWritingFragment :
     private fun clickSearch() {
         binding.textSearch.setOnClickListener {
             val searchIntent = Intent(requireActivity(), SearchDetailActivity::class.java)
-            searchIntent.putExtra("from", "tastingNote")
+            searchIntent.putExtra(FROM, NOTE)
             resultLauncher.launch(searchIntent)
         }
     }
@@ -68,10 +72,16 @@ class RecordWritingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    val cocktail = result.data?.getStringExtra("cocktail") ?: ""
+                    val cocktail = result.data?.getStringExtra(COCKTAIL) ?: ""
                     binding.textSearch.text = cocktail
                 }
             }
+    }
+
+    private fun clickDatePicker() {
+        binding.textWhen.setOnClickListener {
+            initDatePickerDialog()
+        }
     }
 
     private fun initDatePickerDialog() {
@@ -84,7 +94,7 @@ class RecordWritingFragment :
                 calendar.set(Calendar.DAY_OF_YEAR, day)
 
                 val month = month + 1
-                val dateString = String.format("%d.%02d.%02d", year, month, day)
+                val dateString = String.format("%d년 %02d월 %02d일", year, month, day)
 
                 binding.textWhen.text = dateString
                 //하고싶은 행동 적자
@@ -100,16 +110,19 @@ class RecordWritingFragment :
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(textColor)
     }
 
-    private fun observingEvaluationCount(){
-        recordViewModel.cocktailEvaluation.observe(viewLifecycleOwner){
+    private fun observingEvaluationCount() {
+        recordViewModel.cocktailEvaluation.observe(viewLifecycleOwner) {
             recordViewModel.updateEvaluationCount()
         }
     }
 
-    private fun observingTipCount(){
-        recordViewModel.cocktailTip.observe(viewLifecycleOwner){
+    private fun observingTipCount() {
+        recordViewModel.cocktailTip.observe(viewLifecycleOwner) {
             recordViewModel.updateTipCount()
         }
     }
 
+    companion object {
+        const val COCKTAIL = "COCKTAIL"
+    }
 }
