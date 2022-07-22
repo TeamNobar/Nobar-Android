@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="org.sopt.appzam.nobar_android.data.remote.response.TagResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@{model.selected ? @drawable/rectangle_radius_100_border_graydd_fill_grayfb : @drawable/rectangle_radius_100_navy00}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="6dp"
-        android:layout_marginBottom="12dp">
+        android:layout_marginBottom="12dp"
+        android:background="@{model.isSelected ? @drawable/rectangle_radius_100_border_fill_pink : @drawable/rectangle_radius_100_border_graydd_fill_grayfb}">
 
         <ImageView
             android:id="@+id/imageIcon"
@@ -36,16 +37,16 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="12dp"
-            android:text="@{model.content}"
-            tools:text="쓴맛이나요"
             android:fontFamily="@font/pretendard_bold"
+            android:text="@{model.content}"
+            android:textColor="@{model.isSelected ? @color/pinkE93370 : @color/black}"
             android:textSize="13dp"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageIcon"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="쓴맛이나요" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
