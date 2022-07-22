@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewmodel"
             type="org.sopt.appzam.nobar_android.presentation.main.record.RecordViewModel" />
-        <import type="org.sopt.appzam.nobar_android.R"/>
+
+        <import type="org.sopt.appzam.nobar_android.R" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -124,9 +126,9 @@
                         android:fontFamily="@font/pretendard_semibold"
                         android:hint="@string/tastingNoteWhatCocktailHint"
                         android:paddingVertical="10dp"
+                        android:text="@={viewmodel.cocktailName}"
                         android:textColor="@color/grayA0"
                         android:textSize="13sp"
-                        android:text="@={viewmodel.cocktailName}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/imageSearch"
@@ -159,9 +161,9 @@
                     android:hint="@string/tastingNoteWhenHint"
                     android:paddingVertical="13dp"
                     android:paddingStart="13dp"
+                    android:text="@={viewmodel.drinkingDate}"
                     android:textColor="@color/grayA0"
                     android:textSize="13sp"
-                    android:text="@={viewmodel.drinkingDate}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textWhenDrink" />
@@ -228,15 +230,15 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
-                    app:srb_minimumStars="0.5"
-                    app:srb_rating="@={viewmodel.rating}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textMyScore"
                     app:layout_constraintWidth_percent="0.87"
                     app:srb_drawableEmpty="@drawable/ic_heart_empty"
                     app:srb_drawableFilled="@drawable/ic_heart_full"
+                    app:srb_minimumStars="0.5"
                     app:srb_numStars="5"
+                    app:srb_rating="@={viewmodel.rating}"
                     app:srb_starPadding="5dp"
                     app:srb_stepSize="0.5">
 
@@ -269,12 +271,13 @@
                     android:inputType="textMultiLine"
                     android:maxLines="8"
                     android:minLines="8"
-                    android:text="@={viewmodel.cocktailEvaluation}"
                     android:padding="12dp"
                     android:paddingHorizontal="16dp"
                     android:paddingTop="16dp"
                     android:paddingBottom="28dp"
-                    android:textColor="@color/grayA0"
+                    android:text="@={viewmodel.cocktailEvaluation}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayA0"
                     android:textSize="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -287,9 +290,9 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
                     android:fontFamily="@font/pretendard_medium"
+                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.EvaluationCount)}"
                     android:textColor="@color/grayA0"
                     android:textSize="10dp"
-                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.EvaluationCount)}"
                     app:layout_constraintBottom_toBottomOf="@+id/editDetailEvaluation"
                     app:layout_constraintEnd_toEndOf="@+id/editDetailEvaluation"
                     tools:text="0/200" />
@@ -325,9 +328,10 @@
                     android:paddingHorizontal="16dp"
                     android:paddingTop="16dp"
                     android:paddingBottom="28dp"
-                    android:textColor="@color/grayA0"
-                    android:textSize="14dp"
                     android:text="@={viewmodel.cocktailTip}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayA0"
+                    android:textSize="14dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -340,9 +344,9 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
                     android:fontFamily="@font/pretendard_medium"
+                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.TipCount)}"
                     android:textColor="@color/grayA0"
                     android:textSize="10sp"
-                    android:text="@{String.format(context.getString(R.string.tastingNoteCount), viewmodel.TipCount)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textTip"
                     app:layout_constraintEnd_toEndOf="@+id/textTip"
                     tools:text="0/200" />
