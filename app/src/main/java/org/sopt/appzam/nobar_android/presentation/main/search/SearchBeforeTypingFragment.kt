@@ -2,7 +2,6 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import org.sopt.appzam.nobar_android.R
@@ -57,7 +56,6 @@ class SearchBeforeTypingFragment :
     }
 
     private fun clickRecentItem(keyword: String) {
-        Log.d("asdf", "클릭됨2")
         searchDetailViewModel.initSearchResultNetWork(keyword)
         searchDetailViewModel.resultAndXVisibility.value = false
         searchDetailViewModel.modifyRecentKeyword(keyword)
