@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.NobarRecipesResponse
+import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentHomeBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
@@ -70,7 +71,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         //레시피 클릭시 칵테일 상세보기로 이동로직
         laterRecipeAdapter = LaterRecipeAdapter {
             val intent = Intent(requireContext(), RecipeActivity::class.java)
-            intent.putExtra("recipeId", it.id)
+            intent.putExtra("cocktailId", it.id)
             startActivity(intent)
         }
         binding.recyclerToDoRecipe.adapter = laterRecipeAdapter

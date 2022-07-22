@@ -4,7 +4,7 @@ import org.sopt.appzam.nobar_android.data.remote.response.TagResponse
 
 data class TastingNoteParams(
     val recipeId : String,
-    val rate : Double,
+    val rate : Float,
     val tagList : List<TagResponse>,
     val tasteContent : String?,
     val experienceContent : String?,

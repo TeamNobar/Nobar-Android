@@ -10,7 +10,8 @@ import org.sopt.appzam.nobar_android.presentation.base.BaseActivity
 class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_record) {
     private val recordViewModel: RecordViewModel by viewModels()
     private var whichFragment = ""
-    private var whichNote = ""
+    private var whichNoteId = ""
+    private var whichNoteName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,30 +22,39 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
 
     private fun getIntentString() {
         whichFragment = intent.getStringExtra(MODE) ?: ""
-        whichNote = intent.getStringExtra(NOTE_ID) ?: ""
+        whichNoteId = intent.getStringExtra(NOTE_ID) ?: ""
+        whichNoteName = intent.getStringExtra(NOTE_NAME) ?: ""
         Log.d("asdf", "which : $whichFragment")
     }
 
     private fun decideFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         when (whichFragment) {
+            RECIPE -> {
+                transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
+                recordViewModel.cocktailId = whichNoteId
+                recordViewModel.cocktailName.value = whichNoteName
+                Log.d("asdf", "$whichNoteName")
+            }
             NEW -> {
                 transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
             }
             MODIFY -> {
                 transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
-                recordViewModel.getTastingNote(whichNote)
+                recordViewModel.getTastingNote(whichNoteId)
             }
             READ -> {
                 transaction.add(R.id.fragmentContainerViewRecord, RecordReadFragment()).commit()
-                recordViewModel.getTastingNote(whichNote)
+                recordViewModel.getTastingNote(whichNoteId)
             }
         }
     }
 
     companion object {
+        const val NOTE_NAME = "NOTE_NAME"
         const val NOTE_ID = "NOTE_ID"
         const val MODE = "MODE"
+        const val RECIPE = "RECIPE"
         const val NEW = "NEW"
         const val MODIFY = "MODIFY"
         const val READ = "READ"

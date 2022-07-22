@@ -1,5 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.record
 
+import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -13,6 +14,7 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.TagResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentRecordWritingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+import org.sopt.appzam.nobar_android.presentation.main.mypage.MyPageTastingFragment
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.FROM
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.NOTE
@@ -44,6 +46,12 @@ class RecordWritingFragment :
         //글자수 트래킹
         observingEvaluationCount()
         observingTipCount()
+
+        //글쓰기 등록 버튼
+        clickEnrollment(binding.rotationRatingBar.rating)
+
+        //종료
+        clickX()
     }
 
     private fun initTagAdapter() {
@@ -73,8 +81,8 @@ class RecordWritingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    val cocktail = result.data?.getStringExtra(COCKTAIL) ?: ""
-                    binding.textSearch.text = cocktail
+                    recordViewModel.cocktailId = result.data?.getStringExtra(COCKTAIL_ID) ?: ""
+                    binding.textSearch.text = result.data?.getStringExtra(COCKTAIL_NAME) ?: ""
                 }
             }
     }
@@ -114,8 +122,21 @@ class RecordWritingFragment :
         recordViewModel.setSelectedTag(tagResponse)
     }
 
-    private fun clickEnrollment() {
+    private fun clickEnrollment(rating: Float) {
+        binding.textEnrollment.setOnClickListener {
+            recordViewModel.postTastingNote(recordViewModel.makeTastingNote(rating))
+            val intent = Intent(requireContext(), MyPageTastingFragment::class.java)
+            activity?.setResult(RESULT_OK, intent)
+            activity?.finish()
+        }
+    }
 
+    private fun clickX() {
+        binding.imageX.setOnClickListener {
+            val intent = Intent(requireContext(), MyPageTastingFragment::class.java)
+            activity?.setResult(RESULT_CANCELED, intent)
+            activity?.finish()
+        }
     }
 
     private fun observingEvaluationCount() {
@@ -131,6 +152,7 @@ class RecordWritingFragment :
     }
 
     companion object {
-        const val COCKTAIL = "COCKTAIL"
+        const val COCKTAIL_ID = "COCKTAIL_ID"
+        const val COCKTAIL_NAME = "COCKTAIL_NAME"
     }
 }
