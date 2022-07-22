@@ -10,7 +10,8 @@
             type="org.sopt.appzam.nobar_android.presentation.main.record.RecordViewModel" />
 
         <import type="org.sopt.appzam.nobar_android.R" />
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,10 +61,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="13dp"
+                android:clickable="@{(!viewmodel.cocktailName.empty &amp;&amp; !viewmodel.drinkingDate.empty &amp;&amp; viewmodel.isTagClicked)  ? true : false}"
                 android:fontFamily="@font/pretendard_medium"
                 android:padding="10dp"
                 android:text="@string/tastingNoteEnrollment"
-                android:textColor="@{(!viewmodel.cocktailName.empty &amp;&amp; !viewmodel.drinkingDate.empty)  ? @color/pinkE93370 : @color/grayDD}"
+                android:textColor="@{(!viewmodel.cocktailName.empty &amp;&amp; !viewmodel.drinkingDate.empty &amp;&amp; viewmodel.isTagClicked)  ? @color/pinkE93370 : @color/grayDD}"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTitle"
                 app:layout_constraintEnd_toEndOf="parent"

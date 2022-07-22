@@ -31,6 +31,7 @@ class RecordViewModel() : NobarViewModel() {
     val cocktailTip = MutableLiveData<String>()
     val TipCount = MutableLiveData(0)
     val isTagCountMax = MutableLiveData(false)
+    val isTagClicked=MutableLiveData(false)
 
     // 쓰기 시 가져올 id
     var cocktailId : String = ""
@@ -42,6 +43,7 @@ class RecordViewModel() : NobarViewModel() {
         val size = _tagList.value?.size ?: 0
         tagCount = tagList.value.orEmpty().count { it.isSelected == true }
         isTagCountMax.value = (tagCount >= 3)
+        isTagClicked.value=(tagCount>0)
 
         for (i in 0..size - 1) {
             if (tagResponse.id == _tagList.value?.get(i)?.id ?: "") {
@@ -55,6 +57,7 @@ class RecordViewModel() : NobarViewModel() {
 
         tagCount = tagList.value.orEmpty().count { it.isSelected == true }
         isTagCountMax.value = (tagCount >= 3)
+        isTagClicked.value=(tagCount>0)
     }
 
     // 쓰기 글자 수
