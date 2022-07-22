@@ -1,8 +1,6 @@
 # 사용한 기술스텍
 * databinding
 * viewModel
-* room
-* coroutine
 
 <br>
 <br>
