@@ -102,7 +102,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="24dp"
-                    android:background="@drawable/rectangle_radius_6_border_gray81"
+                    android:background="@drawable/rectangle_radius_5_grayfb"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textCocktail">
@@ -125,7 +125,7 @@
                         android:background="@null"
                         android:fontFamily="@font/pretendard_semibold"
                         android:hint="@string/tastingNoteWhatCocktailHint"
-                        android:paddingVertical="10dp"
+                        android:paddingVertical="13dp"
                         android:text="@={viewmodel.cocktailName}"
                         android:textColor="@color/grayA0"
                         android:textSize="13sp"
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="26dp"
                     android:layout_marginTop="18dp"
-                    android:background="@drawable/rectangle_radius_10"
+                    android:background="@drawable/rectangle_radius_5_grayfb"
                     android:backgroundTint="@color/grayFB"
                     android:fontFamily="@font/pretendard_semibold"
                     android:hint="@string/tastingNoteWhenHint"
@@ -238,7 +238,6 @@
                     app:srb_drawableFilled="@drawable/ic_heart_full"
                     app:srb_minimumStars="0.5"
                     app:srb_numStars="5"
-                    app:srb_rating="@={viewmodel.rating}"
                     app:srb_starPadding="5dp"
                     app:srb_stepSize="0.5">
 
