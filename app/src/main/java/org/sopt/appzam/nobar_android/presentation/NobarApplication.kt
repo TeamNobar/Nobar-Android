@@ -1,14 +1,20 @@
 package org.sopt.appzam.nobar_android.presentation
 
-import android.app.Application
 //import com.kakao.sdk.common.KakaoSdk
-import org.sopt.appzam.nobar_android.R
+import android.app.Application
+import android.content.Context
 
-class NobarApplication: Application() {
+class NobarApplication : Application() {
+
 
     override fun onCreate() {
         super.onCreate()
-
+        appContext = this
         //KakaoSdk.init(this, getString(R.string.kakaoAppKeyScheme))
+    }
+
+    companion object {
+        @JvmStatic
+        var appContext: Context? = null
     }
 }
