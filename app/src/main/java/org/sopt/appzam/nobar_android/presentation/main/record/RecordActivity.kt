@@ -1,6 +1,7 @@
 package org.sopt.appzam.nobar_android.presentation.main.record
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.ActivityRecordBinding
@@ -21,20 +22,21 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
     private fun getIntentString() {
         whichFragment = intent.getStringExtra(MODE) ?: ""
         whichNote = intent.getStringExtra(NOTE_ID) ?: ""
+        Log.d("asdf", "which : $whichFragment")
     }
 
     private fun decideFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         when (whichFragment) {
             NEW -> {
-                transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment())
+                transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
             }
             MODIFY -> {
-                transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment())
+                transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
                 recordViewModel.getTastingNote(whichNote)
             }
             READ -> {
-                transaction.add(R.id.fragmentContainerViewRecord, RecordReadFragment())
+                transaction.add(R.id.fragmentContainerViewRecord, RecordReadFragment()).commit()
                 recordViewModel.getTastingNote(whichNote)
             }
         }

@@ -18,7 +18,7 @@ class RecordReadFragment : BaseFragment<FragmentRecordReadBinding>(R.layout.frag
     }
 
     private fun initAdapter() {
-        tagAdapter = RecordTagAdapter()
+        tagAdapter = RecordTagAdapter{ }
         binding.recyclerView.adapter = tagAdapter
     }
 }

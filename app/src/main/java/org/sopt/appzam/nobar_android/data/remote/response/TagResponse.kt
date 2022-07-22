@@ -4,5 +4,5 @@ data class TagResponse(
     val id : String,
     val content : String,
     val icon : String,
-    val isSelected : Boolean
+    var isSelected : Boolean
 )

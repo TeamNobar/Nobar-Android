@@ -11,7 +11,7 @@ import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call
 
 class RecordViewModel() : NobarViewModel() {
-    private var _tagList = MutableLiveData<List<TagResponse>>()
+    private val _tagList = MutableLiveData<List<TagResponse>>()
     val tagList: LiveData<List<TagResponse>> = _tagList
 
     private var _note = MutableLiveData<TastingNoteResponse>()
@@ -24,7 +24,28 @@ class RecordViewModel() : NobarViewModel() {
     val EvaluationCount = MutableLiveData(0)
     val cocktailTip = MutableLiveData<String>()
     val TipCount = MutableLiveData(0)
+    val isTagCountMax = MutableLiveData(false)
 
+    var tagCount = 0
+
+    fun setSelectedTag(tagResponse: TagResponse) {
+        val size = _tagList.value?.size ?: 0
+        tagCount = tagList.value.orEmpty().count { it.isSelected == true }
+        isTagCountMax.value = (tagCount >= 3)
+
+        for (i in 0..size - 1) {
+            if (tagResponse.id == _tagList.value?.get(i)?.id ?: "") {
+                if (!(_tagList.value?.get(i)?.isSelected ?: false)) {
+                    if (isTagCountMax.value ?: false)
+                        return
+                }
+                _tagList.value?.get(i)?.isSelected = !(_tagList.value?.get(i)?.isSelected ?: false)
+            }
+        }
+
+        tagCount = tagList.value.orEmpty().count { it.isSelected == true }
+        isTagCountMax.value = (tagCount >= 3)
+    }
 
     fun updateEvaluationCount() {
         if (cocktailEvaluation.value == null) return
@@ -52,6 +73,7 @@ class RecordViewModel() : NobarViewModel() {
                 cocktailName.value = it.recipe.name
                 drinkingDate.value = it.createdAt
                 _tagList.value = it.tag
+                tagCount = it.tag.size
                 rating.value = it.rate
                 cocktailEvaluation.value = it.tasteContent
                 cocktailTip.value = it.experienceContent

@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import org.sopt.appzam.nobar_android.R
+import org.sopt.appzam.nobar_android.data.remote.response.TagResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentRecordWritingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity
@@ -46,7 +47,7 @@ class RecordWritingFragment :
     }
 
     private fun initTagAdapter() {
-        recordTagAdapter = RecordTagAdapter()
+        recordTagAdapter = RecordTagAdapter { tagClick(it) }
         binding.recyclerView.adapter = recordTagAdapter
     }
 
@@ -97,7 +98,6 @@ class RecordWritingFragment :
                 val dateString = String.format("%d년 %02d월 %02d일", year, month, day)
 
                 binding.textWhen.text = dateString
-                //하고싶은 행동 적자
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -108,6 +108,14 @@ class RecordWritingFragment :
         datePickerDialog.show()
         datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(textColor)
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(textColor)
+    }
+
+    private fun tagClick(tagResponse: TagResponse) {
+        recordViewModel.setSelectedTag(tagResponse)
+    }
+
+    private fun clickEnrollment() {
+
     }
 
     private fun observingEvaluationCount() {
