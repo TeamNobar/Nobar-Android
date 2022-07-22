@@ -1,5 +1,9 @@
 package org.sopt.appzam.nobar_android.data.remote.api
 
+import okhttp3.OkHttpClient
+import org.sopt.appzam.nobar_android.data.local.db.AuthTokenManager
+import org.sopt.appzam.nobar_android.data.remote.service.interceptor.NobarAuthInterceptor
+import org.sopt.appzam.nobar_android.presentation.NobarApplication
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -9,7 +13,13 @@ object ServiceCreator {
     private val retrofitMockup: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL_MOCKUP)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(
+            OkHttpClient().newBuilder()
+                .addInterceptor(NobarAuthInterceptor(AuthTokenManager.getInstance(NobarApplication.appContext!!)))
+                .build()
+        )
         .build()
+
 
     val mockupService: MockupService = retrofitMockup.create(MockupService::class.java)
 }

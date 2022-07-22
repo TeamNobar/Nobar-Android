@@ -18,6 +18,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.main.onboarding.OnBoardingActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".presentation.main.SplashActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".presentation.main.setting.SettingActivity"
             android:exported="false" />
         <activity
@@ -44,6 +54,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".presentation.recipe.RecipeActivity"
@@ -51,8 +62,7 @@
         <activity
             android:name=".presentation.login.KakaoLoginExampleActivity"
             android:exported="true" />
-        <!--
-<activity
+        <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
@@ -66,7 +76,6 @@
                     android:scheme="@string/kakaoAppKeyScheme" />
             </intent-filter>
         </activity>
-        -->
         <activity android:name=".presentation.login.LoginActivity" />
     </application>
 

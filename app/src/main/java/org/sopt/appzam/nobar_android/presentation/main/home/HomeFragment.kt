@@ -78,7 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun guideAdapter() {
         guideAdapter = GuideAdapter {
-            val intent = Intent(requireContext(), HomeLaterRecipeDetailActivity::class.java)
+            val intent = Intent(requireContext(), GuideDetailActivity::class.java)
             intent.putExtra("guideId", it.id)
             startActivity(intent)
         }

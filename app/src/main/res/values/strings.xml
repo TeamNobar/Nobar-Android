@@ -95,5 +95,10 @@
     <string name="homeAdapter4">그 그 그 복숭아 맛 나는 칵테일\n달달한 아 그 "<b>"피치 크러쉬!"</b>"</string>
     <string name="homeAdapter5">12시 귀가를 보장하는\n논알콜 칵테일, "<b>"신데렐라"</b>"</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onBoarding1">수많은 홈텐딩 레시피를\n한 곳에서 확인할 수 있어요</string>
+    <string name="onBoarding2">재료와 베이스로\n쉽게 검색할 수 있어요</string>
+    <string name="onBoarding3">테이스팅 노트로\n맛의 잔상을 남겨보세요</string>
 </resources>
 

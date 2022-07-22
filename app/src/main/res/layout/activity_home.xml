@@ -26,9 +26,10 @@
             app:itemIconTint="@color/selector_bottom_navi"
             app:itemRippleColor="@color/blue133ed9"
             app:itemTextColor="@color/selector_bottom_navi"
+            android:textSize="7sp"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_bottom" />
+            app:menu="@menu/menu_bottom"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

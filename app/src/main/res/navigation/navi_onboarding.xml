@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onboarding"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/onBoardingFragment1">
+
+    <fragment
+        android:id="@+id/onBoardingFragment1"
+        android:name="org.sopt.appzam.nobar_android.presentation.main.onboarding.OnBoardingFragment1"
+        android:label="OnBoardingFragment1"
+        tools:layout="@layout/fragment_on_boarding1">
+        <action
+            android:id="@+id/action_onBoardingFragment1_to_walkThroughFragment"
+            app:destination="@id/walkThroughFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/walkThroughFragment"
+        android:name="com.mi.walkthroughandroid.ui.fragment.WalkThroughFragment"
+        android:label="WalkThroughFragment"
+        tools:layout="@layout/fragment_walk_through">
+    <action
+        android:id="@+id/action_walkThroughFragment_to_onBoardingFragment2"
+        app:destination="@id/onBoardingFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onBoardingFragment2"
+        android:name="org.sopt.appzam.nobar_android.presentation.main.onboarding.OnBoardingFragment2"
+        android:label="OnBoardingFragment2"
+        tools:layout="@layout/fragment_on_boarding2">
+        <action
+            android:id="@+id/action_onBoardingFragment2_to_onBoardingFragment3"
+            app:destination="@id/onBoardingFragment3"
+            app:popUpTo="@id/onBoardingFragment1"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/onBoardingFragment3"
+        android:name="org.sopt.appzam.nobar_android.presentation.main.onboarding.OnBoardingFragment3"
+        android:label="OnBoardingFragment3"
+        app:popUpTo="@id/onBoardingFragment1"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_on_boarding3"/>
+</navigation>
