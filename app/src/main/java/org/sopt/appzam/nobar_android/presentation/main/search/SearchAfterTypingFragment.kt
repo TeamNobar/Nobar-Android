@@ -51,7 +51,7 @@ class SearchAfterTypingFragment :
         }
         if (searchDetailViewModel.from == SEARCH) {
             binding.recyclerIngredients.visibility = View.VISIBLE
-            binding.textIngredient.visibility = View.GONE
+            binding.textIngredient.visibility = View.VISIBLE
         }
     }
 
