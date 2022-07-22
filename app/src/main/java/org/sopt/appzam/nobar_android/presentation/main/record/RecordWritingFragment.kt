@@ -35,6 +35,10 @@ class RecordWritingFragment :
 
         //date picker
         initDatePickerDialog()
+
+        //글자수 트래킹
+        observingEvaluationCount()
+        observingTipCount()
     }
 
     private fun initTagAdapter() {
@@ -96,6 +100,16 @@ class RecordWritingFragment :
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(textColor)
     }
 
+    private fun observingEvaluationCount(){
+        recordViewModel.cocktailEvaluation.observe(viewLifecycleOwner){
+            recordViewModel.updateEvaluationCount()
+        }
+    }
 
+    private fun observingTipCount(){
+        recordViewModel.cocktailTip.observe(viewLifecycleOwner){
+            recordViewModel.updateTipCount()
+        }
+    }
 
 }
