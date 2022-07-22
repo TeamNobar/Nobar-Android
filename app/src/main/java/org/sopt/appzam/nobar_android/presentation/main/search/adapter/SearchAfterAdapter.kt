@@ -10,16 +10,20 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemSearchPreviewBinding
 
-class SearchAfterAdapter(private val itemClick: () -> Unit) :
+class SearchAfterAdapter(private val itemClick: (RecipeResponse) -> Unit) :
     ListAdapter<RecipeResponse, SearchAfterAdapter.SearchAfterViewHolder>(SearchAfterComparator()) {
     var findText = ""
 
     class SearchAfterViewHolder(private val binding: ItemSearchPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(text: SpannableStringBuilder, itemClick: () -> Unit) {
+        fun onBind(
+            data: RecipeResponse,
+            text: SpannableStringBuilder,
+            itemClick: (RecipeResponse) -> Unit
+        ) {
             binding.textName.text = text
             itemView.setOnClickListener {
-                itemClick()
+                itemClick(data)
             }
         }
     }
@@ -41,7 +45,7 @@ class SearchAfterAdapter(private val itemClick: () -> Unit) :
     }
 
     override fun onBindViewHolder(holder: SearchAfterViewHolder, position: Int) {
-        holder.onBind(makeBold(getItem(position).name, findText), itemClick)
+        holder.onBind(getItem(position), makeBold(getItem(position).name, findText), itemClick)
     }
 
     fun makeBold(fulltext: String, findText: String): SpannableStringBuilder {

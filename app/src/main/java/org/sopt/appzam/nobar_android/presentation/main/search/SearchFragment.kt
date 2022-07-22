@@ -6,8 +6,11 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
 import org.sopt.appzam.nobar_android.R
+import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.FROM
+import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.SEARCH
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchBaseAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SearchResultAdapter
 import org.sopt.appzam.nobar_android.presentation.main.search.adapter.SpinnerAdapter
@@ -64,9 +67,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         binding.recyclerResult.adapter = searchResultAdapter
     }
 
-    private fun clickResultItem(id: String) {
+    private fun clickResultItem(recipeResponse : RecipeResponse) {
         val intent = Intent(requireActivity(), RecipeActivity::class.java)
-        intent.putExtra("cocktailId", id)
+        intent.putExtra("cocktailId", recipeResponse.id)
         startActivity(intent)
     }
 
@@ -107,6 +110,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     private fun clickSearchBar() {
         binding.editSearch.setOnClickListener {
             val intent = Intent(requireActivity(), SearchDetailActivity::class.java)
+            intent.putExtra(FROM, SEARCH)
             startActivity(intent)
         }
     }
