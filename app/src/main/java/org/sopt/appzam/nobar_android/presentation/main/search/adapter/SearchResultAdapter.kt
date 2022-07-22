@@ -1,6 +1,5 @@
 package org.sopt.appzam.nobar_android.presentation.main.search.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,15 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.ItemSearchResultBinding
 
-class SearchResultAdapter(private val itemClick: (id: String) -> Unit) :
+class SearchResultAdapter(private val itemClick: (RecipeResponse) -> Unit) :
     ListAdapter<RecipeResponse, SearchResultAdapter.SearchResultViewHolder>(SearchResultComparator()) {
 
     class SearchResultViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: RecipeResponse, itemClick: (id: String) -> Unit) {
+        fun onBind(data: RecipeResponse, itemClick: (RecipeResponse) -> Unit) {
             binding.searchResultItem = data
             itemView.setOnClickListener {
-                itemClick(data.id)
+                itemClick(data)
             }
         }
     }
@@ -35,7 +34,6 @@ class SearchResultAdapter(private val itemClick: (id: String) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemSearchResultBinding.inflate(layoutInflater, parent, false)
-        Log.d("asdf","currentSize : ${currentList.size}")
         return SearchResultViewHolder(binding)
     }
 

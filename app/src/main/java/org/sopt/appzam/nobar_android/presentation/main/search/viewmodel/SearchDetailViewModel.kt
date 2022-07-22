@@ -15,12 +15,17 @@ import org.sopt.appzam.nobar_android.data.remote.response.SearchResultResponse
 import org.sopt.appzam.nobar_android.data.remote.response.common.RecommendModel
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SearchDetailViewModel : ViewModel() {
     var searchingWord = MutableLiveData<String>()
     var resultAndXVisibility = MutableLiveData<Boolean>(false)
     var recentVisibility = MutableLiveData<Boolean>(false)
     var shareKeyword: String = ""
+    var from = ""
+
+    val time = SimpleDateFormat("yyyy.MM.dd 기준").format(Date())
 
     private var _recentKeyword = MutableLiveData<String>()
     val recentKeyword: LiveData<String> = _recentKeyword
@@ -85,8 +90,6 @@ class SearchDetailViewModel : ViewModel() {
 
 
     companion object {
-        private const val RECIPES = "RECIPES"
-        private const val INGREDIENTS = "INGREDIENTS"
         private const val RECENT = "RECENT"
     }
 }

@@ -10,8 +10,9 @@ import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentMyPageTastingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.mypage.adapter.MultiViewAdapter
-import org.sopt.appzam.nobar_android.presentation.main.mypage.adapter.TastingNoteAdapter
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.MODE
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NEW
 
 class MyPageTastingFragment :
     BaseFragment<FragmentMyPageTastingBinding>(R.layout.fragment_my_page_tasting) {
@@ -33,6 +34,7 @@ class MyPageTastingFragment :
         super.onViewCreated(view, savedInstanceState)
         binding.buttonNewNote.setOnClickListener {
             val intent = Intent(requireActivity(), RecordActivity::class.java)
+            intent.putExtra(MODE, NEW)
             startActivity(intent)
         }
         tastingNoteAdapter()

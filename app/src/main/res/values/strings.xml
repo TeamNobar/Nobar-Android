@@ -53,18 +53,31 @@
     <string name="myPageTastingNote">테이스팅 노트</string>
     <string name="myPageLaterRecipe">나중에 만들 레시피</string>
 
-    <string name="tastingNoteTitle">테이스팅 노트 기록하기</string>
+    <string name="tastingNoteTitleWrite">테이스팅 노트 기록하기</string>
+    <string name="tastingNoteTitleModify">테이스팅 노트 수정하기</string>
+    <string name="tastingNoteTitle">테이스팅 노트</string>
+
     <string name="tastingNoteEnrollment">등록</string>
-    <string name="tastingNoteSearchCocktail">님이 만든 칵테일을 찾아보세요</string>
+    <string name="tastingNoteWhatCocktail">어떤 칵테일을 기록할까요?</string>
+    <string name="tastingNoteWhatCocktailHint">칵테일 이름을 검색해보세요</string>
+    <string name="tastingNoteWhenDrink">언제 칵테일을 마셨나요?</string>
+    <string name="tastingNoteWhenHint">이곳을 눌러 날짜를 선택해주세요</string>
     <string name="tastingNoteWhatTaste">맛은 어땠나요?</string>
-    <string name="tastingNoteCantSelect">같이 누를 수 없는 태그입니다</string>
-    <string name="tastingNoteMyScore">제 점수는요!</string>
-    <string name="tastingNoteDetailEvaluation">자세한 평가를 듣고 싶어요</string>
+    <string name="tastingNoteMaxThree">최대 3개까지 선택 가능합니다</string>
+    <string name="tastingNoteMyScore">칵테일이 얼마나 마음에 들었나요?</string>
+    <string name="tastingNoteDetailEvaluation">칵테일 맛 평가도 남겨볼까요?</string>
+    <string name="tastingNoteEvalutaionHint">칵테일 맛에 대한 주관적인 평가를 들려주세요</string>
+    <string name="tastingNoteWriteTip">나만의 홈텐딩 팁도 남겨볼까요?</string>
+    <string name="tastingNoteTipHint">직접 칵테일을 만들어 보면서 알게 된 나만의 팁을 자유롭게 기록해주세요</string>
+
     <string name="tastingNoteSuffix">의 노트</string>
-    <string name="tastingNoteHint">칵테일 이름을 검색해보세요</string>
-    <string name="tastingNoteYourExperience">당신의 경험을 기억하고 싶어요</string>
-    <string name="tastingNoteWriteEvaluation">맛에 대한 주관적인 평가를 적어주세요</string>
-    <string name="tastingNoteWriteExperience">칵테일을 만들면서, 마시면서 있었던 모든 경험을\n이곳에서 기억해보세요</string>
+    <string name="tastingNoteDate">칵테일을 만든 날짜</string>
+    <string name="tastingNoteChosenTag">내가 고른 맛 태그</string>
+    <string name="tastingNoteSatisfaction">칵테일 만족도</string>
+    <string name="tastingNoteEvaluation">칵테일 맛 평가</string>
+    <string name="tastingNoteTip">나만의 홈텐딩 팁</string>
+    <string name="tastingNoteCount">(%d/200자)</string>
+
     <string name="homeGuideRecipeSee">레시피 보기</string>
 
     <string name="recipeDetailDescription">같은 칵테일을 마셔도 테이스팅 노트는 여러 번 기록할 수 있어요\n어제의 홈텐딩과 오늘의 홈텐딩은 다르니까요\n오늘 마신 칵테일로 오늘을 기억해보는 것은 어때요?\n당신의 하루가 더 오래 기억되길 바라요</string>
@@ -81,6 +94,7 @@
     <string name="homeAdapter3">뜨거운 여름엔 이 칵테일!\n"<b>"섹스 온 더 비치"</b>"</string>
     <string name="homeAdapter4">그 그 그 복숭아 맛 나는 칵테일\n달달한 아 그 "<b>"피치 크러쉬!"</b>"</string>
     <string name="homeAdapter5">12시 귀가를 보장하는\n논알콜 칵테일, "<b>"신데렐라"</b>"</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="onBoarding1">수많은 홈텐딩 레시피를\n한 곳에서 확인할 수 있어요</string>

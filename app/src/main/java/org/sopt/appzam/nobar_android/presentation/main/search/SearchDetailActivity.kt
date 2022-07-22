@@ -3,6 +3,7 @@ package org.sopt.appzam.nobar_android.presentation.main.search
 import android.content.Context
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -22,14 +23,27 @@ class SearchDetailActivity :
         binding.viewModel = searchDetailViewModel
         getKeywords()
         focusEditText()
-        supportFragmentManager.beginTransaction()
-            .add(R.id.searchFragmentContainerView, SearchBeforeTypingFragment()).commit()
 
+        whereAreYouFrom()
         observingWord()
         clickEnter()
         clickX()
         clickBack()
         observingRecent()
+
+    }
+
+    private fun whereAreYouFrom() {
+        searchDetailViewModel.from = intent.getStringExtra(FROM) ?: error(finish())
+        Log.d("asdf", "from : ${searchDetailViewModel.from}")
+        val transaction = supportFragmentManager.beginTransaction()
+        when (searchDetailViewModel.from) {
+            NOTE ->
+                transaction.add(R.id.searchFragmentContainerView, SearchAfterTypingFragment()).commit()
+            SEARCH ->
+                transaction.add(R.id.searchFragmentContainerView, SearchBeforeTypingFragment()).commit()
+            else -> error(finish())
+        }
     }
 
     private fun getKeywords() {
@@ -108,9 +122,15 @@ class SearchDetailActivity :
         }
     }
 
-    private fun clickBack(){
-        binding.imageBack.setOnClickListener{
+    private fun clickBack() {
+        binding.imageBack.setOnClickListener {
             finish()
         }
+    }
+
+    companion object {
+        const val FROM = "FROM"
+        const val NOTE = "NOTE"
+        const val SEARCH = "SEARCH"
     }
 }

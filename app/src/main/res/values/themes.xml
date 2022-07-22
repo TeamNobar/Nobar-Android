@@ -20,4 +20,12 @@
         <item name="colorAccent">@color/navy000782</item>
     </style>
 
+    <style name="MySpinnerDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <!-- 상단 색 변경 -->
+        <item name="colorAccent">@color/navy000782</item>
+        <!-- 선택한 날짜를 표시할 색상 -->
+        <item name="colorControlActivated">@color/navy000782</item>
+        <item name="colorControlHighlight">@color/navy000782</item>
+    </style>
+
 </resources>

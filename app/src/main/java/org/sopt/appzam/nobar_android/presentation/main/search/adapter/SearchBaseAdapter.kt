@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import org.sopt.appzam.nobar_android.data.remote.response.common.BaseModel
 import org.sopt.appzam.nobar_android.databinding.ItemSearchBaseBinding
 
@@ -17,6 +18,7 @@ class SearchBaseAdapter(private val itemClick: (String) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: BaseModel) {
             binding.model = data
+            Glide.with(binding.imageBase).load(data.url).into(binding.imageBase)
 
             if (itemView.isSelected)
                 binding.cardView.strokeWidth = 5
