@@ -22,7 +22,7 @@ class GuideAdapter(private val itemClick: (GuideResponse) -> (Unit)) :
             binding.guideItem = data
             Log.d("dd", position.toString())
             when (position % 5) {
-                0 -> binding.imageGuide.setImageResource(R.drawable.img_guide_daiso)
+                0 -> binding.imageGuide.setImageResource(R.drawable.img_guide_base)
                 1 -> binding.imageGuide.setImageResource(R.drawable.img_guide_deco)
                 2 -> binding.imageGuide.setImageResource(R.drawable.img_guide_price)
                 3 -> binding.imageGuide.setImageResource(R.drawable._img_guide_glass)

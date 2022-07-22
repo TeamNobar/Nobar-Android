@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rectangle_radius_5_sky_bluefafbff">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_item"
@@ -46,6 +47,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="23dp"
                 android:textColor="@color/gray81"
+                android:textSize="10dp"
                 android:fontFamily="@font/pretendard_light"
                 android:layout_marginBottom="16dp"
                 tools:text="Peach Crush"/>
@@ -64,6 +66,7 @@
                     android:layout_height="42dp"
                     android:src="@drawable/oval_white"
                     android:layout_marginStart="30dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageProof"
                     setImage="@{myPageLaterRecipeItem.base.url}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -91,9 +94,10 @@
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:src="@drawable/oval_white"
-                    android:layout_marginStart="31dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintTop_toTopOf="parent"
                     setImage="@{myPageLaterRecipeItem.proofIcon}"
+                    app:layout_constraintEnd_toStartOf="@+id/imageSkill"
                     app:layout_constraintStart_toEndOf="@+id/imageBase" />
                 <TextView
                     android:id="@+id/textProof"
@@ -132,7 +136,8 @@
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:src="@drawable/oval_white"
-                    android:layout_marginStart="31dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintEnd_toStartOf="@id/imageGlass"
                     app:layout_constraintTop_toTopOf="parent"
                     setImage="@{myPageLaterRecipeItem.skill.url}"
                     app:layout_constraintStart_toEndOf="@id/imageProof"/>
@@ -160,7 +165,9 @@
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:src="@drawable/oval_white"
-                    android:layout_marginStart="31dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="31dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     setImage="@{myPageLaterRecipeItem.glass.url}"
                     app:layout_constraintStart_toEndOf="@id/imageSkill"/>

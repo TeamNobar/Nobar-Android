@@ -24,7 +24,15 @@ class MultiViewAdapter :
 
             val recipeTagAdapter = TastingNoteTagAdapter()
             binding.recyclerTag.adapter = recipeTagAdapter
-            recipeTagAdapter.submitList(data.tag)
+
+            var tagList = mutableListOf<TagResponse>()
+
+            for(i in 0 until data.tag.count()){
+                if(data.tag[i].isSelected)
+                    tagList.add(data.tag[i])
+            }
+
+            recipeTagAdapter.submitList(tagList)
         }
     }
 
@@ -36,8 +44,13 @@ class MultiViewAdapter :
             val recipeTagAdapter = TastingNoteTagAdapter()
 
             binding.recyclerTag.adapter = recipeTagAdapter
-            
-            recipeTagAdapter.submitList(data.tag)
+            var tagList = mutableListOf<TagResponse>()
+
+            for(i in 0 until data.tag.count()){
+                if(data.tag[i].isSelected)
+                    tagList.add(data.tag[i])
+            }
+            recipeTagAdapter.submitList(tagList)
         }
     }
 
