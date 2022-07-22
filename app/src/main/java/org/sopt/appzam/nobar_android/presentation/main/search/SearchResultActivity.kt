@@ -48,7 +48,8 @@ class SearchResultActivity :
     private fun clickResultItem(recipeResponse: RecipeResponse) {
         if (from == NOTE) {
             val intent = Intent(this, RecordActivity::class.java)
-            intent.putExtra(RecordWritingFragment.COCKTAIL, recipeResponse.name)
+            intent.putExtra(RecordWritingFragment.COCKTAIL_NAME, recipeResponse.name)
+            intent.putExtra(RecordWritingFragment.COCKTAIL_ID, recipeResponse.id)
             setResult(RESULT_OK, intent)
             finish()
         }

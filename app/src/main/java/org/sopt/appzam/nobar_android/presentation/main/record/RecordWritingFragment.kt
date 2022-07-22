@@ -73,8 +73,8 @@ class RecordWritingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    val cocktail = result.data?.getStringExtra(COCKTAIL) ?: ""
-                    binding.textSearch.text = cocktail
+                    recordViewModel.cocktailId = result.data?.getStringExtra(COCKTAIL_ID) ?: ""
+                    binding.textSearch.text = result.data?.getStringExtra(COCKTAIL_NAME) ?: ""
                 }
             }
     }
@@ -114,9 +114,11 @@ class RecordWritingFragment :
         recordViewModel.setSelectedTag(tagResponse)
     }
 
-    private fun clickEnrollment() {
-
-    }
+    /*private fun clickEnrollment() {
+        binding.textEnrollment.setOnClickListener{
+            recordViewModel.postTastingNote()
+        }
+    }*/
 
     private fun observingEvaluationCount() {
         recordViewModel.cocktailEvaluation.observe(viewLifecycleOwner) {
@@ -131,6 +133,7 @@ class RecordWritingFragment :
     }
 
     companion object {
-        const val COCKTAIL = "COCKTAIL"
+        const val COCKTAIL_ID = "COCKTAIL_ID"
+        const val COCKTAIL_NAME = "COCKTAIL_NAME"
     }
 }

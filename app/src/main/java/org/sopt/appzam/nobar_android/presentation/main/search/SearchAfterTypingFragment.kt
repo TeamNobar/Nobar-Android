@@ -11,7 +11,8 @@ import org.sopt.appzam.nobar_android.data.remote.response.RecipeResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentSearchAfterTypingBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity
-import org.sopt.appzam.nobar_android.presentation.main.record.RecordWritingFragment.Companion.COCKTAIL
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordWritingFragment.Companion.COCKTAIL_ID
+import org.sopt.appzam.nobar_android.presentation.main.record.RecordWritingFragment.Companion.COCKTAIL_NAME
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.FROM
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.NOTE
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.SEARCH
@@ -55,9 +56,10 @@ class SearchAfterTypingFragment :
         }
     }
 
-    private fun return2Note(cocktialName: String) {
+    private fun return2Note(cocktialName: String, cocktailId: String) {
         val intent = Intent(requireActivity(), RecordActivity::class.java)
-        intent.putExtra(COCKTAIL, cocktialName)
+        intent.putExtra(COCKTAIL_NAME, cocktialName)
+        intent.putExtra(COCKTAIL_ID, cocktailId)
         activity?.setResult(RESULT_OK, intent)
         activity?.finish()
     }
@@ -70,7 +72,7 @@ class SearchAfterTypingFragment :
 
     private fun cocktailPreviewItemClick(recipeResponse: RecipeResponse) {
         if (searchDetailViewModel.from == NOTE) {
-            return2Note(recipeResponse.name)
+            return2Note(recipeResponse.name, recipeResponse.id)
         }
         if (searchDetailViewModel.from == SEARCH) {
             go2Recipe(recipeResponse.id)
@@ -89,7 +91,7 @@ class SearchAfterTypingFragment :
 
     private fun clickResultItem(recipeResponse: RecipeResponse) {
         if (searchDetailViewModel.from == NOTE) {
-            return2Note(recipeResponse.name)
+            return2Note(recipeResponse.name, recipeResponse.id)
         }
         if (searchDetailViewModel.from == SEARCH) {
             go2Recipe(recipeResponse.id)
