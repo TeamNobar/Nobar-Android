@@ -47,7 +47,7 @@ class RecordViewModel() : NobarViewModel() {
         isTagClicked.value = (tagCount > 0)
 
         for (i in 0..size - 1) {
-            if (tagResponse.id == _tagList.value?.get(i)?.id ?: "") {
+            if (tagResponse.id == (_tagList.value?.get(i)?.id ?: "")) {
                 if (!(_tagList.value?.get(i)?.isSelected ?: false)) {
                     if (isTagCountMax.value ?: false)
                         return
