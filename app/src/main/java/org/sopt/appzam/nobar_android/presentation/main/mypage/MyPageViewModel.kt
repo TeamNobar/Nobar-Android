@@ -16,14 +16,27 @@ class MyPageViewModel : ViewModel() {
     val state: LiveData<Boolean> get() = _state
 
     private var _laterRecipes = MutableLiveData<List<RecipeResponse>>()
-    val laterRecipes : LiveData<List<RecipeResponse>> get() = _laterRecipes
+    val laterRecipes: LiveData<List<RecipeResponse>> get() = _laterRecipes
 
     private var _tastingNotes = MutableLiveData<List<TastingNoteResponse>>()
-    val tastingNotes : LiveData<List<TastingNoteResponse>> get() = _tastingNotes
+    val tastingNotes: LiveData<List<TastingNoteResponse>> get() = _tastingNotes
 
 
     fun myPageNetwork() {
         call.enqueueUtil(
+            onSuccess = {
+                _state.value = true
+                _laterRecipes.value = it.laterRecipes
+                _tastingNotes.value = it.tastingNotes
+            },
+            onError = {
+                Log.d("status", it.toString())
+            }
+        )
+    }
+
+    fun reMyPageNetwork() {
+        call.clone().enqueueUtil(
             onSuccess = {
                 _state.value = true
                 _laterRecipes.value = it.laterRecipes

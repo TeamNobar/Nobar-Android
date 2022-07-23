@@ -19,7 +19,6 @@ import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Com
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NEW
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NOTE_ID
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.READ
-import org.sopt.appzam.nobar_android.presentation.recipe.RecipeActivity
 
 class MyPageTastingFragment :
     BaseFragment<FragmentMyPageTastingBinding>(R.layout.fragment_my_page_tasting) {
@@ -58,8 +57,7 @@ class MyPageTastingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    initNetwork()
-                    initObserver()
+                    myPageViewModel.reMyPageNetwork()
                 }
             }
     }
