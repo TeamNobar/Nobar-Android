@@ -1,6 +1,7 @@
 package org.sopt.appzam.nobar_android.presentation.main.mypage.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -18,7 +19,8 @@ class MultiViewAdapter(private val itemClick: (TastingNoteResponse) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: TastingNoteResponse, itemClick: (TastingNoteResponse) -> Unit) {
             binding.tastingNoteDateItem = data
-
+            binding.ratingHeart.rating=data.rate.toFloat()
+            binding.ratingHeart.setOnTouchListener(View.OnTouchListener { v, event -> true })
             val recipeTagAdapter = TastingNoteTagAdapter()
             binding.recyclerTag.adapter = recipeTagAdapter
 
