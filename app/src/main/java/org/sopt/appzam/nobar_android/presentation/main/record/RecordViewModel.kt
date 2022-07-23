@@ -10,8 +10,6 @@ import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.presentation.base.NobarViewModel
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 import retrofit2.Call
-import java.text.SimpleDateFormat
-import java.util.*
 
 class RecordViewModel() : NobarViewModel() {
     //서버에서 받아오는 태그 리스트
@@ -31,22 +29,25 @@ class RecordViewModel() : NobarViewModel() {
     val cocktailTip = MutableLiveData<String>()
     val TipCount = MutableLiveData(0)
     val isTagCountMax = MutableLiveData(false)
-    val isTagClicked=MutableLiveData(false)
+    val isTagClicked = MutableLiveData(false)
 
     // 쓰기 시 가져올 id
-    var cocktailId : String = ""
+    var cocktailId: String = ""
 
+    // 날짜 보내기 편하기 위해서
+    var tmpDate = ""
 
     var tagCount = 0
+
     // 쓰기 시 태그 선택하는 로직
     fun setSelectedTag(tagResponse: TagResponse) {
         val size = _tagList.value?.size ?: 0
         tagCount = tagList.value.orEmpty().count { it.isSelected == true }
         isTagCountMax.value = (tagCount >= 3)
-        isTagClicked.value=(tagCount>0)
+        isTagClicked.value = (tagCount > 0)
 
         for (i in 0..size - 1) {
-            if (tagResponse.id == _tagList.value?.get(i)?.id ?: "") {
+            if (tagResponse.id == (_tagList.value?.get(i)?.id ?: "")) {
                 if (!(_tagList.value?.get(i)?.isSelected ?: false)) {
                     if (isTagCountMax.value ?: false)
                         return
@@ -57,7 +58,7 @@ class RecordViewModel() : NobarViewModel() {
 
         tagCount = tagList.value.orEmpty().count { it.isSelected == true }
         isTagCountMax.value = (tagCount >= 3)
-        isTagClicked.value=(tagCount>0)
+        isTagClicked.value = (tagCount > 0)
     }
 
     // 쓰기 글자 수
@@ -70,6 +71,12 @@ class RecordViewModel() : NobarViewModel() {
     fun updateTipCount() {
         if (cocktailTip.value == null) return
         else TipCount.value = cocktailTip.value?.length ?: 0
+    }
+
+    // 등록 버튼 활성화
+    fun canRegister(): Boolean {
+        return !cocktailName.value.isNullOrEmpty() and !drinkingDate.value.isNullOrEmpty() and (isTagClicked.value
+            ?: false)
     }
 
     //태그 목록 서버에서 가져오기
@@ -100,13 +107,21 @@ class RecordViewModel() : NobarViewModel() {
     }
 
     fun makeTastingNote(rating: Float): TastingNoteParams {
+        val yearRange = IntRange(0, 3)
+        val monthRange = IntRange(4, 5)
+        val dayRange = IntRange(6, 7)
+        val year = tmpDate.slice(yearRange)
+        val month = tmpDate.slice(monthRange)
+        val day = tmpDate.slice(dayRange)
+        val slash = "/"
+        val date = year + slash + month + slash + day
         return TastingNoteParams(
             recipeId = cocktailId,
             rate = rating,
             tagList = tagList.value ?: error("태그리스트 없음"),
             tasteContent = cocktailEvaluation.value,
             experienceContent = cocktailTip.value,
-            createdAt = SimpleDateFormat("yyyy-MM-dd").format(Date())
+            createdAt = date
         )
     }
 

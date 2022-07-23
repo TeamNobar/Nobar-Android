@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import com.willy.ratingbar.BaseRatingBar
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.data.remote.response.TagResponse
 import org.sopt.appzam.nobar_android.databinding.FragmentRecordWritingBinding
@@ -25,6 +26,7 @@ class RecordWritingFragment :
     private val recordViewModel: RecordViewModel by activityViewModels()
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     private lateinit var recordTagAdapter: RecordTagAdapter
+    private var ratingValue = 0.5f
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,8 +49,15 @@ class RecordWritingFragment :
         observingEvaluationCount()
         observingTipCount()
 
+        //별점 트래킹
+        binding.rotationRatingBar.setOnRatingChangeListener(Listener())
+
         //글쓰기 등록 버튼
-        clickEnrollment(binding.rotationRatingBar.rating)
+        clickEnrollment()
+
+        observingName()
+        observingDate()
+        observingTag()
 
         //종료
         clickX()
@@ -104,8 +113,9 @@ class RecordWritingFragment :
 
                 val month = month + 1
                 val dateString = String.format("%d년 %02d월 %02d일", year, month, day)
-
+                val tmpDate = String.format("%d%02d%02d", year, month, day)
                 binding.textWhen.text = dateString
+                recordViewModel.tmpDate = tmpDate
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -122,9 +132,9 @@ class RecordWritingFragment :
         recordViewModel.setSelectedTag(tagResponse)
     }
 
-    private fun clickEnrollment(rating: Float) {
+    private fun clickEnrollment() {
         binding.textEnrollment.setOnClickListener {
-            recordViewModel.postTastingNote(recordViewModel.makeTastingNote(rating))
+            recordViewModel.postTastingNote(recordViewModel.makeTastingNote(ratingValue))
             val intent = Intent(requireContext(), MyPageTastingFragment::class.java)
             activity?.setResult(RESULT_OK, intent)
             activity?.finish()
@@ -148,6 +158,50 @@ class RecordWritingFragment :
     private fun observingTipCount() {
         recordViewModel.cocktailTip.observe(viewLifecycleOwner) {
             recordViewModel.updateTipCount()
+        }
+    }
+
+    private fun observingName() {
+        recordViewModel.cocktailName.observe(viewLifecycleOwner) {
+            checkRegisterValidation()
+        }
+    }
+
+    private fun observingDate() {
+        recordViewModel.drinkingDate.observe(viewLifecycleOwner) {
+            checkRegisterValidation()
+        }
+    }
+
+    private fun observingTag() {
+        recordViewModel.isTagClicked.observe(viewLifecycleOwner) {
+            checkRegisterValidation()
+        }
+    }
+
+    private fun checkRegisterValidation() {
+        if (recordViewModel.canRegister()) {
+            binding.textEnrollment.isEnabled = true
+            binding.textEnrollment.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.pinkE93370
+                )
+            )
+        } else {
+            binding.textEnrollment.isEnabled = false
+            binding.textEnrollment.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.grayDD
+                )
+            )
+        }
+    }
+
+    inner class Listener() : BaseRatingBar.OnRatingChangeListener {
+        override fun onRatingChange(ratingBar: BaseRatingBar?, rating: Float, fromUser: Boolean) {
+            ratingValue = rating
         }
     }
 

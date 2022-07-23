@@ -103,11 +103,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         //데이터 랜덤을 위한 로직
         val nobarList = listOf(
-            NobarRecipesResponse("1", R.string.homeAdapter1,R.drawable.ic_img_mojito),
-            NobarRecipesResponse("2", R.string.homeAdapter2, R.drawable.ic_img_bluehawaii),
-            NobarRecipesResponse("3", R.string.homeAdapter3, R.drawable.ic_img_sexonthebeach),
-            NobarRecipesResponse("4", R.string.homeAdapter4, R.drawable.ic_img_peachcrush),
-            NobarRecipesResponse("5", R.string.homeAdapter5, R.drawable.ic_img_cinderella)
+            NobarRecipesResponse("62dafdc9c146e2cc2d52f3e8", R.string.homeAdapter1,R.drawable.ic_img_mojito),
+            NobarRecipesResponse("62dafdc9c146e2cc2d52f3e2", R.string.homeAdapter2, R.drawable.ic_img_bluehawaii),
+            NobarRecipesResponse("62dafdc9c146e2cc2d52f3d8", R.string.homeAdapter3, R.drawable.ic_img_sexonthebeach),
+            NobarRecipesResponse("62dafdc9c146e2cc2d52f422", R.string.homeAdapter4, R.drawable.ic_img_peachcrush),
+            NobarRecipesResponse("62dafdc9c146e2cc2d52f417", R.string.homeAdapter5, R.drawable.ic_img_cinderella)
         )
 
       /* var randomRecipeList = mutableListOf<Int>()
