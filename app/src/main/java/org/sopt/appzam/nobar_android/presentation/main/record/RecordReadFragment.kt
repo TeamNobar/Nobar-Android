@@ -2,10 +2,12 @@ package org.sopt.appzam.nobar_android.presentation.main.record
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.OnTouchListener
 import androidx.fragment.app.activityViewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.FragmentRecordReadBinding
 import org.sopt.appzam.nobar_android.presentation.base.BaseFragment
+
 
 class RecordReadFragment : BaseFragment<FragmentRecordReadBinding>(R.layout.fragment_record_read) {
     private val recordViewModel: RecordViewModel by activityViewModels()
@@ -17,11 +19,25 @@ class RecordReadFragment : BaseFragment<FragmentRecordReadBinding>(R.layout.frag
         initAdapter()
         putDate()
         putRating()
+        initTagList()
+        clickX()
     }
 
     private fun initAdapter() {
         tagAdapter = RecordTagAdapter { }
         binding.recyclerView.adapter = tagAdapter
+    }
+
+    private fun initTagList() {
+        recordViewModel.tagList.observe(viewLifecycleOwner) {
+            tagAdapter.submitList(it)
+        }
+    }
+
+    private fun clickX(){
+        binding.imageX.setOnClickListener {
+            activity?.finish()
+        }
     }
 
     private fun putDate() {
@@ -36,9 +52,10 @@ class RecordReadFragment : BaseFragment<FragmentRecordReadBinding>(R.layout.frag
         }
     }
 
-    private fun putRating(){
-        recordViewModel.rating.observe(viewLifecycleOwner){
-            binding.rotationRatingBar.rating=it.toFloat()
+    private fun putRating() {
+        recordViewModel.rating.observe(viewLifecycleOwner) {
+            binding.rotationRatingBar.rating = it.toFloat()
         }
+        binding.rotationRatingBar.setOnTouchListener(OnTouchListener { v, event -> true })
     }
 }
