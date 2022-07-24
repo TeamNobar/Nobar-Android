@@ -23,20 +23,8 @@ class MyPageViewModel : ViewModel() {
 
 
     fun myPageNetwork() {
+        Log.d("asdf", "network")
         call.enqueueUtil(
-            onSuccess = {
-                _state.value = true
-                _laterRecipes.value = it.laterRecipes
-                _tastingNotes.value = it.tastingNotes
-            },
-            onError = {
-                Log.d("status", it.toString())
-            }
-        )
-    }
-
-    fun reMyPageNetwork() {
-        call.clone().enqueueUtil(
             onSuccess = {
                 _state.value = true
                 _laterRecipes.value = it.laterRecipes
