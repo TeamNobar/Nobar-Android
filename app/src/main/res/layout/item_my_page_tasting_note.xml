@@ -49,15 +49,21 @@
             app:layout_constraintTop_toBottomOf="@+id/textTitle"
             tools:text="Figma saranghae xd angdae" />
 
-        <ImageView
-            android:id="@+id/imageHeart"
-            android:layout_width="0dp"
+        <com.willy.ratingbar.ScaleRatingBar
+            android:id="@+id/ratingHeart"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/ic_icn_hearts"
+            app:srb_drawableEmpty="@drawable/ic_heart_empty"
+            app:srb_drawableFilled="@drawable/ic_heart_full"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textEnName" />
+            app:layout_constraintTop_toBottomOf="@+id/textEnName"
+            app:srb_starWidth="24dp"
+            app:srb_starHeight="24dp"
+            app:srb_numStars="5"
+            app:srb_starPadding="5dp"
+            app:srb_stepSize="0.5"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerTag"
@@ -71,7 +77,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageHeart"
+            app:layout_constraintTop_toBottomOf="@+id/ratingHeart"
             app:spanCount="3"
             tools:itemCount="3"
             tools:listitem="@layout/item_my_page_tasting_tag" />

@@ -19,7 +19,7 @@ class MultiViewAdapter(private val itemClick: (TastingNoteResponse) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: TastingNoteResponse, itemClick: (TastingNoteResponse) -> Unit) {
             binding.tastingNoteDateItem = data
-            binding.ratingHeart.rating=data.rate.toFloat()
+            binding.ratingHeart.rating = data.rate.toFloat()
             binding.ratingHeart.setOnTouchListener(View.OnTouchListener { v, event -> true })
             val recipeTagAdapter = TastingNoteTagAdapter()
             binding.recyclerTag.adapter = recipeTagAdapter
@@ -43,7 +43,8 @@ class MultiViewAdapter(private val itemClick: (TastingNoteResponse) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: TastingNoteResponse, itemClick: (TastingNoteResponse) -> Unit) {
             binding.myPageTastingNoteItem = data
-
+            binding.ratingHeart.rating = data.rate.toFloat()
+            binding.ratingHeart.setOnTouchListener(View.OnTouchListener { v, event -> true })
             val recipeTagAdapter = TastingNoteTagAdapter()
 
             binding.recyclerTag.adapter = recipeTagAdapter
