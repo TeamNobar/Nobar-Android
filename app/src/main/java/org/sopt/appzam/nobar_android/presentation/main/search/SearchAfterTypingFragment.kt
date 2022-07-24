@@ -28,6 +28,7 @@ class SearchAfterTypingFragment :
     private lateinit var recipeAdapter: SearchAfterAdapter
     private lateinit var resultAdapter: SearchResultAdapter
     private lateinit var ingredientAdapter: SearchIngredientsAdapter
+
     private lateinit var recipeList: ArrayList<RecipeResponse>
     private lateinit var ingredientsList: ArrayList<IngredientResponse>
 

@@ -1,7 +1,6 @@
 package org.sopt.appzam.nobar_android.presentation.main.record
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import org.sopt.appzam.nobar_android.R
 import org.sopt.appzam.nobar_android.databinding.ActivityRecordBinding
@@ -24,7 +23,6 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
         whichFragment = intent.getStringExtra(MODE) ?: ""
         whichNoteId = intent.getStringExtra(NOTE_ID) ?: ""
         whichNoteName = intent.getStringExtra(NOTE_NAME) ?: ""
-        Log.d("asdf", "which : $whichFragment")
     }
 
     private fun decideFragment() {
@@ -34,7 +32,6 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
                 transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
                 recordViewModel.cocktailId = whichNoteId
                 recordViewModel.cocktailName.value = whichNoteName
-                Log.d("asdf", "$whichNoteName")
             }
             NEW -> {
                 transaction.add(R.id.fragmentContainerViewRecord, RecordWritingFragment()).commit()
@@ -53,6 +50,7 @@ class RecordActivity : BaseActivity<ActivityRecordBinding>(R.layout.activity_rec
     companion object {
         const val NOTE_NAME = "NOTE_NAME"
         const val NOTE_ID = "NOTE_ID"
+
         const val MODE = "MODE"
         const val RECIPE = "RECIPE"
         const val NEW = "NEW"
