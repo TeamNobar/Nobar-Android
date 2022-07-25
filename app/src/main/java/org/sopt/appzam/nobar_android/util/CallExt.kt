@@ -10,7 +10,7 @@ fun <ResponseType> Call<ResponseType>.enqueueUtil(
     onSuccess: (ResponseType) -> Unit,
     onError: ((stateCode: Int) -> Unit)? = null
 ) {
-    this.enqueue(object : Callback<ResponseType> {
+    this.clone().enqueue(object : Callback<ResponseType> {
         override fun onFailure(call: Call<ResponseType>, t: Throwable) {
             Log.d("server", "error:$t")
         }

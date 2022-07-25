@@ -3,6 +3,9 @@ package org.sopt.appzam.nobar_android.presentation.main.mypage
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +60,9 @@ class MyPageTastingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    myPageViewModel.reMyPageNetwork()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        myPageViewModel.myPageNetwork()
+                    },1000)
                 }
             }
     }
@@ -80,7 +85,12 @@ class MyPageTastingFragment :
 
     private fun initObserver() {
         myPageViewModel.tastingNotes.observe(viewLifecycleOwner) {
-            multiViewAdapter.submitList(it)
+            initList(it)
         }
+    }
+
+    private fun initList(list : List<TastingNoteResponse>){
+        Log.d("asdf", "list : ${list.last()}")
+        multiViewAdapter.submitList(list.toMutableList())
     }
 }
