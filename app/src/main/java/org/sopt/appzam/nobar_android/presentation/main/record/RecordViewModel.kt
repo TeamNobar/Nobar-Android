@@ -31,6 +31,9 @@ class RecordViewModel() : NobarViewModel() {
     val isTagCountMax = MutableLiveData(false)
     val isTagClicked = MutableLiveData(false)
 
+    //쓰기의 서버통신 완료 여부
+    val writingSendComplete = MutableLiveData<Boolean>(false)
+
     // 쓰기 시 가져올 id
     var cocktailId: String = ""
 
@@ -125,11 +128,15 @@ class RecordViewModel() : NobarViewModel() {
         )
     }
 
+    //테이스팅 노트 작성 보내기
     fun postTastingNote(tastingNoteParams: TastingNoteParams) {
         val call: Call<TastingNoteResponse> =
             ServiceCreator.mockupService.postNote(tastingNoteParams)
         call.enqueueUtil(
-            onSuccess = { _note.value = it },
+            onSuccess = {
+                _note.value = it
+                writingSendComplete.value=true
+                        },
             onError = { Log.d("server", "오류") }
         )
     }
