@@ -19,6 +19,7 @@ import org.sopt.appzam.nobar_android.presentation.main.mypage.MyPageTastingFragm
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.FROM
 import org.sopt.appzam.nobar_android.presentation.main.search.SearchDetailActivity.Companion.NOTE
+import org.sopt.appzam.nobar_android.util.LoadingDialog
 import java.util.*
 
 class RecordWritingFragment :
@@ -135,9 +136,26 @@ class RecordWritingFragment :
     private fun clickEnrollment() {
         binding.textEnrollment.setOnClickListener {
             recordViewModel.postTastingNote(recordViewModel.makeTastingNote(ratingValue))
-            val intent = Intent(requireContext(), MyPageTastingFragment::class.java)
-            activity?.setResult(RESULT_OK, intent)
-            activity?.finish()
+            showLoadingView()
+        }
+    }
+
+    private fun sendIntentAndFinish(){
+        val intent = Intent(requireContext(), MyPageTastingFragment::class.java)
+        activity?.setResult(RESULT_OK, intent)
+        activity?.finish()
+    }
+
+    private fun showLoadingView(){
+        val loadingDialog = LoadingDialog()
+        recordViewModel.writingSendComplete.observe(viewLifecycleOwner){
+            if(!it){
+                loadingDialog.show(childFragmentManager, "loader")
+            }
+            else{
+                loadingDialog.dismissAllowingStateLoss()
+                sendIntentAndFinish()
+            }
         }
     }
 
