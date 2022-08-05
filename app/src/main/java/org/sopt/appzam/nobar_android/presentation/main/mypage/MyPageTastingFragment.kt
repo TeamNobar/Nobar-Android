@@ -19,12 +19,14 @@ import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Com
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NEW
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.NOTE_ID
 import org.sopt.appzam.nobar_android.presentation.main.record.RecordActivity.Companion.READ
+import org.sopt.appzam.nobar_android.util.LoadingDialog
 
 class MyPageTastingFragment :
     BaseFragment<FragmentMyPageTastingBinding>(R.layout.fragment_my_page_tasting) {
     private lateinit var multiViewAdapter: MultiViewAdapter
     private val myPageViewModel by viewModels<MyPageViewModel>()
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private val loadingDialog by lazy { LoadingDialog() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +40,23 @@ class MyPageTastingFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tastingNoteAdapter()
-        initObserver()
+        observeList()
         initNetwork()
 
         clickWritingNote()
         setWritingResult()
+    }
+
+    private fun showLoadingAnimation() {
+        if (!loadingDialog.isAdded) {
+            loadingDialog.show(childFragmentManager, "loader")
+        }
+    }
+
+    private fun closeLoadingAnimation() {
+        if (loadingDialog.isAdded) {
+            loadingDialog.dismissAllowingStateLoss()
+        }
     }
 
     private fun clickWritingNote() {
@@ -57,7 +71,7 @@ class MyPageTastingFragment :
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    myPageViewModel.reMyPageNetwork()
+                    initNetwork()
                 }
             }
     }
@@ -76,11 +90,23 @@ class MyPageTastingFragment :
 
     private fun initNetwork() {
         myPageViewModel.myPageNetwork()
+        myPageViewModel.getListComplete.observe(viewLifecycleOwner) {
+            if (!it) {
+                showLoadingAnimation()
+            } else {
+                closeLoadingAnimation()
+                myPageViewModel.getListComplete.value = false
+            }
+        }
     }
 
-    private fun initObserver() {
+    private fun observeList() {
         myPageViewModel.tastingNotes.observe(viewLifecycleOwner) {
-            multiViewAdapter.submitList(it)
+            initList(it)
         }
+    }
+
+    private fun initList(list: List<TastingNoteResponse>) {
+        multiViewAdapter.submitList(list.toMutableList())
     }
 }
