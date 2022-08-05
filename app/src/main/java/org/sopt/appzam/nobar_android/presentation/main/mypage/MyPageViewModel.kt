@@ -10,7 +10,9 @@ import org.sopt.appzam.nobar_android.data.remote.response.TastingNoteResponse
 import org.sopt.appzam.nobar_android.util.enqueueUtil
 
 class MyPageViewModel : ViewModel() {
-    private val call = ServiceCreator.mockupService.getMyPageItem()
+
+    //서버통신이 완료되었는지를 확인
+    val getListComplete = MutableLiveData(false)
 
     private var _state = MutableLiveData<Boolean>()
     val state: LiveData<Boolean> get() = _state
@@ -23,12 +25,13 @@ class MyPageViewModel : ViewModel() {
 
 
     fun myPageNetwork() {
-        Log.d("asdf", "network")
+        val call = ServiceCreator.mockupService.getMyPageItem()
         call.enqueueUtil(
             onSuccess = {
                 _state.value = true
                 _laterRecipes.value = it.laterRecipes
                 _tastingNotes.value = it.tastingNotes
+                getListComplete.value=true
             },
             onError = {
                 Log.d("status", it.toString())
