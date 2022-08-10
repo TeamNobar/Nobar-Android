@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/81394850/183884514-639535de-4b7e-4751-92f5-121c5471c6ea.png)
+
+
 # 사용한 기술스텍
 * databinding
 * viewModel
