@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/81394850/183884514-639535de-4b7e-4751-92f5-121c5471c6ea.png)
+![1 (1)](https://user-images.githubusercontent.com/81394850/184065315-f6f6b64d-7523-46d0-87a8-117e7039b3fe.png)
 
 
 # 사용한 기술스텍
